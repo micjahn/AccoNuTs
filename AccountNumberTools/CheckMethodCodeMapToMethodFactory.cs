@@ -40,15 +40,20 @@ namespace AccountNumberTools
       }
 
       /// <summary>
+      /// Initializes a new instance of the <see cref="CheckMethodCodeMapToMethodFactory"/> class.
+      /// </summary>
+      public CheckMethodCodeMapToMethodFactory()
+      {
+         mapInstances = new Dictionary<string, ICheckMethod>();
+      }
+
+      /// <summary>
       /// Resolves the specified check method by code.
       /// </summary>
       /// <param name="checkMethodCode">The check method code.</param>
       /// <returns></returns>
       public ICheckMethod Resolve(string checkMethodCode)
       {
-         if (map == null)
-            RegisterAll();
-
          if (mapInstances.ContainsKey(checkMethodCode))
             return mapInstances[checkMethodCode];
 
@@ -57,6 +62,9 @@ namespace AccountNumberTools
 
       private ICheckMethod CreateInstance(string checkMethodCode)
       {
+         if (map == null)
+            RegisterAll();
+
          var type = map[checkMethodCode];
 
          Log.InfoFormat("create instance for type {0}", type.FullName);
@@ -92,7 +100,6 @@ namespace AccountNumberTools
                }
             }
 
-            mapInstances = new Dictionary<string, ICheckMethod>();
             map = newMap;
          }
       }

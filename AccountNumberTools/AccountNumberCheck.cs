@@ -98,9 +98,9 @@ namespace AccountNumberTools
       bool IAccountNumberCheckWithMethodCode.IsValid(string accountNumber, string checkMethodCode)
       {
          if (string.IsNullOrEmpty(checkMethodCode))
-            throw new ArgumentException("Please provide the code for a check method.", "checkMethodCode");
+            throw new ArgumentNullException("checkMethodCode", "Please provide the code for a check method.");
          if (string.IsNullOrEmpty(accountNumber))
-            throw new ArgumentException("Please provide the account number.", "accountNumber");
+            throw new ArgumentNullException("accountNumber", "Please provide the account number.");
 
          if (CheckMethodCodeMapToMethod == null)
             throw new InvalidOperationException("Please provide an instanz for the mapping between a check method code and a check method.");
@@ -125,9 +125,9 @@ namespace AccountNumberTools
       string IAccountNumberCheckWithMethodCode.CalculateCheckDigit(string accountNumber, string checkMethodCode)
       {
          if (string.IsNullOrEmpty(checkMethodCode))
-            throw new ArgumentException("Please provide the code for a check method.", "checkMethodCode");
+            throw new ArgumentNullException("checkMethodCode", "Please provide a code for a check method.");
          if (string.IsNullOrEmpty(accountNumber))
-            throw new ArgumentException("Please provide the account number.", "accountNumber");
+            throw new ArgumentNullException("accountNumber", "Please provide an account number.");
 
          if (CheckMethodCodeMapToMethod == null)
             throw new InvalidOperationException("Please provide an instanz for the mapping between a check method code and a check method.");
@@ -152,9 +152,9 @@ namespace AccountNumberTools
       bool IAccountNumberCheckWithBankCode.IsValid(string accountNumber, string bankCode)
       {
          if (string.IsNullOrEmpty(bankCode))
-            throw new ArgumentException("Please provide bank code.", "bankCode");
+            throw new ArgumentNullException("bankCode", "Please provide a bank code.");
          if (string.IsNullOrEmpty(accountNumber))
-            throw new ArgumentException("Please provide the account number.", "accountNumber"); 
+            throw new ArgumentNullException("accountNumber", "Please provide an account number."); 
          
          return ((IAccountNumberCheckWithMethodCode)this).IsValid(accountNumber, BankCodeMappingMethod.Resolve(bankCode));
       }
@@ -172,9 +172,9 @@ namespace AccountNumberTools
       string IAccountNumberCheckWithBankCode.CalculateCheckDigit(string accountNumber, string bankCode)
       {
          if (string.IsNullOrEmpty(bankCode))
-            throw new ArgumentException("Please provide bank code.", "bankCode");
+            throw new ArgumentNullException("bankCode", "Please provide a bank code.");
          if (string.IsNullOrEmpty(accountNumber))
-            throw new ArgumentException("Please provide the account number.", "accountNumber");
+            throw new ArgumentNullException("accountNumber", "Please provide an account number.");
          
          return ((IAccountNumberCheckWithMethodCode)this).CalculateCheckDigit(accountNumber, BankCodeMappingMethod.Resolve(bankCode));
       }
