@@ -57,6 +57,8 @@
     <Compile Include="AccountNumberCheck.cs" />
     <Compile Include="BankCodeMapToCheckMethodCodeByBankCodeFile.cs" />
     <Compile Include="CheckMethodCodeMapToMethodFactory.cs" />
+    <Compile Include="CreditCardNetworkMapToMethodFactory.cs" />
+    <Compile Include="CreditCardNumberCheck.cs" />
     <Compile Include="Internals\BankCodeMapToCheckMethodDummy.cs" />
     <Compile Include="Internals\CheckMethodsTools.cs" />
     <Compile Include="Methods\CheckMethod00.cs" />
@@ -69,6 +71,8 @@
     <Compile Include="Methods\CheckMethod07.cs" />
     <Compile Include="Methods\CheckMethod08.cs" />
     <Compile Include="Methods\CheckMethod09.cs" />
+    <Compile Include="Methods\CheckMethodLength.cs" />
+    <Compile Include="Methods\CheckMethodLuhn.cs" />
     <Compile Include="Methods\CheckMethodModuloBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

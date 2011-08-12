@@ -52,11 +52,14 @@
     <Compile Include="..\Shared\GlobalAssemblyInfo.cs">
       <Link>Properties\GlobalAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="CreditCardNetwork.cs" />
     <Compile Include="IAccountNumberCheckWithBankCode.cs" />
     <Compile Include="IAccountNumberCheckWithMethodCode.cs" />
     <Compile Include="IBankCodeMapToCheckMethodCode.cs" />
     <Compile Include="ICheckMethod.cs" />
     <Compile Include="ICheckMethodCodeMapToMethod.cs" />
+    <Compile Include="ICreditCardNetworkMapToMethod.cs" />
+    <Compile Include="ICreditCardNumberCheck.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
