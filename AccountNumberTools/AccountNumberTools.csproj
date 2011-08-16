@@ -59,8 +59,10 @@
     <Compile Include="CheckMethodCodeMapToMethodFactory.cs" />
     <Compile Include="CreditCardNetworkMapToMethodFactory.cs" />
     <Compile Include="CreditCardNumberCheck.cs" />
+    <Compile Include="CreditCardNumberMapToNetwork.cs" />
     <Compile Include="Internals\BankCodeMapToCheckMethodDummy.cs" />
     <Compile Include="Internals\CheckMethodsTools.cs" />
+    <Compile Include="Internals\CreditCardNumberMapToNetworkDummy.cs" />
     <Compile Include="Methods\CheckMethod00.cs" />
     <Compile Include="Methods\CheckMethod01.cs" />
     <Compile Include="Methods\CheckMethod02.cs" />
@@ -86,6 +88,9 @@
     <None Include="..\Key\private.snk">
       <Link>Properties\private.snk</Link>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Data\IINPrefixes.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

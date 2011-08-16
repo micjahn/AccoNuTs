@@ -60,6 +60,7 @@
     <Compile Include="ICheckMethodCodeMapToMethod.cs" />
     <Compile Include="ICreditCardNetworkMapToMethod.cs" />
     <Compile Include="ICreditCardNumberCheck.cs" />
+    <Compile Include="ICreditCardNumberMapToNetwork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

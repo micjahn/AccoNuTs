@@ -18,6 +18,11 @@ namespace AccountNumberTools.Contracts
    public static class CreditCardNetwork
    {
       /// <summary>
+      /// if that one is given the method will try to find the correct credit card network
+      /// with the help of a table with credit card number prefixes
+      /// </summary>
+      public const string Automatic = "";
+      /// <summary>
       /// 
       /// </summary>
       public const string AmericanExpress = "AMEX";
@@ -85,5 +90,9 @@ namespace AccountNumberTools.Contracts
       /// 
       /// </summary>
       public const string VisaElectron = "VIEL";
-}
+      /// <summary>
+      /// 
+      /// </summary>
+      public const string Voyager = "VOYA";
+   }
 }

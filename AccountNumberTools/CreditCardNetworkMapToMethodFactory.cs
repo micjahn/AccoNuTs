@@ -99,6 +99,7 @@ namespace AccountNumberTools
          tmpMap.Add(CreditCardNetwork.Switch, () => new CheckMethodLuhn(16, 19));
          tmpMap.Add(CreditCardNetwork.Visa, () => new CheckMethodLuhn(16, 16));
          tmpMap.Add(CreditCardNetwork.VisaElectron, () => new CheckMethodLuhn(16, 16));
+         tmpMap.Add(CreditCardNetwork.Voyager, () => new CheckMethodLuhn(15, 15));
       }
    }
 }
