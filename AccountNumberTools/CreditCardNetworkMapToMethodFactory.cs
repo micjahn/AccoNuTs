@@ -100,6 +100,10 @@ namespace AccountNumberTools
          tmpMap.Add(CreditCardNetwork.Visa, () => new CheckMethodLuhn(16, 16));
          tmpMap.Add(CreditCardNetwork.VisaElectron, () => new CheckMethodLuhn(16, 16));
          tmpMap.Add(CreditCardNetwork.Voyager, () => new CheckMethodLuhn(15, 15));
+         // credit card families
+         tmpMap.Add(CreditCardNetwork.FamilyVisa, () => new CheckMethodLuhn(16, 16));
+         tmpMap.Add(CreditCardNetwork.FamilyMasterCard, () => new CheckMethodLuhn(14, 16));
+         tmpMap.Add(CreditCardNetwork.FamilyAmericanExpress, () => new CheckMethodLuhn(16, 16));
       }
    }
 }

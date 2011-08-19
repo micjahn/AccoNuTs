@@ -94,5 +94,18 @@ namespace AccountNumberTools.Contracts
       /// 
       /// </summary>
       public const string Voyager = "VOYA";
+
+      /// <summary>
+      /// 
+      /// </summary>
+      public const string FamilyVisa = "FAMV";
+      /// <summary>
+      /// 
+      /// </summary>
+      public const string FamilyAmericanExpress = "FAMA";
+      /// <summary>
+      /// 
+      /// </summary>
+      public const string FamilyMasterCard = "FAMM";
    }
 }
