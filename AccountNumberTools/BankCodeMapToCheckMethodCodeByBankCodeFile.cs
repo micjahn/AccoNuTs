@@ -11,6 +11,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.Compression;
 using System.Text;
 
 using AccountNumberTools.Contracts;
@@ -45,6 +46,18 @@ namespace AccountNumberTools
       /// <summary>
       /// Initializes a new instance of the <see cref="BankCodeMapToCheckMethodCodeByBankCodeFile"/> class.
       /// </summary>
+      public BankCodeMapToCheckMethodCodeByBankCodeFile()
+      {
+         using (var stream = GetType().Assembly.GetManifestResourceStream("Bankcodes.zip"))
+         using (var gzipstream = new GZipStream(stream, CompressionMode.Decompress))
+         {
+            CreateMap(gzipstream);
+         }
+      }
+
+      /// <summary>
+      /// Initializes a new instance of the <see cref="BankCodeMapToCheckMethodCodeByBankCodeFile"/> class.
+      /// </summary>
       /// <param name="fileName">Name of the file.</param>
       public BankCodeMapToCheckMethodCodeByBankCodeFile(string fileName)
       {
@@ -57,10 +70,7 @@ namespace AccountNumberTools
       /// <param name="stream">The stream.</param>
       public BankCodeMapToCheckMethodCodeByBankCodeFile(Stream stream)
       {
-         using (var streamReader = new StreamReader(stream, Encoding.UTF8))
-         {
-            CreateMap(streamReader);
-         }
+         CreateMap(stream);
       }
 
       /// <summary>
@@ -91,6 +101,14 @@ namespace AccountNumberTools
       private void CreateMap()
       {
          using (var streamReader = File.OpenText(FileName))
+         {
+            CreateMap(streamReader);
+         }
+      }
+
+      private void CreateMap(Stream stream)
+      {
+         using (var streamReader = new StreamReader(stream, Encoding.UTF8))
          {
             CreateMap(streamReader);
          }

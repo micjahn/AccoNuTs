@@ -52,8 +52,8 @@ namespace AccountNumberTools
       /// Initializes a new instance of the <see cref="AccountNumberCheck"/> class.
       /// </summary>
       public AccountNumberCheck()
+         : this(new BankCodeMapToCheckMethodCodeByBankCodeFile(), new CheckMethodCodeMapToMethodFactory())
       {
-         CheckMethodCodeMapToMethod = new CheckMethodCodeMapToMethodFactory();
       }
 
       /// <summary>
@@ -61,9 +61,8 @@ namespace AccountNumberTools
       /// </summary>
       /// <param name="bankCodeMappingMethod">The bank code mapping method.</param>
       public AccountNumberCheck(IBankCodeMapToCheckMethodCode bankCodeMappingMethod)
+         : this(bankCodeMappingMethod, new CheckMethodCodeMapToMethodFactory())
       {
-         BankCodeMappingMethod = bankCodeMappingMethod;
-         CheckMethodCodeMapToMethod = new CheckMethodCodeMapToMethodFactory();
       }
 
       /// <summary>
@@ -71,8 +70,8 @@ namespace AccountNumberTools
       /// </summary>
       /// <param name="checkMethodCodeMapToMethod">The check method code map to method.</param>
       public AccountNumberCheck(ICheckMethodCodeMapToMethod checkMethodCodeMapToMethod)
+         : this(new BankCodeMapToCheckMethodCodeByBankCodeFile(), checkMethodCodeMapToMethod)
       {
-         CheckMethodCodeMapToMethod = checkMethodCodeMapToMethod;
       }
 
       /// <summary>
@@ -156,7 +155,11 @@ namespace AccountNumberTools
          if (string.IsNullOrEmpty(accountNumber))
             throw new ArgumentNullException("accountNumber", "Please provide an account number."); 
          
-         return ((IAccountNumberCheckWithMethodCode)this).IsValid(accountNumber, BankCodeMappingMethod.Resolve(bankCode));
+         var checkMethodCode = BankCodeMappingMethod.Resolve(bankCode);
+         if (string.IsNullOrEmpty(checkMethodCode))
+            throw new ArgumentException(String.Format("Can't resolve the check method for the given bank code {0}.", bankCode), "bankCode");
+
+         return ((IAccountNumberCheckWithMethodCode)this).IsValid(accountNumber, checkMethodCode);
       }
 
       /// <summary>
@@ -175,8 +178,12 @@ namespace AccountNumberTools
             throw new ArgumentNullException("bankCode", "Please provide a bank code.");
          if (string.IsNullOrEmpty(accountNumber))
             throw new ArgumentNullException("accountNumber", "Please provide an account number.");
-         
-         return ((IAccountNumberCheckWithMethodCode)this).CalculateCheckDigit(accountNumber, BankCodeMappingMethod.Resolve(bankCode));
+
+         var checkMethodCode = BankCodeMappingMethod.Resolve(bankCode);
+         if (string.IsNullOrEmpty(checkMethodCode))
+            throw new ArgumentException(String.Format("Can't resolve the check method for the given bank code {0}.", bankCode), "bankCode");
+
+         return ((IAccountNumberCheckWithMethodCode)this).CalculateCheckDigit(accountNumber, checkMethodCode);
       }
    }
 }

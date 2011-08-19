@@ -88,6 +88,7 @@
     <None Include="..\Key\private.snk">
       <Link>Properties\private.snk</Link>
     </None>
+    <None Include="Data\Bankcodes.zip" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Data\IINPrefixes.txt" />
