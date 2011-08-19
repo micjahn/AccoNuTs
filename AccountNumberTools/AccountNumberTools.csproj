@@ -88,7 +88,9 @@
     <None Include="..\Key\private.snk">
       <Link>Properties\private.snk</Link>
     </None>
-    <None Include="Data\Bankcodes.zip" />
+    <EmbeddedResource Include="Data\Bankcodes.zip">
+      <ManifestResourceName>Bankcodes.zip</ManifestResourceName>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Data\IINPrefixes.txt" />
