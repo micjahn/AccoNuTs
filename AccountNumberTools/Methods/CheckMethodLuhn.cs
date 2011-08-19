@@ -38,7 +38,7 @@ namespace AccountNumberTools.Methods
       /// <summary>
       /// Determines whether the specified credit card number is formal valid.
       /// </summary>
-      /// <param name="accountNumber">The credit card number.</param>
+      /// <param name="creditCardNumber">The credit card number.</param>
       /// <returns>
       ///   <c>true</c> if the specified credit card number is formal valid; otherwise, <c>false</c>.
       /// </returns>
@@ -60,7 +60,7 @@ namespace AccountNumberTools.Methods
       /// <summary>
       /// Calculates the check digit for the given credit card number.
       /// </summary>
-      /// <param name="accountNumber">The credit card number.</param>
+      /// <param name="creditCardNumber">The credit card number.</param>
       /// <returns></returns>
       public string CalculateCheckDigit(string creditCardNumber)
       {
@@ -70,7 +70,7 @@ namespace AccountNumberTools.Methods
       /// <summary>
       /// Calculates the check digit for the given credit card number.
       /// </summary>
-      /// <param name="accountNumber">The credit card number.</param>
+      /// <param name="creditCardNumber">The credit card number.</param>
       /// <returns></returns>
       public int CalculateCheckDigitInternal(string creditCardNumber)
       {

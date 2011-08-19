@@ -84,7 +84,8 @@ namespace AccountNumberTools
       /// <summary>
       /// Initializes a new instance of the <see cref="CreditCardNumberCheck"/> class.
       /// </summary>
-      /// <param name="creditCardNetworkMapToMethod">The credit card network code map to method.</param>
+      /// <param name="creditCardNetworkMapToMethod">The credit card network code to method mapper.</param>
+      /// <param name="creditCardNumberMapToNetwork">The credit card number to network mapper.</param>
       public CreditCardNumberCheck(ICreditCardNetworkMapToMethod creditCardNetworkMapToMethod, ICreditCardNumberMapToNetwork creditCardNumberMapToNetwork)
       {
          CreditCardNetworkMapToMethod = creditCardNetworkMapToMethod;

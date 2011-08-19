@@ -36,7 +36,7 @@ namespace AccountNumberTools.Methods
       /// <summary>
       /// Checks, if the credit card number is within the range of minLength and maxLength
       /// </summary>
-      /// <param name="accountNumber">The credit card number.</param>
+      /// <param name="creditCardNumber">The credit card number.</param>
       /// <returns>
       ///   <c>true</c> if the specified credit card number is formal valid; otherwise, <c>false</c>.
       /// </returns>
@@ -48,7 +48,7 @@ namespace AccountNumberTools.Methods
       /// <summary>
       /// Gives always String.Empty
       /// </summary>
-      /// <param name="accountNumber">The credit card number.</param>
+      /// <param name="creditCardNumber">The credit card number.</param>
       /// <returns></returns>
       public string CalculateCheckDigit(string creditCardNumber)
       {
