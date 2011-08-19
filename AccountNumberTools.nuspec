@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
 <metadata>
   <id>AccountNumberTools</id>
-  <version>0.2.0.0</version>
+  <version>0.3.0.0</version>
   <authors>Michael Jahn</authors>
   <owners>Michael Jahn</owners>
   <licenseUrl>http://acconuts.codeplex.com/license</licenseUrl>
@@ -12,7 +12,7 @@
   -->
   <requireLicenseAcceptance>false</requireLicenseAcceptance>
   <description>Tools to formal check german account numbers and international credit card numbers</description>
-  <tags>Account Number Check Credit Card Luhn German Kontonummer Bankleitzahl</tags>
+  <tags>Account Number Check Credit Card Luhn German Kontonummer Kontonummern Bankleitzahl IBAN BIC</tags>
 </metadata>
 <files>
   <file src="Build\Release\AccountNumberTools.dll" target="lib/net40" /> 
