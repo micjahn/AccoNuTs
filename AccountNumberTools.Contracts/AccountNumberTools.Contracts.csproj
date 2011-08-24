@@ -61,6 +61,8 @@
     <Compile Include="CreditCard\ICreditCardNetworkMapToMethod.cs" />
     <Compile Include="CreditCard\ICreditCardNumberCheck.cs" />
     <Compile Include="CreditCard\ICreditCardNumberMapToNetwork.cs" />
+    <Compile Include="IBAN\Country.cs" />
+    <Compile Include="IBAN\IIBANConvert.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
