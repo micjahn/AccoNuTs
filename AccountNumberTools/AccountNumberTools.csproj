@@ -54,28 +54,28 @@
     <Compile Include="..\Shared\GlobalAssemblyInfo.cs">
       <Link>Properties\GlobalAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="AccountNumberCheck.cs" />
-    <Compile Include="BankCodeMapToCheckMethodCodeByBankCodeFile.cs" />
-    <Compile Include="CheckMethodCodeMapToMethodFactory.cs" />
-    <Compile Include="CreditCardNetworkMapToMethodFactory.cs" />
-    <Compile Include="CreditCardNumberCheck.cs" />
-    <Compile Include="CreditCardNumberMapToNetwork.cs" />
-    <Compile Include="Internals\BankCodeMapToCheckMethodDummy.cs" />
-    <Compile Include="Internals\CheckMethodsTools.cs" />
-    <Compile Include="Internals\CreditCardNumberMapToNetworkDummy.cs" />
-    <Compile Include="Methods\CheckMethod00.cs" />
-    <Compile Include="Methods\CheckMethod01.cs" />
-    <Compile Include="Methods\CheckMethod02.cs" />
-    <Compile Include="Methods\CheckMethod03.cs" />
-    <Compile Include="Methods\CheckMethod04.cs" />
-    <Compile Include="Methods\CheckMethod05.cs" />
-    <Compile Include="Methods\CheckMethod06.cs" />
-    <Compile Include="Methods\CheckMethod07.cs" />
-    <Compile Include="Methods\CheckMethod08.cs" />
-    <Compile Include="Methods\CheckMethod09.cs" />
-    <Compile Include="Methods\CheckMethodLength.cs" />
-    <Compile Include="Methods\CheckMethodLuhn.cs" />
-    <Compile Include="Methods\CheckMethodModuloBase.cs" />
+    <Compile Include="AccountNumber\AccountNumberCheck.cs" />
+    <Compile Include="AccountNumber\BankCodeMapToCheckMethodCodeByBankCodeFile.cs" />
+    <Compile Include="AccountNumber\CheckMethodCodeMapToMethodFactory.cs" />
+    <Compile Include="CreditCard\CreditCardNetworkMapToMethodFactory.cs" />
+    <Compile Include="CreditCard\CreditCardNumberCheck.cs" />
+    <Compile Include="CreditCard\CreditCardNumberMapToNetwork.cs" />
+    <Compile Include="AccountNumber\Internals\BankCodeMapToCheckMethodDummy.cs" />
+    <Compile Include="Common\Internals\CheckMethodsTools.cs" />
+    <Compile Include="CreditCard\Internals\CreditCardNumberMapToNetworkDummy.cs" />
+    <Compile Include="AccountNumber\Methods\CheckMethod00.cs" />
+    <Compile Include="AccountNumber\Methods\CheckMethod01.cs" />
+    <Compile Include="AccountNumber\Methods\CheckMethod02.cs" />
+    <Compile Include="AccountNumber\Methods\CheckMethod03.cs" />
+    <Compile Include="AccountNumber\Methods\CheckMethod04.cs" />
+    <Compile Include="AccountNumber\Methods\CheckMethod05.cs" />
+    <Compile Include="AccountNumber\Methods\CheckMethod06.cs" />
+    <Compile Include="AccountNumber\Methods\CheckMethod07.cs" />
+    <Compile Include="AccountNumber\Methods\CheckMethod08.cs" />
+    <Compile Include="AccountNumber\Methods\CheckMethod09.cs" />
+    <Compile Include="Common\Methods\CheckMethodLength.cs" />
+    <Compile Include="CreditCard\Methods\CheckMethodLuhn.cs" />
+    <Compile Include="AccountNumber\Methods\CheckMethodModuloBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

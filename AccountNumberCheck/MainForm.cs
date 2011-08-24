@@ -17,8 +17,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-using AccountNumberTools;
-using AccountNumberTools.Contracts;
+using AccountNumberTools.AccountNumber.Contracts;
+using AccountNumberTools.CreditCard.Contracts;
 
 namespace AccountNumberCheck
 {
@@ -32,7 +32,7 @@ namespace AccountNumberCheck
          get
          {
             if (germanAccountNumberCheck == null)
-               germanAccountNumberCheck = new AccountNumberTools.AccountNumberCheck();
+               germanAccountNumberCheck = new AccountNumberTools.AccountNumber.AccountNumberCheck();
             return germanAccountNumberCheck;
          }
       }
@@ -42,7 +42,7 @@ namespace AccountNumberCheck
          get
          {
             if (creditCardNumberCheck == null)
-               creditCardNumberCheck = new AccountNumberTools.CreditCardNumberCheck();
+               creditCardNumberCheck = new AccountNumberTools.CreditCard.CreditCardNumberCheck();
             return creditCardNumberCheck;
          }
       }
