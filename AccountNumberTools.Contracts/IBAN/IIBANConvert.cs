@@ -22,9 +22,9 @@ namespace AccountNumberTools.IBAN.Contracts
       /// There are different parts needed in dependency of the selected country
       /// </summary>
       /// <param name="country">The country.</param>
-      /// <param name="parts">The parts.</param>
+      /// <param name="nationalAccountNumber">The national account number.</param>
       /// <returns></returns>
-      string ToIBAN(Country country, string[] parts);
+      string ToIBAN(Country country, NationalAccountNumber nationalAccountNumber);
 
       /// <summary>
       /// converts an IBAN to the parts of a national account number
@@ -32,6 +32,6 @@ namespace AccountNumberTools.IBAN.Contracts
       /// <param name="country">The country.</param>
       /// <param name="iban">The iban.</param>
       /// <returns></returns>
-      string[] FromIBAN(Country country, string iban);
+      NationalAccountNumber FromIBAN(Country country, string iban);
    }
 }
