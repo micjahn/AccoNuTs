@@ -19,6 +19,8 @@ using System.Windows.Forms;
 
 using AccountNumberTools.AccountNumber.Contracts;
 using AccountNumberTools.CreditCard.Contracts;
+using AccountNumberTools.IBAN.Contracts;
+using AccountNumberTools.IBAN.Contracts.CountrySpecific;
 
 namespace AccountNumberCheck
 {
@@ -26,14 +28,13 @@ namespace AccountNumberCheck
    {
       private IAccountNumberCheckWithBankCode germanAccountNumberCheck;
       private ICreditCardNumberCheck creditCardNumberCheck;
+      private IIBANConvert ibanConverter;
 
       private IAccountNumberCheckWithBankCode GermanAccountNumberCheck
       {
          get
          {
-            if (germanAccountNumberCheck == null)
-               germanAccountNumberCheck = new AccountNumberTools.AccountNumber.AccountNumberCheck();
-            return germanAccountNumberCheck;
+            return germanAccountNumberCheck ?? (germanAccountNumberCheck = new AccountNumberTools.AccountNumber.AccountNumberCheck());
          }
       }
 
@@ -41,9 +42,15 @@ namespace AccountNumberCheck
       {
          get
          {
-            if (creditCardNumberCheck == null)
-               creditCardNumberCheck = new AccountNumberTools.CreditCard.CreditCardNumberCheck();
-            return creditCardNumberCheck;
+            return creditCardNumberCheck ?? (creditCardNumberCheck = new AccountNumberTools.CreditCard.CreditCardNumberCheck());
+         }
+      }
+
+      private IIBANConvert IBANConverter
+      {
+         get
+         {
+            return ibanConverter ?? (ibanConverter = new AccountNumberTools.IBAN.IBANConvert());
          }
       }
 
@@ -64,6 +71,8 @@ namespace AccountNumberCheck
             cmbCreditCardType.Items.Add(fieldInfo.Name);
          }
          cmbCreditCardType.SelectedIndex = 0;
+
+         cmbCountry.Items.Add(Country.Germany);
       }
 
       private void btnCheckGermanAccount_Click(object sender, EventArgs e)
@@ -90,6 +99,27 @@ namespace AccountNumberCheck
             labCreditCardResult.Text = "Ok";
          else
             labCreditCardResult.Text = "Fail";
+      }
+
+      private void cmbCountry_SelectedIndexChanged(object sender, EventArgs e)
+      {
+         switch ((Country)cmbCountry.SelectedItem)
+         {
+            case Country.Germany:
+               propertyGridIBAN.SelectedObject = new GermanAccountNumber();
+               break;
+            default:
+               MessageBox.Show(this, "Country isn't supported.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               break;
+         }
+      }
+
+      private void btnConvertToIBAN_Click(object sender, EventArgs e)
+      {
+         if (propertyGridIBAN.SelectedObject == null)
+            return;
+
+         textIBAN.Text = IBANConverter.ToIBAN((Country)cmbCountry.SelectedItem, (NationalAccountNumber)propertyGridIBAN.SelectedObject);
       }
    }
 }

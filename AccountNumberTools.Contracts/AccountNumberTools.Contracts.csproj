@@ -63,6 +63,7 @@
     <Compile Include="CreditCard\ICreditCardNumberMapToNetwork.cs" />
     <Compile Include="IBAN\Country.cs" />
     <Compile Include="IBAN\CountrySpecific\GermanAccountNumber.cs" />
+    <Compile Include="IBAN\CountrySpecific\ICountrySpecificIBANConvert.cs" />
     <Compile Include="IBAN\IIBANConvert.cs" />
     <Compile Include="IBAN\NationalAccountNumber.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

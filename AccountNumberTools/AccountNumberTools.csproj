@@ -76,6 +76,9 @@
     <Compile Include="Common\Methods\CheckMethodLength.cs" />
     <Compile Include="CreditCard\Methods\CheckMethodLuhn.cs" />
     <Compile Include="AccountNumber\Methods\CheckMethodModuloBase.cs" />
+    <Compile Include="IBAN\IBANConvert.cs" />
+    <Compile Include="IBAN\Internals\CountrySpecificIBANConvert.cs" />
+    <Compile Include="IBAN\Internals\GermanIBANConvert.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -9,6 +9,7 @@
 //
 
 using System;
+using System.ComponentModel;
 
 namespace AccountNumberTools.IBAN.Contracts.CountrySpecific
 {
@@ -38,6 +39,7 @@ namespace AccountNumberTools.IBAN.Contracts.CountrySpecific
       /// <value>
       /// The parts.
       /// </value>
+      [Browsable(false)]
       public override string[] Parts
       {
          get
@@ -55,6 +57,23 @@ namespace AccountNumberTools.IBAN.Contracts.CountrySpecific
             else
                AccountNumber = null;
          }
+      }
+
+      /// <summary>
+      /// Initializes a new instance of the <see cref="GermanAccountNumber"/> class.
+      /// </summary>
+      public GermanAccountNumber()
+         : base()
+      {
+      }
+
+      /// <summary>
+      /// Initializes a new instance of the <see cref="GermanAccountNumber"/> class.
+      /// </summary>
+      /// <param name="other">The other.</param>
+      public GermanAccountNumber(NationalAccountNumber other)
+         : base(other)
+      {
       }
    }
 }

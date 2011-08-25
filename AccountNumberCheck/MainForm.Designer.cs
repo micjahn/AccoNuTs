@@ -29,14 +29,14 @@
       private void InitializeComponent()
       {
          this.tabControl1 = new System.Windows.Forms.TabControl();
-         this.tabPage1 = new System.Windows.Forms.TabPage();
+         this.tabPageAccountNumbers = new System.Windows.Forms.TabPage();
          this.labGermanAccountResult = new System.Windows.Forms.Label();
          this.btnCheckGermanAccount = new System.Windows.Forms.Button();
          this.textBankCode = new System.Windows.Forms.TextBox();
          this.labBankcode = new System.Windows.Forms.Label();
          this.textGermanAccountNumber = new System.Windows.Forms.TextBox();
          this.labAccountNumber = new System.Windows.Forms.Label();
-         this.tabPage2 = new System.Windows.Forms.TabPage();
+         this.tabPageCreditCard = new System.Windows.Forms.TabPage();
          this.btnCreditCardNumberCheck = new System.Windows.Forms.Button();
          this.label2 = new System.Windows.Forms.Label();
          this.labCreditCardResult = new System.Windows.Forms.Label();
@@ -45,19 +45,28 @@
          this.cmbCreditCardType = new System.Windows.Forms.ComboBox();
          this.splitContainer1 = new System.Windows.Forms.SplitContainer();
          this.btnClose = new System.Windows.Forms.Button();
+         this.tabPageIBANConverter = new System.Windows.Forms.TabPage();
+         this.cmbCountry = new System.Windows.Forms.ComboBox();
+         this.labCountry = new System.Windows.Forms.Label();
+         this.propertyGridIBAN = new System.Windows.Forms.PropertyGrid();
+         this.labNationalAccountNumber = new System.Windows.Forms.Label();
+         this.btnConvertToIBAN = new System.Windows.Forms.Button();
+         this.textIBAN = new System.Windows.Forms.TextBox();
          this.tabControl1.SuspendLayout();
-         this.tabPage1.SuspendLayout();
-         this.tabPage2.SuspendLayout();
+         this.tabPageAccountNumbers.SuspendLayout();
+         this.tabPageCreditCard.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
          this.splitContainer1.Panel1.SuspendLayout();
          this.splitContainer1.Panel2.SuspendLayout();
          this.splitContainer1.SuspendLayout();
+         this.tabPageIBANConverter.SuspendLayout();
          this.SuspendLayout();
          // 
          // tabControl1
          // 
-         this.tabControl1.Controls.Add(this.tabPage1);
-         this.tabControl1.Controls.Add(this.tabPage2);
+         this.tabControl1.Controls.Add(this.tabPageAccountNumbers);
+         this.tabControl1.Controls.Add(this.tabPageCreditCard);
+         this.tabControl1.Controls.Add(this.tabPageIBANConverter);
          this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
          this.tabControl1.Location = new System.Drawing.Point(0, 0);
          this.tabControl1.Name = "tabControl1";
@@ -65,21 +74,21 @@
          this.tabControl1.Size = new System.Drawing.Size(463, 204);
          this.tabControl1.TabIndex = 0;
          // 
-         // tabPage1
+         // tabPageAccountNumbers
          // 
-         this.tabPage1.Controls.Add(this.labGermanAccountResult);
-         this.tabPage1.Controls.Add(this.btnCheckGermanAccount);
-         this.tabPage1.Controls.Add(this.textBankCode);
-         this.tabPage1.Controls.Add(this.labBankcode);
-         this.tabPage1.Controls.Add(this.textGermanAccountNumber);
-         this.tabPage1.Controls.Add(this.labAccountNumber);
-         this.tabPage1.Location = new System.Drawing.Point(4, 22);
-         this.tabPage1.Name = "tabPage1";
-         this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage1.Size = new System.Drawing.Size(455, 178);
-         this.tabPage1.TabIndex = 0;
-         this.tabPage1.Text = "German Account Numbers";
-         this.tabPage1.UseVisualStyleBackColor = true;
+         this.tabPageAccountNumbers.Controls.Add(this.labGermanAccountResult);
+         this.tabPageAccountNumbers.Controls.Add(this.btnCheckGermanAccount);
+         this.tabPageAccountNumbers.Controls.Add(this.textBankCode);
+         this.tabPageAccountNumbers.Controls.Add(this.labBankcode);
+         this.tabPageAccountNumbers.Controls.Add(this.textGermanAccountNumber);
+         this.tabPageAccountNumbers.Controls.Add(this.labAccountNumber);
+         this.tabPageAccountNumbers.Location = new System.Drawing.Point(4, 22);
+         this.tabPageAccountNumbers.Name = "tabPageAccountNumbers";
+         this.tabPageAccountNumbers.Padding = new System.Windows.Forms.Padding(3);
+         this.tabPageAccountNumbers.Size = new System.Drawing.Size(455, 178);
+         this.tabPageAccountNumbers.TabIndex = 0;
+         this.tabPageAccountNumbers.Text = "German Account Numbers";
+         this.tabPageAccountNumbers.UseVisualStyleBackColor = true;
          // 
          // labGermanAccountResult
          // 
@@ -132,21 +141,21 @@
          this.labAccountNumber.TabIndex = 0;
          this.labAccountNumber.Text = "Account Number";
          // 
-         // tabPage2
+         // tabPageCreditCard
          // 
-         this.tabPage2.Controls.Add(this.btnCreditCardNumberCheck);
-         this.tabPage2.Controls.Add(this.label2);
-         this.tabPage2.Controls.Add(this.labCreditCardResult);
-         this.tabPage2.Controls.Add(this.labCreditCardNumber);
-         this.tabPage2.Controls.Add(this.textCreditCardNumber);
-         this.tabPage2.Controls.Add(this.cmbCreditCardType);
-         this.tabPage2.Location = new System.Drawing.Point(4, 22);
-         this.tabPage2.Name = "tabPage2";
-         this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage2.Size = new System.Drawing.Size(455, 178);
-         this.tabPage2.TabIndex = 1;
-         this.tabPage2.Text = "Credit Card Numbers";
-         this.tabPage2.UseVisualStyleBackColor = true;
+         this.tabPageCreditCard.Controls.Add(this.btnCreditCardNumberCheck);
+         this.tabPageCreditCard.Controls.Add(this.label2);
+         this.tabPageCreditCard.Controls.Add(this.labCreditCardResult);
+         this.tabPageCreditCard.Controls.Add(this.labCreditCardNumber);
+         this.tabPageCreditCard.Controls.Add(this.textCreditCardNumber);
+         this.tabPageCreditCard.Controls.Add(this.cmbCreditCardType);
+         this.tabPageCreditCard.Location = new System.Drawing.Point(4, 22);
+         this.tabPageCreditCard.Name = "tabPageCreditCard";
+         this.tabPageCreditCard.Padding = new System.Windows.Forms.Padding(3);
+         this.tabPageCreditCard.Size = new System.Drawing.Size(455, 178);
+         this.tabPageCreditCard.TabIndex = 1;
+         this.tabPageCreditCard.Text = "Credit Card Numbers";
+         this.tabPageCreditCard.UseVisualStyleBackColor = true;
          // 
          // btnCreditCardNumberCheck
          // 
@@ -233,6 +242,84 @@
          this.btnClose.UseVisualStyleBackColor = true;
          this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
          // 
+         // tabPageIBANConverter
+         // 
+         this.tabPageIBANConverter.Controls.Add(this.textIBAN);
+         this.tabPageIBANConverter.Controls.Add(this.btnConvertToIBAN);
+         this.tabPageIBANConverter.Controls.Add(this.labNationalAccountNumber);
+         this.tabPageIBANConverter.Controls.Add(this.propertyGridIBAN);
+         this.tabPageIBANConverter.Controls.Add(this.labCountry);
+         this.tabPageIBANConverter.Controls.Add(this.cmbCountry);
+         this.tabPageIBANConverter.Location = new System.Drawing.Point(4, 22);
+         this.tabPageIBANConverter.Name = "tabPageIBANConverter";
+         this.tabPageIBANConverter.Size = new System.Drawing.Size(455, 178);
+         this.tabPageIBANConverter.TabIndex = 2;
+         this.tabPageIBANConverter.Text = "IBAN Converter";
+         this.tabPageIBANConverter.UseVisualStyleBackColor = true;
+         // 
+         // cmbCountry
+         // 
+         this.cmbCountry.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                     | System.Windows.Forms.AnchorStyles.Right)));
+         this.cmbCountry.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+         this.cmbCountry.FormattingEnabled = true;
+         this.cmbCountry.Location = new System.Drawing.Point(146, 12);
+         this.cmbCountry.Name = "cmbCountry";
+         this.cmbCountry.Size = new System.Drawing.Size(301, 21);
+         this.cmbCountry.TabIndex = 0;
+         this.cmbCountry.SelectedIndexChanged += new System.EventHandler(this.cmbCountry_SelectedIndexChanged);
+         // 
+         // labCountry
+         // 
+         this.labCountry.AutoSize = true;
+         this.labCountry.Location = new System.Drawing.Point(8, 15);
+         this.labCountry.Name = "labCountry";
+         this.labCountry.Size = new System.Drawing.Size(43, 13);
+         this.labCountry.TabIndex = 1;
+         this.labCountry.Text = "Country";
+         // 
+         // propertyGridIBAN
+         // 
+         this.propertyGridIBAN.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                     | System.Windows.Forms.AnchorStyles.Left)
+                     | System.Windows.Forms.AnchorStyles.Right)));
+         this.propertyGridIBAN.HelpVisible = false;
+         this.propertyGridIBAN.Location = new System.Drawing.Point(146, 39);
+         this.propertyGridIBAN.Name = "propertyGridIBAN";
+         this.propertyGridIBAN.Size = new System.Drawing.Size(301, 107);
+         this.propertyGridIBAN.TabIndex = 2;
+         this.propertyGridIBAN.ToolbarVisible = false;
+         // 
+         // labNationalAccountNumber
+         // 
+         this.labNationalAccountNumber.AutoSize = true;
+         this.labNationalAccountNumber.Location = new System.Drawing.Point(8, 48);
+         this.labNationalAccountNumber.Name = "labNationalAccountNumber";
+         this.labNationalAccountNumber.Size = new System.Drawing.Size(129, 13);
+         this.labNationalAccountNumber.TabIndex = 3;
+         this.labNationalAccountNumber.Text = "National Account Number";
+         // 
+         // btnConvertToIBAN
+         // 
+         this.btnConvertToIBAN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         this.btnConvertToIBAN.Location = new System.Drawing.Point(347, 152);
+         this.btnConvertToIBAN.Name = "btnConvertToIBAN";
+         this.btnConvertToIBAN.Size = new System.Drawing.Size(100, 23);
+         this.btnConvertToIBAN.TabIndex = 4;
+         this.btnConvertToIBAN.Text = "Convert";
+         this.btnConvertToIBAN.UseVisualStyleBackColor = true;
+         this.btnConvertToIBAN.Click += new System.EventHandler(this.btnConvertToIBAN_Click);
+         // 
+         // textIBAN
+         // 
+         this.textIBAN.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                     | System.Windows.Forms.AnchorStyles.Right)));
+         this.textIBAN.Location = new System.Drawing.Point(8, 154);
+         this.textIBAN.Name = "textIBAN";
+         this.textIBAN.ReadOnly = true;
+         this.textIBAN.Size = new System.Drawing.Size(333, 20);
+         this.textIBAN.TabIndex = 5;
+         // 
          // MainForm
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -246,14 +333,16 @@
          this.Text = "Account Number Check";
          this.Load += new System.EventHandler(this.Form1_Load);
          this.tabControl1.ResumeLayout(false);
-         this.tabPage1.ResumeLayout(false);
-         this.tabPage1.PerformLayout();
-         this.tabPage2.ResumeLayout(false);
-         this.tabPage2.PerformLayout();
+         this.tabPageAccountNumbers.ResumeLayout(false);
+         this.tabPageAccountNumbers.PerformLayout();
+         this.tabPageCreditCard.ResumeLayout(false);
+         this.tabPageCreditCard.PerformLayout();
          this.splitContainer1.Panel1.ResumeLayout(false);
          this.splitContainer1.Panel2.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
          this.splitContainer1.ResumeLayout(false);
+         this.tabPageIBANConverter.ResumeLayout(false);
+         this.tabPageIBANConverter.PerformLayout();
          this.ResumeLayout(false);
 
       }
@@ -261,14 +350,14 @@
       #endregion
 
       private System.Windows.Forms.TabControl tabControl1;
-      private System.Windows.Forms.TabPage tabPage1;
+      private System.Windows.Forms.TabPage tabPageAccountNumbers;
       private System.Windows.Forms.Label labGermanAccountResult;
       private System.Windows.Forms.Button btnCheckGermanAccount;
       private System.Windows.Forms.TextBox textBankCode;
       private System.Windows.Forms.Label labBankcode;
       private System.Windows.Forms.TextBox textGermanAccountNumber;
       private System.Windows.Forms.Label labAccountNumber;
-      private System.Windows.Forms.TabPage tabPage2;
+      private System.Windows.Forms.TabPage tabPageCreditCard;
       private System.Windows.Forms.SplitContainer splitContainer1;
       private System.Windows.Forms.Button btnClose;
       private System.Windows.Forms.Label labCreditCardResult;
@@ -277,6 +366,13 @@
       private System.Windows.Forms.ComboBox cmbCreditCardType;
       private System.Windows.Forms.Button btnCreditCardNumberCheck;
       private System.Windows.Forms.Label label2;
+      private System.Windows.Forms.TabPage tabPageIBANConverter;
+      private System.Windows.Forms.Label labNationalAccountNumber;
+      private System.Windows.Forms.PropertyGrid propertyGridIBAN;
+      private System.Windows.Forms.Label labCountry;
+      private System.Windows.Forms.ComboBox cmbCountry;
+      private System.Windows.Forms.TextBox textIBAN;
+      private System.Windows.Forms.Button btnConvertToIBAN;
    }
 }
 
