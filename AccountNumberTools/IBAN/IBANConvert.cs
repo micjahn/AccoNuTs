@@ -23,6 +23,7 @@ namespace AccountNumberTools.IBAN
    public class IBANConvert : IIBANConvert
    {
       private static IDictionary<Country, ICountrySpecificIBANConvert> specificConverters;
+      private static IDictionary<string, Country> prefixCountryMapping;
 
       /// <summary>
       /// Initializes the <see cref="IBANConvert"/> class.
@@ -31,39 +32,45 @@ namespace AccountNumberTools.IBAN
       {
          specificConverters = new Dictionary<Country, ICountrySpecificIBANConvert>();
          specificConverters.Add(Country.Germany, new GermanIBANConvert());
+
+         prefixCountryMapping = new Dictionary<string, Country>();
+         prefixCountryMapping.Add(GermanIBANConvert.IBANPrefix, Country.Germany);
       }
 
       /// <summary>
       /// converts the parts of a national account number to an IBAN.
       /// There are different parts needed in dependency of the selected country
       /// </summary>
-      /// <param name="country">The country.</param>
       /// <param name="nationalAccountNumber">The national account number.</param>
       /// <returns></returns>
-      public string ToIBAN(Country country, NationalAccountNumber nationalAccountNumber)
+      public string ToIBAN(NationalAccountNumber nationalAccountNumber)
       {
          if (nationalAccountNumber == null)
             throw new ArgumentNullException("nationalAccountNumber");
 
-         if (!specificConverters.ContainsKey(country))
-            throw new ArgumentException(String.Format("The country {0} isn't supported.", country), "country");
+         if (!specificConverters.ContainsKey(nationalAccountNumber.Country))
+            throw new ArgumentException(String.Format("The country {0} isn't supported.", nationalAccountNumber.Country), "nationalAccountNumber");
 
-         return specificConverters[country].ToIBAN(nationalAccountNumber);
+         return specificConverters[nationalAccountNumber.Country].ToIBAN(nationalAccountNumber);
       }
 
       /// <summary>
       /// converts an IBAN to the parts of a national account number
       /// </summary>
-      /// <param name="country">The country.</param>
       /// <param name="iban">The iban.</param>
       /// <returns></returns>
-      public NationalAccountNumber FromIBAN(Country country, string iban)
+      public NationalAccountNumber FromIBAN(string iban)
       {
-         if (String.IsNullOrEmpty(iban))
+         if (String.IsNullOrEmpty(iban) || iban.Length < 2)
             throw new ArgumentNullException("iban");
 
+         var ibanPrefix = iban.Substring(0, 2);
+         if (!prefixCountryMapping.ContainsKey(ibanPrefix))
+            throw new ArgumentException(String.Format("The country {0} isn't supported.", ibanPrefix), "iban");
+         
+         var country = prefixCountryMapping[ibanPrefix];
          if (!specificConverters.ContainsKey(country))
-            throw new ArgumentException(String.Format("The country {0} isn't supported.", country), "country");
+            throw new ArgumentException(String.Format("The country {0} isn't supported.", country), "iban");
 
          return specificConverters[country].FromIBAN(iban);
       }

@@ -23,6 +23,11 @@ namespace AccountNumberTools.IBAN.Internals
       private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
       /// <summary>
+      /// 
+      /// </summary>
+      public const string IBANPrefix = "DE";
+
+      /// <summary>
       /// converts the parts of a national account number to an IBAN.
       /// There are different parts needed in dependency of the selected country
       /// </summary>
@@ -51,7 +56,7 @@ namespace AccountNumberTools.IBAN.Internals
          Log.DebugFormat("calculating checksum for bban {0}", bban);
 
          var modulo = 98 - CalculateModulo(bban);
-         var iban = String.Format("DE{0:00}{1:00000000}{2:0000000000}", modulo, numBankCode, numAccountNumber);
+         var iban = String.Format("{0}{1:00}{2:00000000}{3:0000000000}", IBANPrefix, modulo, numBankCode, numAccountNumber);
 
          Log.DebugFormat("generated IBAN: {0}", iban);
 

@@ -119,7 +119,7 @@ namespace AccountNumberCheck
          if (propertyGridIBAN.SelectedObject == null)
             return;
 
-         textIBAN.Text = IBANConverter.ToIBAN((Country)cmbCountry.SelectedItem, (NationalAccountNumber)propertyGridIBAN.SelectedObject);
+         textIBAN.Text = IBANConverter.ToIBAN((NationalAccountNumber)propertyGridIBAN.SelectedObject);
       }
    }
 }

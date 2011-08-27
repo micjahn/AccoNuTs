@@ -46,7 +46,7 @@ namespace AccountNumberTools.IBAN.Tests
       {
          var sut = SuT;
 
-         var result = SuT.ToIBAN(country, CreateCountrySpecificObject(country, parts));
+         var result = SuT.ToIBAN(CreateCountrySpecificObject(country, parts));
 
          Assert.AreEqual(expectedIBAN, result);
       }
@@ -56,8 +56,9 @@ namespace AccountNumberTools.IBAN.Tests
       {
          var sut = SuT;
 
-         var result = SuT.FromIBAN(country, givenIBAN);
+         var result = SuT.FromIBAN(givenIBAN);
 
+         Assert.AreEqual(country, result.Country);
          for (var index = 0; index < parts.Length && index < result.Parts.Length; index++)
          {
             Assert.AreEqual(parts[index], result.Parts[index]);

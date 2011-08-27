@@ -24,6 +24,7 @@ namespace AccountNumberTools.IBAN.Contracts.CountrySpecific
       /// <value>
       /// The bank code.
       /// </value>
+      [Category("Account")]
       public string BankCode { get; set; }
       /// <summary>
       /// Gets or sets the account number.
@@ -31,6 +32,7 @@ namespace AccountNumberTools.IBAN.Contracts.CountrySpecific
       /// <value>
       /// The account number.
       /// </value>
+      [Category("Account")]
       public string AccountNumber { get; set; }
 
       /// <summary>
@@ -63,7 +65,7 @@ namespace AccountNumberTools.IBAN.Contracts.CountrySpecific
       /// Initializes a new instance of the <see cref="GermanAccountNumber"/> class.
       /// </summary>
       public GermanAccountNumber()
-         : base()
+         : base(Country.Germany)
       {
       }
 
@@ -72,7 +74,7 @@ namespace AccountNumberTools.IBAN.Contracts.CountrySpecific
       /// </summary>
       /// <param name="other">The other.</param>
       public GermanAccountNumber(NationalAccountNumber other)
-         : base(other)
+         : base(other, Country.Germany)
       {
       }
    }

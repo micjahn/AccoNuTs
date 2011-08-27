@@ -9,6 +9,7 @@
 //
 
 using System;
+using System.ComponentModel;
 
 namespace AccountNumberTools.IBAN.Contracts
 {
@@ -17,6 +18,12 @@ namespace AccountNumberTools.IBAN.Contracts
    /// </summary>
    public abstract class NationalAccountNumber
    {
+      /// <summary>
+      /// Gets the country.
+      /// </summary>
+      [Category("Country")]
+      public Country Country { get; private set; }
+
       /// <summary>
       /// Gets or sets the parts.
       /// </summary>
@@ -28,16 +35,30 @@ namespace AccountNumberTools.IBAN.Contracts
       /// <summary>
       /// Initializes a new instance of the <see cref="NationalAccountNumber"/> class.
       /// </summary>
-      public NationalAccountNumber()
+      /// <param name="country">The country.</param>
+      protected NationalAccountNumber(Country country)
       {
+         Country = country;
       }
 
       /// <summary>
       /// Initializes a new instance of the <see cref="NationalAccountNumber"/> class.
       /// </summary>
       /// <param name="other">The other.</param>
-      public NationalAccountNumber(NationalAccountNumber other)
+      protected NationalAccountNumber(NationalAccountNumber other)
       {
+         Country = other.Country;
+         Parts = other.Parts;
+      }
+
+      /// <summary>
+      /// Initializes a new instance of the <see cref="NationalAccountNumber"/> class.
+      /// </summary>
+      /// <param name="other">The other.</param>
+      /// <param name="newCountry">The new country.</param>
+      protected NationalAccountNumber(NationalAccountNumber other, Country newCountry)
+      {
+         Country = newCountry;
          Parts = other.Parts;
       }
    }

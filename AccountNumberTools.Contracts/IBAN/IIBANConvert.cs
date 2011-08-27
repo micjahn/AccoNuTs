@@ -21,17 +21,15 @@ namespace AccountNumberTools.IBAN.Contracts
       /// converts the parts of a national account number to an IBAN.
       /// There are different parts needed in dependency of the selected country
       /// </summary>
-      /// <param name="country">The country.</param>
       /// <param name="nationalAccountNumber">The national account number.</param>
       /// <returns></returns>
-      string ToIBAN(Country country, NationalAccountNumber nationalAccountNumber);
+      string ToIBAN(NationalAccountNumber nationalAccountNumber);
 
       /// <summary>
       /// converts an IBAN to the parts of a national account number
       /// </summary>
-      /// <param name="country">The country.</param>
       /// <param name="iban">The iban.</param>
       /// <returns></returns>
-      NationalAccountNumber FromIBAN(Country country, string iban);
+      NationalAccountNumber FromIBAN(string iban);
    }
 }
