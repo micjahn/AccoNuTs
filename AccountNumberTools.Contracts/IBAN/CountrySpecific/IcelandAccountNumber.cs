@@ -1,0 +1,46 @@
+﻿//
+//   Project:           AccountNumberTools - Tools for the work with account numbers
+//   Project:           $URL$
+//   Id:                $Id$
+//
+//   Copyright © 2011 Michael Jahn
+//
+//   This Software is weak copyleft open source. Please read the License.txt for details.
+//
+
+using System.ComponentModel;
+
+namespace AccountNumberTools.IBAN.Contracts.CountrySpecific
+{
+   /// <summary>
+   /// represents a national account number of Iceland
+   /// </summary>
+   public class IcelandAccountNumber : AccountBankCodeAndBranchNumber
+   {
+      /// <summary>
+      /// Gets or sets the bank code.
+      /// </summary>
+      /// <value>
+      /// The bank code.
+      /// </value>
+      [Category("Account")]
+      public string HoldersNationalId { get; set; }
+      
+      /// <summary>
+      /// Initializes a new instance of the <see cref="IcelandAccountNumber"/> class.
+      /// </summary>
+      public IcelandAccountNumber()
+         : base(Country.Iceland)
+      {
+      }
+
+      /// <summary>
+      /// Initializes a new instance of the <see cref="IcelandAccountNumber"/> class.
+      /// </summary>
+      /// <param name="other">The other.</param>
+      public IcelandAccountNumber(NationalAccountNumber other)
+         : base(other, Country.Iceland)
+      {
+      }
+   }
+}

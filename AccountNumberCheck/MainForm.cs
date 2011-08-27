@@ -21,6 +21,7 @@ using AccountNumberTools.AccountNumber.Contracts;
 using AccountNumberTools.CreditCard.Contracts;
 using AccountNumberTools.IBAN.Contracts;
 using AccountNumberTools.IBAN.Contracts.CountrySpecific;
+using AccountNumberTools.IBAN;
 
 namespace AccountNumberCheck
 {
@@ -72,7 +73,8 @@ namespace AccountNumberCheck
          }
          cmbCreditCardType.SelectedIndex = 0;
 
-         cmbCountry.Items.Add(Country.Germany);
+         foreach (var val in Enum.GetValues(typeof(Country)))
+            cmbCountry.Items.Add(val);
       }
 
       private void btnCheckGermanAccount_Click(object sender, EventArgs e)
@@ -103,14 +105,14 @@ namespace AccountNumberCheck
 
       private void cmbCountry_SelectedIndexChanged(object sender, EventArgs e)
       {
-         switch ((Country)cmbCountry.SelectedItem)
+         var country = (Country)cmbCountry.SelectedItem;
+         try
          {
-            case Country.Germany:
-               propertyGridIBAN.SelectedObject = new GermanAccountNumber();
-               break;
-            default:
-               MessageBox.Show(this, "Country isn't supported.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-               break;
+            propertyGridIBAN.SelectedObject = IBANTools.CreateCountrySpecificAccountNumber(country);
+         }
+         catch (ArgumentException exc)
+         {
+            MessageBox.Show(this, exc.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
          }
       }
 

@@ -39,7 +39,7 @@ namespace AccountNumberTools.IBAN.Internals
          if (nationalAccountNumber == null)
             throw new ArgumentNullException("nationalAccountNumber");
 
-         var germanAccountNumber = new GermanAccountNumber(nationalAccountNumber);
+         var germanAccountNumber = new GermanyAccountNumber(nationalAccountNumber);
 
          var bankCode = OnlyNumbers(germanAccountNumber.BankCode);
          var accountNumber = OnlyNumbers(germanAccountNumber.AccountNumber);
@@ -80,7 +80,7 @@ namespace AccountNumberTools.IBAN.Internals
          if (cleanIBAN.Length != 22)
             throw new ArgumentException(String.Format("{0} isn't a valid german iban.", iban));
 
-         var result = new GermanAccountNumber();
+         var result = new GermanyAccountNumber();
          result.BankCode = cleanIBAN.Substring(4, 8);
          result.AccountNumber = cleanIBAN.Substring(12, 10).TrimStart('0');
 

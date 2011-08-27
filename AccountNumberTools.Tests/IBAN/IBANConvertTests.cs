@@ -30,14 +30,30 @@ namespace AccountNumberTools.IBAN.Tests
          }
       }
 
-      private NationalAccountNumber CreateCountrySpecificObject(Country country, string[] parts)
+      [Test]
+      public void Should_Create_Correct_Country_Specific_Account_Number_Objects()
       {
-         switch (country)
+         foreach (var val in Enum.GetValues(typeof(Country)))
          {
-            case Country.Germany:
-               return new GermanAccountNumber { Parts = parts };
-            default:
-               throw new ArgumentException("Country isn't supported yet.", country.ToString());
+            try
+            {
+               var result = (NationalAccountNumber)IBANTools.CreateCountrySpecificAccountNumber((Country)val);
+               Assert.AreEqual(val, result.Country);
+            }
+            catch (ArgumentException)
+            {
+               // unsupported countries doesn't matter here
+            }
+         }
+      }
+
+      [Test]
+      public void Should_Create_Account_Number_Objects_For_Every_Country()
+      {
+         foreach (var val in Enum.GetValues(typeof(Country)))
+         {
+            var result = (NationalAccountNumber)IBANTools.CreateCountrySpecificAccountNumber((Country)val);
+            Assert.IsNotNull(result);
          }
       }
 
@@ -46,7 +62,7 @@ namespace AccountNumberTools.IBAN.Tests
       {
          var sut = SuT;
 
-         var result = SuT.ToIBAN(CreateCountrySpecificObject(country, parts));
+         var result = SuT.ToIBAN(IBANTools.CreateCountrySpecificAccountNumber(country, parts));
 
          Assert.AreEqual(expectedIBAN, result);
       }
