@@ -14,9 +14,10 @@ using System.ComponentModel;
 namespace AccountNumberTools.IBAN.Contracts
 {
    /// <summary>
-   /// a new class
+   /// represents the base class for a country specific account number which consists of
+   /// a bank code and an account number
    /// </summary>
-   public abstract class AccountAndBankCodeNumber : NationalAccountNumber
+   public class AccountAndBankCodeNumber : NationalAccountNumber
    {
       /// <summary>
       /// Gets or sets the bank code.

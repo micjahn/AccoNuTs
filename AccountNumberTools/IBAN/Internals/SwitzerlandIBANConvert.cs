@@ -14,17 +14,17 @@ using AccountNumberTools.IBAN.Contracts.CountrySpecific;
 namespace AccountNumberTools.IBAN.Internals
 {
    /// <summary>
-   /// converts between a german national account number and the german IBAN
-   /// DEkk BBBB BBBB CCCC CCCC CC
+   /// converts between a Switzerland national account number and the Switzerland IBAN
+   /// CHkk BBBB BCCC CCCC CCCC C
    /// </summary>
-   public class GermanIBANConvert : AccountAndBankCodeNumberIBANConvert
+   public class SwitzerlandIBANConvert : AccountAndBankCodeNumberIBANConvert
    {
       private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
       /// <summary>
       /// 
       /// </summary>
-      public const string Prefix = "DE";
+      public const string Prefix = "CH";
 
       /// <summary>
       /// Returns the 2-char country prefix for the IBAN
@@ -38,7 +38,7 @@ namespace AccountNumberTools.IBAN.Internals
       /// 0 - replaced with the bank code
       /// 1 - replaced with the account number
       /// </summary>
-      protected override string BBANFormatString { get { return "{0:00000000}{1:0000000000}131400"; } }
+      protected override string BBANFormatString { get { return "{0:00000}{1:000000000000}121700"; } }
 
       /// <summary>
       /// Gets the IBAN format string.
@@ -48,12 +48,12 @@ namespace AccountNumberTools.IBAN.Internals
       /// 2 - replaced with the bank code
       /// 3 - replaced with the account number
       /// </summary>
-      protected override string IBANFormatString { get { return "{0}{1:00}{2:00000000}{3:0000000000}"; } }
+      protected override string IBANFormatString { get { return "{0}{1:00}{2:00000}{3:000000000000}"; } }
 
       /// <summary>
       /// Gets the length of the IBAN.
       /// </summary>
-      protected override int IBANLength { get { return 22; } }
+      protected override int IBANLength { get { return 21; } }
 
       /// <summary>
       /// Cuts the bank code out of the IBAN.
@@ -62,7 +62,7 @@ namespace AccountNumberTools.IBAN.Internals
       /// <returns></returns>
       protected override string CutBankCode(string cleanIBAN)
       {
-         return cleanIBAN.Substring(4, 8).TrimStart('0');
+         return cleanIBAN.Substring(4, 5).TrimStart('0');
       }
 
       /// <summary>
@@ -72,7 +72,7 @@ namespace AccountNumberTools.IBAN.Internals
       /// <returns></returns>
       protected override string CutAccountNumber(string cleanIBAN)
       {
-         return cleanIBAN.Substring(12, 10).TrimStart('0');
+         return cleanIBAN.Substring(9, 12).TrimStart('0');
       }
 
       /// <summary>
@@ -82,7 +82,7 @@ namespace AccountNumberTools.IBAN.Internals
       /// <returns></returns>
       protected override AccountAndBankCodeNumber CreateInstance(NationalAccountNumber other)
       {
-         return other == null ? new GermanyAccountNumber() : new GermanyAccountNumber(other);
+         return other == null ? new SwitzerlandAccountNumber() : new SwitzerlandAccountNumber(other);
       }
    }
 }

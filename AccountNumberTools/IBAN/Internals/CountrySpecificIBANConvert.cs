@@ -21,6 +21,28 @@ namespace AccountNumberTools.IBAN.Internals
    /// </summary>
    public class CountrySpecificIBANConvert : ICountrySpecificIBANConvert
    {
+      /*
+       * A - 10
+       * B - 11
+       * C - 12
+       * D - 13
+       * E - 14
+       * F - 15
+       * G - 16
+       * H - 17
+       * I - 18
+       * J - 19
+       * K - 20
+       * L - 21
+       * M - 22
+       * N - 23
+       * O - 24
+       * P - 25
+       * Q - 26
+       * R - 27
+       * S - 28
+       */
+
       private static readonly Regex regexOnlyNumbers = new Regex("[^0-9]+");
       private static readonly Regex regexOnlyIBANDigits = new Regex("[^0-9A-Z]+");
 
