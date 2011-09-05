@@ -11,10 +11,11 @@
 using System;
 using NUnit.Framework;
 
+using AccountNumberTools.IBAN;
 using AccountNumberTools.IBAN.Contracts;
 using AccountNumberTools.IBAN.Contracts.CountrySpecific;
 
-namespace AccountNumberTools.IBAN.Tests
+namespace AccountNumberTools.Tests.IBAN
 {
    /// <summary>
    /// test class for IBAN converting related methods
@@ -58,6 +59,9 @@ namespace AccountNumberTools.IBAN.Tests
       }
 
       [TestCase("DE43300800000228028003", Country.Germany, "300 800 00", "2280 280 03")]
+      [TestCase("ME25505000012345678951", Country.Montenegro, "505", "12345678951")]
+      [TestCase("NO9386011117947", Country.Norway, "8601", "1117947")]
+      [TestCase("SA0380000000608010167519", Country.SaudiArabia, "80", "608010167519")]
       [TestCase("RS35260005601001611379", Country.Serbia, "260", "5601001611379")]
       [TestCase("SE4550000000058398257466", Country.Sweden, "500", "58398257466")]
       [TestCase("CH9300762011623852957", Country.Switzerland, "762", "11623852957")]
@@ -72,6 +76,10 @@ namespace AccountNumberTools.IBAN.Tests
       }
 
       [TestCase("DE43 3008 0000 0228 0280 03", Country.Germany, "30080000", "228028003")]
+      [TestCase("ME25 5050 0001 2345 6789 51", Country.Montenegro, "505", "12345678951")]
+      [TestCase("ME73 2600 0560 1001 6113 79", Country.Montenegro, "260", "5601001611379")]
+      [TestCase("NO93 8601 1117 947", Country.Norway, "8601", "1117947")]
+      [TestCase("SA03 8000 0000 6080 1016 7519", Country.SaudiArabia, "80", "608010167519")]
       [TestCase("RS35 2600 0560 1001 6113 79", Country.Serbia, "260", "5601001611379")]
       [TestCase("SE45 5000 0000 0583 9825 7466", Country.Sweden, "500", "58398257466")]
       [TestCase("CH93 0076 2011 6238 5295 7", Country.Switzerland, "762", "11623852957")]

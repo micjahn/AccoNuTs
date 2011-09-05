@@ -32,6 +32,9 @@ namespace AccountNumberTools.IBAN
       {
          specificConverters = new Dictionary<Country, ICountrySpecificIBANConvert>();
          specificConverters.Add(Country.Germany, new GermanIBANConvert());
+         specificConverters.Add(Country.Montenegro, new MontenegroIBANConvert());
+         specificConverters.Add(Country.Norway, new NorwayIBANConvert());
+         specificConverters.Add(Country.SaudiArabia, new SaudiArabiaIBANConvert());
          specificConverters.Add(Country.Serbia, new SerbiaIBANConvert());
          specificConverters.Add(Country.Sweden, new SwedenIBANConvert());
          specificConverters.Add(Country.Switzerland, new SwitzerlandIBANConvert());
@@ -39,6 +42,9 @@ namespace AccountNumberTools.IBAN
 
          prefixCountryMapping = new Dictionary<string, Country>();
          prefixCountryMapping.Add(GermanIBANConvert.Prefix, Country.Germany);
+         prefixCountryMapping.Add(MontenegroIBANConvert.Prefix, Country.Montenegro);
+         prefixCountryMapping.Add(NorwayIBANConvert.Prefix, Country.Norway);
+         prefixCountryMapping.Add(SaudiArabiaIBANConvert.Prefix, Country.SaudiArabia);
          prefixCountryMapping.Add(SerbiaIBANConvert.Prefix, Country.Serbia);
          prefixCountryMapping.Add(SwedenIBANConvert.Prefix, Country.Sweden);
          prefixCountryMapping.Add(SwitzerlandIBANConvert.Prefix, Country.Switzerland);
