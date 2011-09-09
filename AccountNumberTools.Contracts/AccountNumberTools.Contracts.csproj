@@ -32,6 +32,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>..\Build\Release\AccountNumberTools.Contracts.XML</DocumentationFile>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -61,6 +62,7 @@
     <Compile Include="CreditCard\ICreditCardNetworkMapToMethod.cs" />
     <Compile Include="CreditCard\ICreditCardNumberCheck.cs" />
     <Compile Include="CreditCard\ICreditCardNumberMapToNetwork.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="IBAN\AccountAndBankCodeNumber.cs" />
     <Compile Include="IBAN\AccountAndBICNumber.cs" />
     <Compile Include="IBAN\AccountBankCodeAndBranchNumber.cs" />

@@ -1,5 +1,8 @@
 ﻿namespace AccountNumberCheck
 {
+   /// <summary>
+   /// 
+   /// </summary>
    partial class MainForm
    {
       /// <summary>

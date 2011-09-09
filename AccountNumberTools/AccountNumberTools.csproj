@@ -30,6 +30,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>..\Build\Release\AccountNumberTools.XML</DocumentationFile>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -76,6 +77,7 @@
     <Compile Include="Common\Methods\CheckMethodLength.cs" />
     <Compile Include="CreditCard\Methods\CheckMethodLuhn.cs" />
     <Compile Include="AccountNumber\Methods\CheckMethodModuloBase.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="IBAN\IBANConvert.cs" />
     <Compile Include="IBAN\IBANTools.cs" />
     <Compile Include="IBAN\Internals\AccountAndBankCodeNumberIBANConvert.cs" />
