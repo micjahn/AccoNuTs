@@ -28,11 +28,7 @@ namespace AccountNumberTools.CreditCard
       {
          get
          {
-            if (cleanUpRegex == null)
-            {
-               cleanUpRegex = new Regex("[^0-9]", RegexOptions.Compiled);
-            }
-            return cleanUpRegex;
+            return cleanUpRegex ?? (cleanUpRegex = new Regex("[^0-9]", RegexOptions.Compiled));
          }
       }
 

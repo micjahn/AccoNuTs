@@ -9,18 +9,11 @@
 //
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 using AccountNumberTools.AccountNumber.Contracts;
 using AccountNumberTools.CreditCard.Contracts;
 using AccountNumberTools.IBAN.Contracts;
-using AccountNumberTools.IBAN.Contracts.CountrySpecific;
 using AccountNumberTools.IBAN;
 
 namespace AccountNumberCheck
@@ -51,7 +44,7 @@ namespace AccountNumberCheck
       {
          get
          {
-            return ibanConverter ?? (ibanConverter = new AccountNumberTools.IBAN.IBANConvert());
+            return ibanConverter ?? (ibanConverter = new IBANConvert());
          }
       }
 
@@ -62,7 +55,7 @@ namespace AccountNumberCheck
 
       private void btnClose_Click(object sender, EventArgs e)
       {
-         this.Close();
+         Close();
       }
 
       private void Form1_Load(object sender, EventArgs e)

@@ -9,6 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountNumberTools.Tests", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountNumberCheck", "AccountNumberCheck\AccountNumberCheck.csproj", "{FE6CCC57-7C83-4FBE-8147-F5FE645B63C3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{49CDE788-B9B4-450D-9AD1-48F18A227DCF}"
+	ProjectSection(SolutionItems) = preProject
+		AccountNumberTools.nunit = AccountNumberTools.nunit
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

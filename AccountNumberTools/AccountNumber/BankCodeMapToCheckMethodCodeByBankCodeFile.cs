@@ -15,7 +15,6 @@ using System.IO.Compression;
 using System.Text;
 
 using AccountNumberTools.AccountNumber.Contracts;
-using AccountNumberTools.AccountNumber.Methods;
 
 namespace AccountNumberTools.AccountNumber
 {
@@ -92,10 +91,7 @@ namespace AccountNumberTools.AccountNumber
          if (map == null)
             CreateMap();
 
-         if (map.ContainsKey(bankCode))
-            return map[bankCode];
-
-         return null;
+         return map.ContainsKey(bankCode) ? map[bankCode] : null;
       }
 
       private void CreateMap()
@@ -132,6 +128,8 @@ namespace AccountNumberTools.AccountNumber
             while (!streamReader.EndOfStream)
             {
                var oneLine = streamReader.ReadLine();
+               if (oneLine == null)
+                  break;
                if (oneLine.Length != 168)
                   throw new InvalidOperationException(String.Format("Line length doesn't meet the needs of 168 characters. ({0} - {1})", oneLine, oneLine.Length));
 

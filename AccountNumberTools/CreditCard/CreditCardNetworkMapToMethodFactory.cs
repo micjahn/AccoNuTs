@@ -24,7 +24,7 @@ namespace AccountNumberTools.CreditCard
    public class CreditCardNetworkMapToMethodFactory : ICreditCardNetworkMapToMethod
    {
       private IDictionary<string, Func<ICheckMethod>> map;
-      private IDictionary<string, ICheckMethod> mapInstances;
+      private readonly IDictionary<string, ICheckMethod> mapInstances;
 
       /// <summary>
       /// Gets the mapping between check method code and class types
@@ -33,9 +33,7 @@ namespace AccountNumberTools.CreditCard
       {
          get
          {
-            if (map == null)
-               map = new Dictionary<string, Func<ICheckMethod>>();
-            return map;
+            return map ?? (map = new Dictionary<string, Func<ICheckMethod>>());
          }
       }
 

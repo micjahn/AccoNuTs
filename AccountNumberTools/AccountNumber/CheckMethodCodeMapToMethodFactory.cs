@@ -13,7 +13,6 @@ using System.Collections.Generic;
 
 using AccountNumberTools.Common.Contracts;
 using AccountNumberTools.AccountNumber.Contracts;
-using AccountNumberTools.AccountNumber.Methods;
 
 namespace AccountNumberTools.AccountNumber
 {
@@ -25,7 +24,7 @@ namespace AccountNumberTools.AccountNumber
       private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
       private IDictionary<string, Type> map;
-      private IDictionary<string, ICheckMethod> mapInstances;
+      private readonly IDictionary<string, ICheckMethod> mapInstances;
 
       /// <summary>
       /// Gets the mapping between check method code and class types
@@ -91,14 +90,14 @@ namespace AccountNumberTools.AccountNumber
             foreach (var type in typeof(CheckMethodCodeMapToMethodFactory).Assembly.GetTypes())
             {
                // Find all CheckMethodXX classes and make some "magic" auto-registering
-               if (typeof(ICheckMethod).IsAssignableFrom(type) &&
-                   type.Name.Length == 13)
-               {
-                  var checkMethodCode = type.Name.Substring(11, 2);
-                  newMap[checkMethodCode] = type;
+               if (!typeof (ICheckMethod).IsAssignableFrom(type) ||
+                    type.Name.Length != 13)
+                  continue;
 
-                  Log.DebugFormat("found ICheckMethod implementing class {0}", type.FullName);
-               }
+               var checkMethodCode = type.Name.Substring(11, 2);
+               newMap[checkMethodCode] = type;
+
+               Log.DebugFormat("found ICheckMethod implementing class {0}", type.FullName);
             }
 
             map = newMap;

@@ -22,33 +22,37 @@ namespace AccountNumberTools.IBAN
    /// </summary>
    public class IBANConvert : IIBANConvert
    {
-      private static IDictionary<Country, ICountrySpecificIBANConvert> specificConverters;
-      private static IDictionary<string, Country> prefixCountryMapping;
+      private static readonly IDictionary<Country, ICountrySpecificIBANConvert> specificConverters;
+      private static readonly IDictionary<string, Country> prefixCountryMapping;
 
       /// <summary>
       /// Initializes the <see cref="IBANConvert"/> class.
       /// </summary>
       static IBANConvert()
       {
-         specificConverters = new Dictionary<Country, ICountrySpecificIBANConvert>();
-         specificConverters.Add(Country.Germany, new GermanIBANConvert());
-         specificConverters.Add(Country.Montenegro, new MontenegroIBANConvert());
-         specificConverters.Add(Country.Norway, new NorwayIBANConvert());
-         specificConverters.Add(Country.SaudiArabia, new SaudiArabiaIBANConvert());
-         specificConverters.Add(Country.Serbia, new SerbiaIBANConvert());
-         specificConverters.Add(Country.Sweden, new SwedenIBANConvert());
-         specificConverters.Add(Country.Switzerland, new SwitzerlandIBANConvert());
-         specificConverters.Add(Country.UnitedArabEmirates, new UnitedArabEmiratesIBANConvert());
+         specificConverters = new Dictionary<Country, ICountrySpecificIBANConvert>
+                                 {
+                                    {Country.Germany, new GermanIBANConvert()},
+                                    {Country.Montenegro, new MontenegroIBANConvert()},
+                                    {Country.Norway, new NorwayIBANConvert()},
+                                    {Country.SaudiArabia, new SaudiArabiaIBANConvert()},
+                                    {Country.Serbia, new SerbiaIBANConvert()},
+                                    {Country.Sweden, new SwedenIBANConvert()},
+                                    {Country.Switzerland, new SwitzerlandIBANConvert()},
+                                    {Country.UnitedArabEmirates, new UnitedArabEmiratesIBANConvert()}
+                                 };
 
-         prefixCountryMapping = new Dictionary<string, Country>();
-         prefixCountryMapping.Add(GermanIBANConvert.Prefix, Country.Germany);
-         prefixCountryMapping.Add(MontenegroIBANConvert.Prefix, Country.Montenegro);
-         prefixCountryMapping.Add(NorwayIBANConvert.Prefix, Country.Norway);
-         prefixCountryMapping.Add(SaudiArabiaIBANConvert.Prefix, Country.SaudiArabia);
-         prefixCountryMapping.Add(SerbiaIBANConvert.Prefix, Country.Serbia);
-         prefixCountryMapping.Add(SwedenIBANConvert.Prefix, Country.Sweden);
-         prefixCountryMapping.Add(SwitzerlandIBANConvert.Prefix, Country.Switzerland);
-         prefixCountryMapping.Add(UnitedArabEmiratesIBANConvert.Prefix, Country.UnitedArabEmirates);
+         prefixCountryMapping = new Dictionary<string, Country>
+                                   {
+                                      {GermanIBANConvert.Prefix, Country.Germany},
+                                      {MontenegroIBANConvert.Prefix, Country.Montenegro},
+                                      {NorwayIBANConvert.Prefix, Country.Norway},
+                                      {SaudiArabiaIBANConvert.Prefix, Country.SaudiArabia},
+                                      {SerbiaIBANConvert.Prefix, Country.Serbia},
+                                      {SwedenIBANConvert.Prefix, Country.Sweden},
+                                      {SwitzerlandIBANConvert.Prefix, Country.Switzerland},
+                                      {UnitedArabEmiratesIBANConvert.Prefix, Country.UnitedArabEmirates}
+                                   };
       }
 
       /// <summary>

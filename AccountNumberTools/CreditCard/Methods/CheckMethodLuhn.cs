@@ -8,8 +8,6 @@
 //   This Software is weak copyleft open source. Please read the License.txt for details.
 //
 
-using System;
-
 using AccountNumberTools.Common.Contracts;
 using AccountNumberTools.Common.Internals;
 
@@ -20,9 +18,9 @@ namespace AccountNumberTools.CreditCard.Methods
    /// </summary>
    public class CheckMethodLuhn : ICheckMethod
    {
-      private readonly int[] doubleAndCrossSum = new int[] { 0, 2, 4, 6, 8, 1, 3, 5, 7, 9 };
-      private int minLength;
-      private int maxLength;
+      private readonly int[] doubleAndCrossSum = new [] { 0, 2, 4, 6, 8, 1, 3, 5, 7, 9 };
+      private readonly int minLength;
+      private readonly int maxLength;
 
       /// <summary>
       /// Initializes a new instance of the <see cref="CheckMethodLuhn"/> class.

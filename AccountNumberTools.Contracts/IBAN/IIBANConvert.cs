@@ -8,8 +8,6 @@
 //   This Software is weak copyleft open source. Please read the License.txt for details.
 //
 
-using System;
-
 namespace AccountNumberTools.IBAN.Contracts
 {
    /// <summary>

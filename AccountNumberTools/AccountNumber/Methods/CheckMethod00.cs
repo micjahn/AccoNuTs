@@ -8,8 +8,6 @@
 //   This Software is weak copyleft open source. Please read the License.txt for details.
 //
 
-using System;
-
 using AccountNumberTools.Common.Internals;
 
 namespace AccountNumberTools.AccountNumber.Methods

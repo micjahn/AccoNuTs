@@ -8,7 +8,6 @@
 //   This Software is weak copyleft open source. Please read the License.txt for details.
 //
 
-using System;
 using System.ComponentModel;
 
 namespace AccountNumberTools.IBAN.Contracts
@@ -26,11 +25,6 @@ namespace AccountNumberTools.IBAN.Contracts
       /// </value>
       [Category("Account")]
       public string Branch { get; set; }
-
-      private AccountBankCodeAndBranchNumber()
-         : base(Country.Albania)
-      {
-      }
 
       /// <summary>
       /// Initializes a new instance of the <see cref="AccountBankCodeAndBranchNumber"/> class.

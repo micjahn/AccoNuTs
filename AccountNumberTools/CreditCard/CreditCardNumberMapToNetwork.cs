@@ -56,7 +56,7 @@ namespace AccountNumberTools.CreditCard
 
             using (var reader = new StreamReader(stream))
             {
-               var oneLine = String.Empty;
+               string oneLine;
                while (!String.IsNullOrEmpty(oneLine = reader.ReadLine()))
                {
                   var oneLineParts = oneLine.Split(':');

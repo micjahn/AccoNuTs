@@ -8,7 +8,6 @@
 //   This Software is weak copyleft open source. Please read the License.txt for details.
 //
 
-using System;
 using System.ComponentModel;
 
 namespace AccountNumberTools.IBAN.Contracts
@@ -51,20 +50,9 @@ namespace AccountNumberTools.IBAN.Contracts
          }
          set
          {
-            if (value.Length > 0)
-               BIC = value[0];
-            else
-               BIC = null;
-            if (value.Length > 1)
-               AccountNumber = value[1];
-            else
-               AccountNumber = null;
+            BIC = value.Length > 0 ? value[0] : null;
+         AccountNumber = value.Length > 1 ? value[1] : null;
          }
-      }
-
-      private AccountAndBICNumber()
-         : base(Country.Albania)
-      {
       }
 
       /// <summary>

@@ -8,7 +8,6 @@
 //   This Software is weak copyleft open source. Please read the License.txt for details.
 //
 
-using System;
 using System.Reflection;
 using System.IO;
 
@@ -30,7 +29,7 @@ namespace AccountNumberTools.Tests
       {
          if (log4net.LogManager.GetRepository().Configured)
             log4net.LogManager.GetRepository().ResetConfiguration();
-         log4net.Config.XmlConfigurator.ConfigureAndWatch(new System.IO.FileInfo(
+         log4net.Config.XmlConfigurator.ConfigureAndWatch(new FileInfo(
             Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "log4net.config")));
       }
    }

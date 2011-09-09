@@ -8,7 +8,6 @@
 //   This Software is weak copyleft open source. Please read the License.txt for details.
 //
 
-using System;
 using System.ComponentModel;
 
 namespace AccountNumberTools.IBAN.Contracts
@@ -52,20 +51,9 @@ namespace AccountNumberTools.IBAN.Contracts
          }
          set
          {
-            if (value.Length > 0)
-               BankCode = value[0];
-            else
-               BankCode = null;
-            if (value.Length > 1)
-               AccountNumber = value[1];
-            else
-               AccountNumber = null;
+            BankCode = value.Length > 0 ? value[0] : null;
+            AccountNumber = value.Length > 1 ? value[1] : null;
          }
-      }
-
-      private AccountAndBankCodeNumber()
-         : base(Country.Albania)
-      {
       }
 
       /// <summary>

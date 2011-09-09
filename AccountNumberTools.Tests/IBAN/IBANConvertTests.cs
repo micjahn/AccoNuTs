@@ -13,7 +13,6 @@ using NUnit.Framework;
 
 using AccountNumberTools.IBAN;
 using AccountNumberTools.IBAN.Contracts;
-using AccountNumberTools.IBAN.Contracts.CountrySpecific;
 
 namespace AccountNumberTools.Tests.IBAN
 {
@@ -38,7 +37,7 @@ namespace AccountNumberTools.Tests.IBAN
          {
             try
             {
-               var result = (NationalAccountNumber)IBANTools.CreateCountrySpecificAccountNumber((Country)val);
+               var result = IBANTools.CreateCountrySpecificAccountNumber((Country)val);
                Assert.AreEqual(val, result.Country);
             }
             catch (ArgumentException)
@@ -53,7 +52,7 @@ namespace AccountNumberTools.Tests.IBAN
       {
          foreach (var val in Enum.GetValues(typeof(Country)))
          {
-            var result = (NationalAccountNumber)IBANTools.CreateCountrySpecificAccountNumber((Country)val);
+            var result = IBANTools.CreateCountrySpecificAccountNumber((Country)val);
             Assert.IsNotNull(result);
          }
       }
@@ -70,7 +69,7 @@ namespace AccountNumberTools.Tests.IBAN
       {
          var sut = SuT;
 
-         var result = SuT.ToIBAN(IBANTools.CreateCountrySpecificAccountNumber(country, parts));
+         var result = sut.ToIBAN(IBANTools.CreateCountrySpecificAccountNumber(country, parts));
 
          Assert.AreEqual(expectedIBAN, result);
       }
@@ -88,7 +87,7 @@ namespace AccountNumberTools.Tests.IBAN
       {
          var sut = SuT;
 
-         var result = SuT.FromIBAN(givenIBAN);
+         var result = sut.FromIBAN(givenIBAN);
 
          Assert.AreEqual(country, result.Country);
          for (var index = 0; index < parts.Length && index < result.Parts.Length; index++)
