@@ -57,6 +57,11 @@ namespace AccountNumberTools.Tests.IBAN
          }
       }
 
+      [TestCase("AT611904300234573201", Country.Austria, "19043", "234573201")]
+      [TestCase("BH88BMAG00001299123456", Country.Bahrain, "BMAG", "1299123456")]
+      [TestCase("BE68539007547034", Country.Belgium, "539", "7547034")]
+      [TestCase("HR1210010051863000160", Country.Croatia, "1001005", "1863000160")]
+      [TestCase("DK5000400440116243", Country.Denmark, "40", "440116243")]
       [TestCase("DO28BAGR00000001212453611324", Country.DominicanRepublic, "BAGR", "1212453611324")]
       [TestCase("FO2000400440116243", Country.FaroeIslands, "40", "440116243")]
       [TestCase("FI2112345600000785", Country.Finland, "123456", "785")]
@@ -85,6 +90,11 @@ namespace AccountNumberTools.Tests.IBAN
          Assert.AreEqual(expectedIBAN, result);
       }
 
+      [TestCase("AT61 1904 3002 3457 3201", Country.Austria, "19043", "234573201")]
+      [TestCase("BH88 BMAG 0000 1299 1234 56", Country.Bahrain, "BMAG", "1299123456")]
+      [TestCase("BE68 5390 0754 7034", Country.Belgium, "539", "7547034")]
+      [TestCase("HR12 1001 0051 8630 0016 0", Country.Croatia, "1001005", "1863000160")]
+      [TestCase("DK50 0040 0440 1162 43", Country.Denmark, "40", "440116243")]
       [TestCase("DO28 BAGR 0000 0001 2124 5361 1324", Country.DominicanRepublic, "BAGR", "1212453611324")]
       [TestCase("FO20 0040 0440 1162 43", Country.FaroeIslands, "40", "440116243")]
       [TestCase("FI21 1234 5600 0007 85", Country.Finland, "123456", "785")]

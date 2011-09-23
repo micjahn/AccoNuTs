@@ -32,6 +32,11 @@ namespace AccountNumberTools.IBAN
       {
          specificConverters = new Dictionary<Country, ICountrySpecificIBANConvert>
                                  {
+                                    {Country.Austria, new AustriaIBANConvert()},
+                                    {Country.Bahrain, new BahrainIBANConvert()},
+                                    {Country.Belgium, new BelgiumIBANConvert()},
+                                    {Country.Croatia, new CroatiaIBANConvert()},
+                                    {Country.Denmark, new DenmarkIBANConvert()},
                                     {Country.DominicanRepublic, new DominicanRepublicIBANConvert()},
                                     {Country.FaroeIslands, new FaroeIslandsIBANConvert()},
                                     {Country.Finland, new FinlandIBANConvert()},
@@ -55,6 +60,11 @@ namespace AccountNumberTools.IBAN
 
          prefixCountryMapping = new Dictionary<string, Country>
                                    {
+                                      {AustriaIBANConvert.Prefix, Country.Austria},
+                                      {BahrainIBANConvert.Prefix, Country.Bahrain},
+                                      {BelgiumIBANConvert.Prefix, Country.Belgium},
+                                      {CroatiaIBANConvert.Prefix, Country.Croatia},
+                                      {DenmarkIBANConvert.Prefix, Country.Denmark},
                                       {DominicanRepublicIBANConvert.Prefix, Country.DominicanRepublic},
                                       {FaroeIslandsIBANConvert.Prefix, Country.FaroeIslands},
                                       {FinlandIBANConvert.Prefix, Country.Finland},
