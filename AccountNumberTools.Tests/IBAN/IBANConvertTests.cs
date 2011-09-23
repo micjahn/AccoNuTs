@@ -57,7 +57,13 @@ namespace AccountNumberTools.Tests.IBAN
          }
       }
 
+      [TestCase("DO28BAGR00000001212453611324", Country.DominicanRepublic, "BAGR", "1212453611324")]
+      [TestCase("FO2000400440116243", Country.FaroeIslands, "40", "440116243")]
+      [TestCase("FI2112345600000785", Country.Finland, "123456", "785")]
+      [TestCase("GE29NB0000000101904917", Country.Georgia, "NB", "101904917")]
       [TestCase("DE43300800000228028003", Country.Germany, "300 800 00", "2280 280 03")]
+      [TestCase("GL2000400440116243", Country.Greenland, "40", "440116243")]
+      [TestCase("KZ75125KZT2069100100", Country.Kazakhstan, "125", "KZT 2069100100")]
       [TestCase("KW81CBKU0000000000001234560101", Country.Kuwait, "CBKU", "1234560101")]
       [TestCase("LB62099900000001001901229114", Country.Lebanon, "999", "1001901229114")]
       [TestCase("LI21088100002324013AA", Country.Liechtenstein, "8810", "2324013AA")]
@@ -79,7 +85,13 @@ namespace AccountNumberTools.Tests.IBAN
          Assert.AreEqual(expectedIBAN, result);
       }
 
+      [TestCase("DO28 BAGR 0000 0001 2124 5361 1324", Country.DominicanRepublic, "BAGR", "1212453611324")]
+      [TestCase("FO20 0040 0440 1162 43", Country.FaroeIslands, "40", "440116243")]
+      [TestCase("FI21 1234 5600 0007 85", Country.Finland, "123456", "785")]
+      [TestCase("GE29 NB00 0000 0101 9049 17", Country.Georgia, "NB", "101904917")]
       [TestCase("DE43 3008 0000 0228 0280 03", Country.Germany, "30080000", "228028003")]
+      [TestCase("GL20 0040 0440 1162 43", Country.Greenland, "40", "440116243")]
+      [TestCase("KZ75 125K ZT20 6910 0100", Country.Kazakhstan, "125", "KZT2069100100")]
       [TestCase("KW81 CBKU 0000 0000 0000 1234 5601 01", Country.Kuwait, "CBKU", "1234560101")]
       [TestCase("LB62 0999 0000 0001 0019 0122 9114", Country.Lebanon, "999", "1001901229114")]
       [TestCase("LI21 0881 0000 2324 013A A", Country.Liechtenstein, "8810", "2324013AA")]

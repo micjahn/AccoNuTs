@@ -32,7 +32,13 @@ namespace AccountNumberTools.IBAN
       {
          specificConverters = new Dictionary<Country, ICountrySpecificIBANConvert>
                                  {
+                                    {Country.DominicanRepublic, new DominicanRepublicIBANConvert()},
+                                    {Country.FaroeIslands, new FaroeIslandsIBANConvert()},
+                                    {Country.Finland, new FinlandIBANConvert()},
+                                    {Country.Georgia, new GeorgiaIBANConvert()},
                                     {Country.Germany, new GermanIBANConvert()},
+                                    {Country.Greenland, new GreenlandIBANConvert()},
+                                    {Country.Kazakhstan, new KazakhstanIBANConvert()},
                                     {Country.Kuwait, new KuwaitIBANConvert()},
                                     {Country.Lebanon, new LebanonIBANConvert()},
                                     {Country.Liechtenstein, new LiechtensteinIBANConvert()},
@@ -49,7 +55,13 @@ namespace AccountNumberTools.IBAN
 
          prefixCountryMapping = new Dictionary<string, Country>
                                    {
+                                      {DominicanRepublicIBANConvert.Prefix, Country.DominicanRepublic},
+                                      {FaroeIslandsIBANConvert.Prefix, Country.FaroeIslands},
+                                      {FinlandIBANConvert.Prefix, Country.Finland},
+                                      {GeorgiaIBANConvert.Prefix, Country.Georgia},
                                       {GermanIBANConvert.Prefix, Country.Germany},
+                                      {GreenlandIBANConvert.Prefix, Country.Greenland},
+                                      {KazakhstanIBANConvert.Prefix, Country.Kazakhstan},
                                       {KuwaitIBANConvert.Prefix, Country.Kuwait},
                                       {LebanonIBANConvert.Prefix, Country.Lebanon},
                                       {LiechtensteinIBANConvert.Prefix, Country.Liechtenstein},
