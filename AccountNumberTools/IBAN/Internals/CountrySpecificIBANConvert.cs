@@ -9,10 +9,12 @@
 //
 
 using System;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 using AccountNumberTools.IBAN.Contracts;
 using AccountNumberTools.IBAN.Contracts.CountrySpecific;
+using System.Text;
 
 namespace AccountNumberTools.IBAN.Internals
 {
@@ -41,10 +43,27 @@ namespace AccountNumberTools.IBAN.Internals
        * Q - 26
        * R - 27
        * S - 28
+       * T - 29
+       * U - 30
+       * V - 31
+       * W - 32
+       * X - 33
+       * Y - 34
+       * Z - 35
        */
-
-      private static readonly Regex regexOnlyNumbers = new Regex("[^0-9]+");
+      private static readonly IDictionary<char, int> characterMap;
+      private static readonly Regex regexOnlyAllowedCharacters = new Regex("[^0-9a-zA-Z]+");
       private static readonly Regex regexOnlyIBANDigits = new Regex("[^0-9A-Z]+");
+
+      static CountrySpecificIBANConvert()
+      {
+         var nrA = Convert.ToInt32('A');
+         characterMap = new Dictionary<char, int>();
+         for (var index = 0; index < 26; index++)
+         {
+            characterMap.Add(Convert.ToChar(nrA + index), 10 + index);
+         }
+      }
 
       /// <summary>
       /// converts the parts of a national account number to an IBAN.
@@ -68,15 +87,37 @@ namespace AccountNumberTools.IBAN.Internals
       }
 
       /// <summary>
-      /// removes all non-numeric digits
+      /// Converts the characters to numbers.
       /// </summary>
       /// <param name="val">The val.</param>
       /// <returns></returns>
-      protected string OnlyNumbers(string val)
+      protected string ConvertCharactersToNumbers(string val)
+      {
+         var builder = new StringBuilder();
+         foreach (var chr in val)
+         {
+            if (characterMap.ContainsKey(chr))
+            {
+               builder.Append(characterMap[chr]);
+            }
+            else
+            {
+               builder.Append(chr);
+            }
+         }
+         return builder.ToString();
+      }
+
+      /// <summary>
+      /// removes all digits which are not allowed within account numbers
+      /// </summary>
+      /// <param name="val">The val.</param>
+      /// <returns></returns>
+      protected string OnlyAllowedCharacters(string val)
       {
          if (val == null)
             return null;
-         return regexOnlyNumbers.Replace(val, "");
+         return regexOnlyAllowedCharacters.Replace(val, "");
       }
 
       /// <summary>

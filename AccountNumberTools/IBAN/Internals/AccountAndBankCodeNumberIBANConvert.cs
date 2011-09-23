@@ -63,22 +63,27 @@ namespace AccountNumberTools.IBAN.Internals
 
          var abAccountNumber = CreateInstance(nationalAccountNumber);
 
-         var bankCode = OnlyNumbers(abAccountNumber.BankCode);
-         var accountNumber = OnlyNumbers(abAccountNumber.AccountNumber);
+         var bankCode = OnlyAllowedCharacters(abAccountNumber.BankCode);
+         var accountNumber = OnlyAllowedCharacters(abAccountNumber.AccountNumber);
 
          if (String.IsNullOrEmpty(bankCode))
             throw new ArgumentException("The bank code is missing.");
          if (String.IsNullOrEmpty(accountNumber))
             throw new ArgumentException("The account number is missing.");
 
-         var numBankCode = Convert.ToInt64(bankCode);
-         var numAccountNumber = Convert.ToInt64(accountNumber);
-         var bban = String.Format(BBANFormatString, numBankCode, numAccountNumber);
+         //var convertedAccountNumber = ConvertCharactersToNumbers(accountNumber);
+         //var convertedBankCode = ConvertCharactersToNumbers(bankCode);
+         //var numBankCode = Convert.ToInt64(convertedBankCode);
+         //var numAccountNumber = Convert.ToInt64(convertedAccountNumber);
+         var bban = String.Format(BBANFormatString, bankCode, accountNumber);
+         bban = bban.Replace(' ', '0');
+         bban = ConvertCharactersToNumbers(bban);
 
          Log.DebugFormat("calculating checksum for bban {0}", bban);
 
          var modulo = 98 - CalculateModulo(bban);
-         var iban = String.Format(IBANFormatString, IBANPrefix, modulo, numBankCode, numAccountNumber);
+         var iban = String.Format(IBANFormatString, IBANPrefix, modulo, bankCode, accountNumber);
+         iban = iban.Replace(' ', '0');
 
          Log.DebugFormat("generated IBAN: {0}", iban);
 

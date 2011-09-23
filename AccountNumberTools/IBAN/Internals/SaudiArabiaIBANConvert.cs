@@ -36,7 +36,7 @@ namespace AccountNumberTools.IBAN.Internals
       /// 0 - replaced with the bank code
       /// 1 - replaced with the account number
       /// </summary>
-      protected override string BBANFormatString { get { return "{0:00}{1:000000000000000000}281000"; } }
+      protected override string BBANFormatString { get { return "{0,2}{1,18}281000"; } }
 
       /// <summary>
       /// Gets the IBAN format string.
@@ -46,7 +46,7 @@ namespace AccountNumberTools.IBAN.Internals
       /// 2 - replaced with the bank code
       /// 3 - replaced with the account number
       /// </summary>
-      protected override string IBANFormatString { get { return "{0}{1:00}{2:00}{3:000000000000000000}"; } }
+      protected override string IBANFormatString { get { return "{0}{1:00}{2,2}{3,18}"; } }
 
       /// <summary>
       /// Gets the length of the IBAN.

@@ -58,6 +58,11 @@ namespace AccountNumberTools.Tests.IBAN
       }
 
       [TestCase("DE43300800000228028003", Country.Germany, "300 800 00", "2280 280 03")]
+      [TestCase("KW81CBKU0000000000001234560101", Country.Kuwait, "CBKU", "1234560101")]
+      [TestCase("LB62099900000001001901229114", Country.Lebanon, "999", "1001901229114")]
+      [TestCase("LI21088100002324013AA", Country.Liechtenstein, "8810", "2324013AA")]
+      [TestCase("LT121000011101001000", Country.Lithuania, "10000", "11101001000")]
+      [TestCase("LU360029152460050000", Country.Luxembourg, "2", "9152460050000")]
       [TestCase("ME25505000012345678951", Country.Montenegro, "505", "12345678951")]
       [TestCase("NO9386011117947", Country.Norway, "8601", "1117947")]
       [TestCase("SA0380000000608010167519", Country.SaudiArabia, "80", "608010167519")]
@@ -75,6 +80,11 @@ namespace AccountNumberTools.Tests.IBAN
       }
 
       [TestCase("DE43 3008 0000 0228 0280 03", Country.Germany, "30080000", "228028003")]
+      [TestCase("KW81 CBKU 0000 0000 0000 1234 5601 01", Country.Kuwait, "CBKU", "1234560101")]
+      [TestCase("LB62 0999 0000 0001 0019 0122 9114", Country.Lebanon, "999", "1001901229114")]
+      [TestCase("LI21 0881 0000 2324 013A A", Country.Liechtenstein, "8810", "2324013AA")]
+      [TestCase("LT12 1000 0111 0100 1000", Country.Lithuania, "10000", "11101001000")]
+      [TestCase("LU36 0029 1524 6005 0000", Country.Luxembourg, "2", "9152460050000")]
       [TestCase("ME25 5050 0001 2345 6789 51", Country.Montenegro, "505", "12345678951")]
       [TestCase("ME73 2600 0560 1001 6113 79", Country.Montenegro, "260", "5601001611379")]
       [TestCase("NO93 8601 1117 947", Country.Norway, "8601", "1117947")]

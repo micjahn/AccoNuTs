@@ -83,6 +83,11 @@
     <Compile Include="IBAN\Internals\AccountAndBankCodeNumberIBANConvert.cs" />
     <Compile Include="IBAN\Internals\CountrySpecificIBANConvert.cs" />
     <Compile Include="IBAN\Internals\GermanIBANConvert.cs" />
+    <Compile Include="IBAN\Internals\KuwaitIBANConvert.cs" />
+    <Compile Include="IBAN\Internals\LebanonIBANConvert.cs" />
+    <Compile Include="IBAN\Internals\LiechtensteinIBANConvert.cs" />
+    <Compile Include="IBAN\Internals\LithuaniaIBANConvert.cs" />
+    <Compile Include="IBAN\Internals\LuxembourgIBANConvert.cs" />
     <Compile Include="IBAN\Internals\MontenegroIBANConvert.cs" />
     <Compile Include="IBAN\Internals\NorwayIBANConvert.cs" />
     <Compile Include="IBAN\Internals\SaudiArabiaIBANConvert.cs" />

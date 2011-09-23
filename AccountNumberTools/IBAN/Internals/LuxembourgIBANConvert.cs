@@ -14,15 +14,15 @@ using AccountNumberTools.IBAN.Contracts.CountrySpecific;
 namespace AccountNumberTools.IBAN.Internals
 {
    /// <summary>
-   /// converts between a Serbia national account number and the Serbia IBAN
-   /// RSkk BBBC CCCC CCCC CCCC CC
+   /// converts between a Luxembourg national account number and the Luxembourg IBAN
+   /// LUkk BBBC CCCC CCCC CCCC
    /// </summary>
-   public class SerbiaIBANConvert : AccountAndBankCodeNumberIBANConvert
+   public class LuxembourgIBANConvert : AccountAndBankCodeNumberIBANConvert
    {
       /// <summary>
       /// 
       /// </summary>
-      public const string Prefix = "RS";
+      public const string Prefix = "LU";
 
       /// <summary>
       /// Returns the 2-char country prefix for the IBAN
@@ -36,7 +36,7 @@ namespace AccountNumberTools.IBAN.Internals
       /// 0 - replaced with the bank code
       /// 1 - replaced with the account number
       /// </summary>
-      protected override string BBANFormatString { get { return "{0,3}{1,15}272800"; } }
+      protected override string BBANFormatString { get { return "{0,3}{1,13}213000"; } }
 
       /// <summary>
       /// Gets the IBAN format string.
@@ -46,12 +46,12 @@ namespace AccountNumberTools.IBAN.Internals
       /// 2 - replaced with the bank code
       /// 3 - replaced with the account number
       /// </summary>
-      protected override string IBANFormatString { get { return "{0}{1:00}{2,3}{3,15}"; } }
+      protected override string IBANFormatString { get { return "{0}{1:00}{2,3}{3,13}"; } }
 
       /// <summary>
       /// Gets the length of the IBAN.
       /// </summary>
-      protected override int IBANLength { get { return 22; } }
+      protected override int IBANLength { get { return 20; } }
 
       /// <summary>
       /// Cuts the bank code out of the IBAN.
@@ -70,7 +70,7 @@ namespace AccountNumberTools.IBAN.Internals
       /// <returns></returns>
       protected override string CutAccountNumber(string cleanIBAN)
       {
-         return cleanIBAN.Substring(7, 15).TrimStart('0');
+         return cleanIBAN.Substring(7, 13).TrimStart('0');
       }
 
       /// <summary>
@@ -80,7 +80,7 @@ namespace AccountNumberTools.IBAN.Internals
       /// <returns></returns>
       protected override AccountAndBankCodeNumber CreateInstance(NationalAccountNumber other)
       {
-         return other == null ? new SerbiaAccountNumber() : new SerbiaAccountNumber(other);
+         return other == null ? new LuxembourgAccountNumber() : new LuxembourgAccountNumber(other);
       }
    }
 }
