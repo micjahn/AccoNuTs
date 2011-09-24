@@ -17,7 +17,7 @@ namespace AccountNumberTools.IBAN.Internals
    /// <summary>
    /// a new class
    /// </summary>
-   public abstract class AccountAndBankCodeNumberIBANConvert : CountrySpecificIBANConvert
+   public abstract class AccountBankCodeAndBranchIBANConvert : CountrySpecificIBANConvert
    {
       private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
@@ -36,20 +36,23 @@ namespace AccountNumberTools.IBAN.Internals
 
          var bankCode = OnlyAllowedCharacters(abAccountNumber.BankCode);
          var accountNumber = OnlyAllowedCharacters(abAccountNumber.AccountNumber);
+         var branchCode = OnlyAllowedCharacters(abAccountNumber.Branch);
 
          if (String.IsNullOrEmpty(bankCode))
             throw new ArgumentException("The bank code is missing.");
+         if (String.IsNullOrEmpty(branchCode))
+            throw new ArgumentException("The branch code is missing.");
          if (String.IsNullOrEmpty(accountNumber))
             throw new ArgumentException("The account number is missing.");
 
-         var bban = String.Format(BBANFormatString, bankCode, accountNumber);
+         var bban = String.Format(BBANFormatString, bankCode, branchCode, accountNumber);
          bban = bban.Replace(' ', '0');
          bban = ConvertCharactersToNumbers(bban);
 
          Log.DebugFormat("calculating checksum for bban {0}", bban);
 
          var modulo = 98 - CalculateModulo(bban);
-         var iban = String.Format(IBANFormatString, IBANPrefix, modulo, bankCode, accountNumber);
+         var iban = String.Format(IBANFormatString, IBANPrefix, modulo, bankCode, branchCode, accountNumber);
          iban = iban.Replace(' ', '0');
 
          Log.DebugFormat("generated IBAN: {0}", iban);
@@ -72,11 +75,12 @@ namespace AccountNumberTools.IBAN.Internals
             throw new ArgumentNullException("iban");
 
          if (cleanIBAN.Length != IBANLength)
-            throw new ArgumentException(String.Format("{0} isn't a valid iban.", iban));
+            throw new ArgumentException(String.Format("{0} isn't a valid iban. It should be {1} characters long but has only {2}.", cleanIBAN, IBANLength, cleanIBAN.Length));
 
          var result = CreateInstance(null);
          result.BankCode = CutBankCode(cleanIBAN);
          result.AccountNumber = CutAccountNumber(cleanIBAN);
+         result.Branch = CutBranch(cleanIBAN);
 
          return result;
       }
@@ -96,10 +100,17 @@ namespace AccountNumberTools.IBAN.Internals
       protected abstract string CutAccountNumber(string cleanIBAN);
 
       /// <summary>
+      /// Cuts the branch out of the IBAN.
+      /// </summary>
+      /// <param name="cleanIBAN">The clean IBAN.</param>
+      /// <returns></returns>
+      protected abstract string CutBranch(string cleanIBAN);
+
+      /// <summary>
       /// Should create a new instance of the country specific account number
       /// </summary>
       /// <param name="other">another instance which should be wrapped. can be null</param>
       /// <returns></returns>
-      protected abstract AccountAndBankCodeNumber CreateInstance(NationalAccountNumber other);
+      protected abstract AccountBankCodeAndBranchNumber CreateInstance(NationalAccountNumber other);
    }
 }

@@ -57,10 +57,15 @@ namespace AccountNumberTools.Tests.IBAN
          }
       }
 
+      [TestCase("AL47212110090000000235698741", Country.Albania, "212", "1100", "90000000235698741")]
+      [TestCase("AD1200012030200359100100", Country.Andorra, "1", "2030", "200359100100")]
       [TestCase("AT611904300234573201", Country.Austria, "19043", "234573201")]
       [TestCase("BH88BMAG00001299123456", Country.Bahrain, "BMAG", "1299123456")]
       [TestCase("BE68539007547034", Country.Belgium, "539", "7547034")]
+      [TestCase("BA391290079401028494", Country.BosniaAndHerzegovina, "129", "7", "9401028494")]
       [TestCase("HR1210010051863000160", Country.Croatia, "1001005", "1863000160")]
+      [TestCase("CY17002001280000001200527600", Country.Cyprus, "2", "128", "1200527600")]
+      [TestCase("CZ6508000000192000145399", Country.CzechRepublic, "800", "19", "2000145399")]
       [TestCase("DK5000400440116243", Country.Denmark, "40", "440116243")]
       [TestCase("DO28BAGR00000001212453611324", Country.DominicanRepublic, "BAGR", "1212453611324")]
       [TestCase("FO2000400440116243", Country.FaroeIslands, "40", "440116243")]
@@ -90,10 +95,15 @@ namespace AccountNumberTools.Tests.IBAN
          Assert.AreEqual(expectedIBAN, result);
       }
 
+      [TestCase("AL47 2121 1009 0000 0002 3569 8741", Country.Albania, "212", "1100", "90000000235698741")]
+      [TestCase("AD12 0001 2030 2003 5910 0100", Country.Andorra, "1", "2030", "200359100100")]
       [TestCase("AT61 1904 3002 3457 3201", Country.Austria, "19043", "234573201")]
       [TestCase("BH88 BMAG 0000 1299 1234 56", Country.Bahrain, "BMAG", "1299123456")]
       [TestCase("BE68 5390 0754 7034", Country.Belgium, "539", "7547034")]
+      [TestCase("BA39 1290 0794 0102 8494", Country.BosniaAndHerzegovina, "129", "7", "9401028494")]
       [TestCase("HR12 1001 0051 8630 0016 0", Country.Croatia, "1001005", "1863000160")]
+      [TestCase("CY17 0020 0128 0000 0012 0052 7600", Country.Cyprus, "2", "128", "1200527600")]
+      [TestCase("CZ65 0800 0000 1920 0014 5399", Country.CzechRepublic, "800", "19", "2000145399")]
       [TestCase("DK50 0040 0440 1162 43", Country.Denmark, "40", "440116243")]
       [TestCase("DO28 BAGR 0000 0001 2124 5361 1324", Country.DominicanRepublic, "BAGR", "1212453611324")]
       [TestCase("FO20 0040 0440 1162 43", Country.FaroeIslands, "40", "440116243")]

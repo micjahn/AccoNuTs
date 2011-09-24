@@ -81,11 +81,17 @@
     <Compile Include="IBAN\IBANConvert.cs" />
     <Compile Include="IBAN\IBANTools.cs" />
     <Compile Include="IBAN\Internals\AccountAndBankCodeNumberIBANConvert.cs" />
+    <Compile Include="IBAN\Internals\AccountBankCodeAndBranchIBANConvert.cs" />
+    <Compile Include="IBAN\Internals\AlbaniaIBANConvert.cs" />
+    <Compile Include="IBAN\Internals\AndorraIBANConvert.cs" />
     <Compile Include="IBAN\Internals\AustriaIBANConvert.cs" />
     <Compile Include="IBAN\Internals\BahrainIBANConvert.cs" />
     <Compile Include="IBAN\Internals\BelgiumIBANConvert.cs" />
+    <Compile Include="IBAN\Internals\BosniaAndHerzegovinaIBANConvert.cs" />
     <Compile Include="IBAN\Internals\CountrySpecificIBANConvert.cs" />
     <Compile Include="IBAN\Internals\CroatiaIBANConvert.cs" />
+    <Compile Include="IBAN\Internals\CyprusIBANConvert.cs" />
+    <Compile Include="IBAN\Internals\CzechRepublicIBANConvert.cs" />
     <Compile Include="IBAN\Internals\DenmarkIBANConvert.cs" />
     <Compile Include="IBAN\Internals\DominicanRepublicIBANConvert.cs" />
     <Compile Include="IBAN\Internals\FaroeIslandsIBANConvert.cs" />

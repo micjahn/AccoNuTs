@@ -19,9 +19,9 @@ using System.Text;
 namespace AccountNumberTools.IBAN.Internals
 {
    /// <summary>
-   /// a new class
+   /// base class for some specialized IBAN converter classes with some common methods and properties
    /// </summary>
-   public class CountrySpecificIBANConvert : ICountrySpecificIBANConvert
+   public abstract class CountrySpecificIBANConvert : ICountrySpecificIBANConvert
    {
       /*
        * A - 10
@@ -54,6 +54,35 @@ namespace AccountNumberTools.IBAN.Internals
       private static readonly IDictionary<char, int> characterMap;
       private static readonly Regex regexOnlyAllowedCharacters = new Regex("[^0-9a-zA-Z]+");
       private static readonly Regex regexOnlyIBANDigits = new Regex("[^0-9A-Z]+");
+
+      /// <summary>
+      /// Returns the 2-char country prefix for the IBAN
+      /// </summary>
+      protected abstract string IBANPrefix { get; }
+
+      /// <summary>
+      /// Gets the BBAN format string for calculating the check digit.
+      /// Should be of the format {0:0...}{1:0...}131400 for DE-IBAN.
+      /// Replace 1314 with the country specific numbers.
+      /// 0 - replaced with the bank code
+      /// 1 - replaced with the account number
+      /// </summary>
+      protected abstract string BBANFormatString { get; }
+
+      /// <summary>
+      /// Gets the IBAN format string.
+      /// Should be of the format {0}{1:00}{2:0...}{3:0...}
+      /// 0 - replaced with the IBAN country prefix
+      /// 1 - replaced with the check digit
+      /// 2 - replaced with the bank code
+      /// 3 - replaced with the account number
+      /// </summary>
+      protected abstract string IBANFormatString { get; }
+
+      /// <summary>
+      /// Gets the length of the IBAN.
+      /// </summary>
+      protected abstract int IBANLength { get; }
 
       static CountrySpecificIBANConvert()
       {

@@ -32,10 +32,15 @@ namespace AccountNumberTools.IBAN
       {
          specificConverters = new Dictionary<Country, ICountrySpecificIBANConvert>
                                  {
+                                    {Country.Albania, new AlbaniaIBANConvert()},
+                                    {Country.Andorra, new AndorraIBANConvert()},
                                     {Country.Austria, new AustriaIBANConvert()},
                                     {Country.Bahrain, new BahrainIBANConvert()},
                                     {Country.Belgium, new BelgiumIBANConvert()},
+                                    {Country.BosniaAndHerzegovina, new BosniaAndHerzegovinaIBANConvert()},
                                     {Country.Croatia, new CroatiaIBANConvert()},
+                                    {Country.Cyprus, new CyprusIBANConvert()},
+                                    {Country.CzechRepublic, new CzechRepublicIBANConvert()},
                                     {Country.Denmark, new DenmarkIBANConvert()},
                                     {Country.DominicanRepublic, new DominicanRepublicIBANConvert()},
                                     {Country.FaroeIslands, new FaroeIslandsIBANConvert()},
@@ -60,10 +65,15 @@ namespace AccountNumberTools.IBAN
 
          prefixCountryMapping = new Dictionary<string, Country>
                                    {
+                                      {AlbaniaIBANConvert.Prefix, Country.Albania},
+                                      {AndorraIBANConvert.Prefix, Country.Andorra},
                                       {AustriaIBANConvert.Prefix, Country.Austria},
                                       {BahrainIBANConvert.Prefix, Country.Bahrain},
                                       {BelgiumIBANConvert.Prefix, Country.Belgium},
+                                      {BosniaAndHerzegovinaIBANConvert.Prefix, Country.BosniaAndHerzegovina},
                                       {CroatiaIBANConvert.Prefix, Country.Croatia},
+                                      {CyprusIBANConvert.Prefix, Country.Cyprus},
+                                      {CzechRepublicIBANConvert.Prefix, Country.CzechRepublic},
                                       {DenmarkIBANConvert.Prefix, Country.Denmark},
                                       {DominicanRepublicIBANConvert.Prefix, Country.DominicanRepublic},
                                       {FaroeIslandsIBANConvert.Prefix, Country.FaroeIslands},
