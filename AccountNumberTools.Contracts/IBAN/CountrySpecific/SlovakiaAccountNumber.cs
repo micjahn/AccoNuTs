@@ -25,7 +25,28 @@ namespace AccountNumberTools.IBAN.Contracts.CountrySpecific
       /// </value>
       [Category("Account")]
       public string SortCode { get; set; }
-      
+
+      /// <summary>
+      /// Gets or sets the parts.
+      /// </summary>
+      /// <value>
+      /// The parts.
+      /// </value>
+      [Browsable(false)]
+      public override string[] Parts
+      {
+         get
+         {
+            return new[] { BankCode, SortCode, AccountNumber };
+         }
+         set
+         {
+            BankCode = value.Length > 0 ? value[0] : null;
+            SortCode = value.Length > 1 ? value[1] : null;
+            AccountNumber = value.Length > 2 ? value[2] : null;
+         }
+      }
+
       /// <summary>
       /// Initializes a new instance of the <see cref="SlovakiaAccountNumber"/> class.
       /// </summary>

@@ -117,8 +117,12 @@
     <Compile Include="IBAN\Internals\MontenegroIBANConvert.cs" />
     <Compile Include="IBAN\Internals\NorwayIBANConvert.cs" />
     <Compile Include="IBAN\Internals\PolandIBANConvert.cs" />
+    <Compile Include="IBAN\Internals\PortugalIBANConvert.cs" />
     <Compile Include="IBAN\Internals\SaudiArabiaIBANConvert.cs" />
     <Compile Include="IBAN\Internals\SerbiaIBANConvert.cs" />
+    <Compile Include="IBAN\Internals\SlovakiaIBANConvert.cs" />
+    <Compile Include="IBAN\Internals\SloveniaIBANConvert.cs" />
+    <Compile Include="IBAN\Internals\SpainIBANConvert.cs" />
     <Compile Include="IBAN\Internals\SwedenIBANConvert.cs" />
     <Compile Include="IBAN\Internals\SwitzerlandIBANConvert.cs" />
     <Compile Include="IBAN\Internals\UnitedArabEmiratesIBANConvert.cs" />
