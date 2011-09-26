@@ -78,6 +78,11 @@ namespace AccountNumberTools.IBAN.Internals
          result.BankCode = CutBankCode(cleanIBAN);
          result.AccountNumber = CutAccountNumber(cleanIBAN);
 
+         if (String.IsNullOrEmpty(result.BankCode))
+            result.BankCode = "0";
+         if (String.IsNullOrEmpty(result.AccountNumber))
+            result.AccountNumber = "0";
+
          return result;
       }
 

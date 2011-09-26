@@ -82,6 +82,13 @@ namespace AccountNumberTools.IBAN.Internals
          result.AccountNumber = CutAccountNumber(cleanIBAN);
          result.Branch = CutBranch(cleanIBAN);
 
+         if (String.IsNullOrEmpty(result.BankCode))
+            result.BankCode = "0";
+         if (String.IsNullOrEmpty(result.AccountNumber))
+            result.AccountNumber = "0";
+         if (String.IsNullOrEmpty(result.Branch))
+            result.Branch = "0";
+
          return result;
       }
 
