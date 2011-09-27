@@ -90,6 +90,7 @@
     <Compile Include="IBAN\Internals\BahrainIBANConvert.cs" />
     <Compile Include="IBAN\Internals\BelgiumIBANConvert.cs" />
     <Compile Include="IBAN\Internals\BosniaAndHerzegovinaIBANConvert.cs" />
+    <Compile Include="IBAN\Internals\BulgariaIBANConvert.cs" />
     <Compile Include="IBAN\Internals\CountrySpecificIBANConvert.cs" />
     <Compile Include="IBAN\Internals\CroatiaIBANConvert.cs" />
     <Compile Include="IBAN\Internals\CyprusIBANConvert.cs" />
@@ -102,9 +103,11 @@
     <Compile Include="IBAN\Internals\FranceIBANConvert.cs" />
     <Compile Include="IBAN\Internals\GeorgiaIBANConvert.cs" />
     <Compile Include="IBAN\Internals\GermanIBANConvert.cs" />
+    <Compile Include="IBAN\Internals\GibraltarIBANConvert.cs" />
     <Compile Include="IBAN\Internals\GreeceIBANConvert.cs" />
     <Compile Include="IBAN\Internals\GreenlandIBANConvert.cs" />
     <Compile Include="IBAN\Internals\HungaryIBANConvert.cs" />
+    <Compile Include="IBAN\Internals\IcelandIBANConvert.cs" />
     <Compile Include="IBAN\Internals\IrelandIBANConvert.cs" />
     <Compile Include="IBAN\Internals\IsraelIBANConvert.cs" />
     <Compile Include="IBAN\Internals\ItalyIBANConvert.cs" />

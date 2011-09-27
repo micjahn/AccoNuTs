@@ -25,7 +25,29 @@ namespace AccountNumberTools.IBAN.Contracts.CountrySpecific
       /// </value>
       [Category("Account")]
       public string AccountType { get; set; }
-      
+
+      /// <summary>
+      /// Gets or sets the parts.
+      /// </summary>
+      /// <value>
+      /// The parts.
+      /// </value>
+      [Browsable(false)]
+      public override string[] Parts
+      {
+         get
+         {
+            return new[] { BIC, Branch, AccountType, AccountNumber };
+         }
+         set
+         {
+            BIC = value.Length > 0 ? value[0] : null;
+            Branch = value.Length > 1 ? value[1] : null;
+            AccountType = value.Length > 2 ? value[2] : null;
+            AccountNumber = value.Length > 3 ? value[3] : null;
+         }
+      }
+
       /// <summary>
       /// Initializes a new instance of the <see cref="BulgariaAccountNumber"/> class.
       /// </summary>

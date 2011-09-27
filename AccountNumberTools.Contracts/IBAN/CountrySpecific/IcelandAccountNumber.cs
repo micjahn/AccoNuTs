@@ -25,7 +25,29 @@ namespace AccountNumberTools.IBAN.Contracts.CountrySpecific
       /// </value>
       [Category("Account")]
       public string HoldersNationalId { get; set; }
-      
+
+      /// <summary>
+      /// Gets or sets the parts.
+      /// </summary>
+      /// <value>
+      /// The parts.
+      /// </value>
+      [Browsable(false)]
+      public override string[] Parts
+      {
+         get
+         {
+            return new[] { BankCode, Branch, AccountNumber, HoldersNationalId };
+         }
+         set
+         {
+            BankCode = value.Length > 0 ? value[0] : null;
+            Branch = value.Length > 1 ? value[1] : null;
+            AccountNumber = value.Length > 2 ? value[2] : null;
+            HoldersNationalId = value.Length > 3 ? value[3] : null;
+         }
+      }
+
       /// <summary>
       /// Initializes a new instance of the <see cref="IcelandAccountNumber"/> class.
       /// </summary>
