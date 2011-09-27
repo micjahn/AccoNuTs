@@ -74,7 +74,10 @@ namespace AccountNumberTools.IBAN
                                     {Country.Spain, new SpainIBANConvert()},
                                     {Country.Sweden, new SwedenIBANConvert()},
                                     {Country.Switzerland, new SwitzerlandIBANConvert()},
-                                    {Country.UnitedArabEmirates, new UnitedArabEmiratesIBANConvert()}
+                                    {Country.Tunisia, new TunisiaIBANConvert()},
+                                    {Country.Turkey, new TurkeyIBANConvert()},
+                                    {Country.UnitedArabEmirates, new UnitedArabEmiratesIBANConvert()},
+                                    {Country.UnitedKingdom, new UnitedKingdomIBANConvert()}
                                  };
 
          prefixCountryMapping = new Dictionary<string, Country>
@@ -121,7 +124,10 @@ namespace AccountNumberTools.IBAN
                                       {SpainIBANConvert.Prefix, Country.Spain},
                                       {SwedenIBANConvert.Prefix, Country.Sweden},
                                       {SwitzerlandIBANConvert.Prefix, Country.Switzerland},
-                                      {UnitedArabEmiratesIBANConvert.Prefix, Country.UnitedArabEmirates}
+                                      {TunisiaIBANConvert.Prefix, Country.Tunisia},
+                                      {TurkeyIBANConvert.Prefix, Country.Turkey},
+                                      {UnitedArabEmiratesIBANConvert.Prefix, Country.UnitedArabEmirates},
+                                      {UnitedKingdomIBANConvert.Prefix, Country.UnitedKingdom}
                                    };
       }
 

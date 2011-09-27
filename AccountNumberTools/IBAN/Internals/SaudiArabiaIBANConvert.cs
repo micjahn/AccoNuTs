@@ -17,7 +17,7 @@ namespace AccountNumberTools.IBAN.Internals
    /// converts between a Saudi Arabia national account number and the Saudi Arabia IBAN
    /// SAkk BBCC CCCC CCCC CCCC CCCC
    /// </summary>
-   public class SaudiArabiaIBANConvert : AccountAndBankCodeNumberIBANConvert
+   public class SaudiArabiaIBANConvert : AccountAndBankCodeIBANConvert
    {
       /// <summary>
       /// 

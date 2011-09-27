@@ -17,7 +17,7 @@ namespace AccountNumberTools.IBAN.Internals
    /// converts between a Liechtenstein national account number and the Liechtenstein IBAN
    /// LIkk BBBB BCCC CCCC CCCC C
    /// </summary>
-   public class LiechtensteinIBANConvert : AccountAndBankCodeNumberIBANConvert
+   public class LiechtensteinIBANConvert : AccountAndBankCodeIBANConvert
    {
       /// <summary>
       /// 

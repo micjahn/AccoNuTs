@@ -17,7 +17,7 @@ namespace AccountNumberTools.IBAN.Internals
    /// converts between a Luxembourg national account number and the Luxembourg IBAN
    /// LUkk BBBC CCCC CCCC CCCC
    /// </summary>
-   public class LuxembourgIBANConvert : AccountAndBankCodeNumberIBANConvert
+   public class LuxembourgIBANConvert : AccountAndBankCodeIBANConvert
    {
       /// <summary>
       /// 

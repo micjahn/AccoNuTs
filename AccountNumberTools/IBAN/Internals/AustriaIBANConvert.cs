@@ -17,7 +17,7 @@ namespace AccountNumberTools.IBAN.Internals
    /// converts between a Austria national account number and the Austria IBAN
    /// ATkk BBBB BCCC CCCC CCCC
    /// </summary>
-   public class AustriaIBANConvert : AccountAndBankCodeNumberIBANConvert
+   public class AustriaIBANConvert : AccountAndBankCodeIBANConvert
    {
       /// <summary>
       /// 

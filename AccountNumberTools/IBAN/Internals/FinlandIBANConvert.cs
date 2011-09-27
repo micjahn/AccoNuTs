@@ -17,7 +17,7 @@ namespace AccountNumberTools.IBAN.Internals
    /// converts between a Finland national account number and the Finland IBAN
    /// FIkk BBBB BBCC CCCC CK
    /// </summary>
-   public class FinlandIBANConvert : AccountAndBankCodeNumberIBANConvert
+   public class FinlandIBANConvert : AccountAndBankCodeIBANConvert
    {
       /// <summary>
       /// 

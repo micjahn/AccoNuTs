@@ -17,7 +17,7 @@ namespace AccountNumberTools.IBAN.Internals
    /// converts between a Lebanon national account number and the Lebanon IBAN
    /// LBkk BBBB AAAA AAAA AAAA AAAA AAAA
    /// </summary>
-   public class LebanonIBANConvert : AccountAndBankCodeNumberIBANConvert
+   public class LebanonIBANConvert : AccountAndBankCodeIBANConvert
    {
       /// <summary>
       /// 

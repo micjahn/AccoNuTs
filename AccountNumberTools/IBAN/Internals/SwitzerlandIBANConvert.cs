@@ -17,7 +17,7 @@ namespace AccountNumberTools.IBAN.Internals
    /// converts between a Switzerland national account number and the Switzerland IBAN
    /// CHkk BBBB BCCC CCCC CCCC C
    /// </summary>
-   public class SwitzerlandIBANConvert : AccountAndBankCodeNumberIBANConvert
+   public class SwitzerlandIBANConvert : AccountAndBankCodeIBANConvert
    {
       /// <summary>
       /// 

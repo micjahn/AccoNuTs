@@ -17,7 +17,7 @@ namespace AccountNumberTools.IBAN.Internals
    /// converts between a Georgia national account number and the Georgia IBAN
    /// GEkk BBCC CCCC CCCC CCCC CC
    /// </summary>
-   public class GeorgiaIBANConvert : AccountAndBankCodeNumberIBANConvert
+   public class GeorgiaIBANConvert : AccountAndBankCodeIBANConvert
    {
       /// <summary>
       /// 

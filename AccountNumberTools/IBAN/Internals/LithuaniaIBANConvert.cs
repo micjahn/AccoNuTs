@@ -17,7 +17,7 @@ namespace AccountNumberTools.IBAN.Internals
    /// converts between a Lithuania national account number and the Lithuania IBAN
    /// LTkk BBBB BCCC CCCC CCCC
    /// </summary>
-   public class LithuaniaIBANConvert : AccountAndBankCodeNumberIBANConvert
+   public class LithuaniaIBANConvert : AccountAndBankCodeIBANConvert
    {
       /// <summary>
       /// 

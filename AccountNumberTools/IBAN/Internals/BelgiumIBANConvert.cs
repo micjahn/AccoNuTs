@@ -17,7 +17,7 @@ namespace AccountNumberTools.IBAN.Internals
    /// converts between a Belgium national account number and the Belgium IBAN
    /// BEkk BBBC CCCC CCKK
    /// </summary>
-   public class BelgiumIBANConvert : AccountAndBankCodeNumberIBANConvert
+   public class BelgiumIBANConvert : AccountAndBankCodeIBANConvert
    {
       /// <summary>
       /// 

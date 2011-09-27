@@ -17,7 +17,7 @@ namespace AccountNumberTools.IBAN.Internals
    /// converts between a Montenegro national account number and the Montenegro IBAN
    /// MEkk BBBC CCCC CCCC CCCC CC
    /// </summary>
-   public class MontenegroIBANConvert : AccountAndBankCodeNumberIBANConvert
+   public class MontenegroIBANConvert : AccountAndBankCodeIBANConvert
    {
       /// <summary>
       /// 

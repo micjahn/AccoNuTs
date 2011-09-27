@@ -17,7 +17,7 @@ namespace AccountNumberTools.IBAN.Internals
    /// converts between a german national account number and the german IBAN
    /// DEkk BBBB BBBB CCCC CCCC CC
    /// </summary>
-   public class GermanIBANConvert : AccountAndBankCodeNumberIBANConvert
+   public class GermanIBANConvert : AccountAndBankCodeIBANConvert
    {
       /// <summary>
       /// 

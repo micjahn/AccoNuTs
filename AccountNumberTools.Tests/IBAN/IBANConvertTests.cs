@@ -99,7 +99,10 @@ namespace AccountNumberTools.Tests.IBAN
       [TestCase("ES9121000418450200051332", Country.Spain, "2100", "418", "450200051332")]
       [TestCase("SE4550000000058398257466", Country.Sweden, "500", "58398257466")]
       [TestCase("CH9300762011623852957", Country.Switzerland, "762", "11623852957")]
+      [TestCase("TN5914207207100707129648", Country.Tunisia, "14", "207", "207100707129648")]
+      [TestCase("TR330006100519786457841326", Country.Turkey, "61", "519786457841326")]
       [TestCase("AE070331234567890123456", Country.UnitedArabEmirates, "33", "1234567890123456")]
+      [TestCase("GB29NWBK60161331926819", Country.UnitedKingdom, "NWBK", "601613", "31926819")]
       public void Should_Convert_A_National_Account_Number_To_An_IBAN(string expectedIBAN, Country country, params string[] parts)
       {
          var sut = SuT;
@@ -152,7 +155,10 @@ namespace AccountNumberTools.Tests.IBAN
       [TestCase("ES91 2100 0418 4502 0005 1332", Country.Spain, "2100", "418", "450200051332")]
       [TestCase("SE45 5000 0000 0583 9825 7466", Country.Sweden, "500", "58398257466")]
       [TestCase("CH93 0076 2011 6238 5295 7", Country.Switzerland, "762", "11623852957")]
+      [TestCase("TN59 1420 7207 1007 0712 9648", Country.Tunisia, "14", "207", "207100707129648")]
+      [TestCase("TR33 0006 1005 1978 6457 8413 26", Country.Turkey, "61", "519786457841326")]
       [TestCase("AE07 0331 2345 6789 0123 456", Country.UnitedArabEmirates, "33", "1234567890123456")]
+      [TestCase("GB29 NWBK 6016 1331 9268 19", Country.UnitedKingdom, "NWBK", "601613", "31926819")]
       public void Should_Convert_An_IBAN_To_A_National_Account_Number(string givenIBAN, Country country, params string[] parts)
       {
          var sut = SuT;

@@ -80,8 +80,9 @@
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="IBAN\IBANConvert.cs" />
     <Compile Include="IBAN\IBANTools.cs" />
-    <Compile Include="IBAN\Internals\AccountAndBankCodeNumberIBANConvert.cs" />
+    <Compile Include="IBAN\Internals\AccountAndBankCodeIBANConvert.cs" />
     <Compile Include="IBAN\Internals\AccountBankCodeAndBranchIBANConvert.cs" />
+    <Compile Include="IBAN\Internals\AccountBICAndBranchIBANConvert.cs" />
     <Compile Include="IBAN\Internals\AlbaniaIBANConvert.cs" />
     <Compile Include="IBAN\Internals\AndorraIBANConvert.cs" />
     <Compile Include="IBAN\Internals\AustriaIBANConvert.cs" />
@@ -125,7 +126,10 @@
     <Compile Include="IBAN\Internals\SpainIBANConvert.cs" />
     <Compile Include="IBAN\Internals\SwedenIBANConvert.cs" />
     <Compile Include="IBAN\Internals\SwitzerlandIBANConvert.cs" />
+    <Compile Include="IBAN\Internals\TunisiaIBANConvert.cs" />
+    <Compile Include="IBAN\Internals\TurkeyIBANConvert.cs" />
     <Compile Include="IBAN\Internals\UnitedArabEmiratesIBANConvert.cs" />
+    <Compile Include="IBAN\Internals\UnitedKingdomIBANConvert.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

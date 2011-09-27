@@ -17,7 +17,7 @@ namespace AccountNumberTools.IBAN.Internals
    /// converts between a Greenland national account number and the Greenland IBAN
    /// GLkk BBBB CCCC CCCC CC
    /// </summary>
-   public class GreenlandIBANConvert : AccountAndBankCodeNumberIBANConvert
+   public class GreenlandIBANConvert : AccountAndBankCodeIBANConvert
    {
       /// <summary>
       /// 

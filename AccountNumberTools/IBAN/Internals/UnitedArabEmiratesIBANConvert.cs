@@ -17,7 +17,7 @@ namespace AccountNumberTools.IBAN.Internals
    /// converts between a United Arab Emirates national account number and the United Arab Emirates IBAN
    /// AEkk BBBC CCCC CCCC CCCC CCC
    /// </summary>
-   public class UnitedArabEmiratesIBANConvert : AccountAndBankCodeNumberIBANConvert
+   public class UnitedArabEmiratesIBANConvert : AccountAndBankCodeIBANConvert
    {
       /// <summary>
       /// 

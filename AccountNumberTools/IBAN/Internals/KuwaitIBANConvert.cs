@@ -17,7 +17,7 @@ namespace AccountNumberTools.IBAN.Internals
    /// converts between a Kuwait national account number and the Kuwait IBAN
    /// KWkk BBBB AAAA AAAA AAAA AAAA AAAA AA
    /// </summary>
-   public class KuwaitIBANConvert : AccountAndBankCodeNumberIBANConvert
+   public class KuwaitIBANConvert : AccountAndBankCodeIBANConvert
    {
       /// <summary>
       /// 

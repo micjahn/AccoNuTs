@@ -17,7 +17,7 @@ namespace AccountNumberTools.IBAN.Internals
    /// converts between a Kazakhstan national account number and the Kazakhstan IBAN
    /// KZkk BBBC CCCC CCCC CCCC
    /// </summary>
-   public class KazakhstanIBANConvert : AccountAndBankCodeNumberIBANConvert
+   public class KazakhstanIBANConvert : AccountAndBankCodeIBANConvert
    {
       /// <summary>
       /// 

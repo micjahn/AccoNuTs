@@ -17,7 +17,7 @@ namespace AccountNumberTools.IBAN.Internals
    /// converts between a Dominican Republic national account number and the Dominican Republic IBAN
    /// DOkk BBBB CCCC CCCC CCCC CCCC CCCC
    /// </summary>
-   public class DominicanRepublicIBANConvert : AccountAndBankCodeNumberIBANConvert
+   public class DominicanRepublicIBANConvert : AccountAndBankCodeIBANConvert
    {
       /// <summary>
       /// 

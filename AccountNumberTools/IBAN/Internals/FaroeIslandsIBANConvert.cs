@@ -17,7 +17,7 @@ namespace AccountNumberTools.IBAN.Internals
    /// converts between a Faroe Islands national account number and the Faroe Islands IBAN
    /// FOkk BBBB CCCC CCCC CK
    /// </summary>
-   public class FaroeIslandsIBANConvert : AccountAndBankCodeNumberIBANConvert
+   public class FaroeIslandsIBANConvert : AccountAndBankCodeIBANConvert
    {
       /// <summary>
       /// 

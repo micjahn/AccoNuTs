@@ -17,7 +17,7 @@ namespace AccountNumberTools.IBAN.Internals
    /// converts between a Denmark national account number and the Denmark IBAN
    /// DKkk BBBB CCCC CCCC CC
    /// </summary>
-   public class DenmarkIBANConvert : AccountAndBankCodeNumberIBANConvert
+   public class DenmarkIBANConvert : AccountAndBankCodeIBANConvert
    {
       /// <summary>
       /// 

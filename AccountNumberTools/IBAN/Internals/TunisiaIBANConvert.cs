@@ -14,15 +14,15 @@ using AccountNumberTools.IBAN.Contracts.CountrySpecific;
 namespace AccountNumberTools.IBAN.Internals
 {
    /// <summary>
-   /// converts between a Norway national account number and the Norway IBAN
-   /// NOpp BBBB CCCC CCC
+   /// converts between a Tunisia national account number and the Tunisia IBAN
+   /// TNkk BBSS SCCC CCCC CCCC CCCC
    /// </summary>
-   public class NorwayIBANConvert : AccountAndBankCodeIBANConvert
+   public class TunisiaIBANConvert : AccountBankCodeAndBranchIBANConvert
    {
       /// <summary>
       /// 
       /// </summary>
-      public const string Prefix = "NO";
+      public const string Prefix = "TN";
 
       /// <summary>
       /// Returns the 2-char country prefix for the IBAN
@@ -36,7 +36,7 @@ namespace AccountNumberTools.IBAN.Internals
       /// 0 - replaced with the bank code
       /// 1 - replaced with the account number
       /// </summary>
-      protected override string BBANFormatString { get { return "{0,4}{1,7}232400"; } }
+      protected override string BBANFormatString { get { return "{0,2}{1,3}{2,15}292300"; } }
 
       /// <summary>
       /// Gets the IBAN format string.
@@ -46,12 +46,12 @@ namespace AccountNumberTools.IBAN.Internals
       /// 2 - replaced with the bank code
       /// 3 - replaced with the account number
       /// </summary>
-      protected override string IBANFormatString { get { return "{0}{1:00}{2,4}{3,7}"; } }
+      protected override string IBANFormatString { get { return "{0}{1:00}{2,2}{3,3}{4,15}"; } }
 
       /// <summary>
       /// Gets the length of the IBAN.
       /// </summary>
-      protected override int IBANLength { get { return 15; } }
+      protected override int IBANLength { get { return 24; } }
 
       /// <summary>
       /// Cuts the bank code out of the IBAN.
@@ -60,7 +60,17 @@ namespace AccountNumberTools.IBAN.Internals
       /// <returns></returns>
       protected override string CutBankCode(string cleanIBAN)
       {
-         return cleanIBAN.Substring(4, 4).TrimStart('0');
+         return cleanIBAN.Substring(4, 2).TrimStart('0');
+      }
+
+      /// <summary>
+      /// Cuts the branch out of the IBAN.
+      /// </summary>
+      /// <param name="cleanIBAN">The clean IBAN.</param>
+      /// <returns></returns>
+      protected override string CutBranch(string cleanIBAN)
+      {
+         return cleanIBAN.Substring(6, 3).TrimStart('0');
       }
 
       /// <summary>
@@ -70,7 +80,7 @@ namespace AccountNumberTools.IBAN.Internals
       /// <returns></returns>
       protected override string CutAccountNumber(string cleanIBAN)
       {
-         return cleanIBAN.Substring(8, 7).TrimStart('0');
+         return cleanIBAN.Substring(9, 15).TrimStart('0');
       }
 
       /// <summary>
@@ -78,9 +88,9 @@ namespace AccountNumberTools.IBAN.Internals
       /// </summary>
       /// <param name="other">another instance which should be wrapped. can be null</param>
       /// <returns></returns>
-      protected override AccountAndBankCodeNumber CreateInstance(NationalAccountNumber other)
+      protected override AccountBankCodeAndBranchNumber CreateInstance(NationalAccountNumber other)
       {
-         return other == null ? new NorwayAccountNumber() : new NorwayAccountNumber(other);
+         return other == null ? new TunisiaAccountNumber() : new TunisiaAccountNumber(other);
       }
    }
 }

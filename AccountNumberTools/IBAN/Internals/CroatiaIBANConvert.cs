@@ -17,7 +17,7 @@ namespace AccountNumberTools.IBAN.Internals
    /// converts between a Croatia national account number and the Croatia IBAN
    /// HRkk BBBB BBBC CCCC CCCC C
    /// </summary>
-   public class CroatiaIBANConvert : AccountAndBankCodeNumberIBANConvert
+   public class CroatiaIBANConvert : AccountAndBankCodeIBANConvert
    {
       /// <summary>
       /// 

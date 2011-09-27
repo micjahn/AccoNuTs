@@ -15,9 +15,9 @@ using AccountNumberTools.IBAN.Contracts;
 namespace AccountNumberTools.IBAN.Internals
 {
    /// <summary>
-   /// a new class
+   /// converter class for national account numbers which consist of bank code and account number
    /// </summary>
-   public abstract class AccountAndBankCodeNumberIBANConvert : CountrySpecificIBANConvert
+   public abstract class AccountAndBankCodeIBANConvert : CountrySpecificIBANConvert
    {
       private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 

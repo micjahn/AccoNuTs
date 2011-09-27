@@ -17,7 +17,7 @@ namespace AccountNumberTools.IBAN.Internals
    /// converts between a Bahrain national account number and the Bahrain IBAN
    /// BHkk BBBB SSSS SSSS SSSS SS
    /// </summary>
-   public class BahrainIBANConvert : AccountAndBankCodeNumberIBANConvert
+   public class BahrainIBANConvert : AccountAndBankCodeIBANConvert
    {
       /// <summary>
       /// 

@@ -17,7 +17,7 @@ namespace AccountNumberTools.IBAN.Internals
    /// converts between a Sweden national account number and the Sweden IBAN
    /// SEkk BBBC CCCC CCCC CCCC CCCC
    /// </summary>
-   public class SwedenIBANConvert : AccountAndBankCodeNumberIBANConvert
+   public class SwedenIBANConvert : AccountAndBankCodeIBANConvert
    {
       /// <summary>
       /// 

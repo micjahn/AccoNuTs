@@ -17,7 +17,7 @@ namespace AccountNumberTools.IBAN.Internals
    /// converts between a Serbia national account number and the Serbia IBAN
    /// RSkk BBBC CCCC CCCC CCCC CC
    /// </summary>
-   public class SerbiaIBANConvert : AccountAndBankCodeNumberIBANConvert
+   public class SerbiaIBANConvert : AccountAndBankCodeIBANConvert
    {
       /// <summary>
       /// 
