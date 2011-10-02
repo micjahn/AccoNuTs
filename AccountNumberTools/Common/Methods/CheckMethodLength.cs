@@ -17,17 +17,17 @@ namespace AccountNumberTools.Common.Methods
    /// <summary>
    /// Simple class to check only the length of a given number
    /// </summary>
-   public class CheckMethodLength : ICheckMethod
+   public class ValidationMethodLength : IValidationMethod
    {
       private int minLength;
       private int maxLength;
 
       /// <summary>
-      /// Initializes a new instance of the <see cref="CheckMethodLength"/> class.
+      /// Initializes a new instance of the <see cref="ValidationMethodLength"/> class.
       /// </summary>
       /// <param name="minLength">Length of the min.</param>
       /// <param name="maxLength">Length of the max.</param>
-      public CheckMethodLength(int minLength, int maxLength)
+      public ValidationMethodLength(int minLength, int maxLength)
       {
          this.minLength = minLength;
          this.maxLength = maxLength;

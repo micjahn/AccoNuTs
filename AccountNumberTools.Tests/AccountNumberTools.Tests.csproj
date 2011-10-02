@@ -59,21 +59,21 @@
     <Compile Include="..\Shared\GlobalAssemblyInfo.cs">
       <Link>Properties\GlobalAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="AccountNumber\AccountNumberCheckTests.cs" />
-    <Compile Include="AccountNumber\BankCodeMapToCheckMethodCodeByBankCodeFileTests.cs" />
-    <Compile Include="AccountNumber\CheckMethodCodeMapToMethodFactoryTests.cs" />
+    <Compile Include="AccountNumber\AccountNumberValidationByMethodCodeTests.cs" />
+    <Compile Include="AccountNumber\BankCodeMapToValidationMethodCodeByBankCodeFileTests.cs" />
+    <Compile Include="AccountNumber\ValidationMethodCodeMapToMethodFactoryTests.cs" />
     <Compile Include="CreditCard\CreditCardNetworkMapToMethodFactoryTests.cs" />
     <Compile Include="CreditCard\CreditCardNumberCheckTests.cs" />
-    <Compile Include="AccountNumber\Methods\CheckMethod00Tests.cs" />
-    <Compile Include="AccountNumber\Methods\CheckMethod01Tests.cs" />
-    <Compile Include="AccountNumber\Methods\CheckMethod02Tests.cs" />
-    <Compile Include="AccountNumber\Methods\CheckMethod03Tests.cs" />
-    <Compile Include="AccountNumber\Methods\CheckMethod04Tests.cs" />
-    <Compile Include="AccountNumber\Methods\CheckMethod05Tests.cs" />
-    <Compile Include="AccountNumber\Methods\CheckMethod06Tests.cs" />
-    <Compile Include="AccountNumber\Methods\CheckMethod07Tests.cs" />
-    <Compile Include="AccountNumber\Methods\CheckMethod08Tests.cs" />
-    <Compile Include="AccountNumber\Methods\CheckMethod09Tests.cs" />
+    <Compile Include="AccountNumber\Methods\ValidationMethod00Tests.cs" />
+    <Compile Include="AccountNumber\Methods\ValidationMethod01Tests.cs" />
+    <Compile Include="AccountNumber\Methods\ValidationMethod02Tests.cs" />
+    <Compile Include="AccountNumber\Methods\ValidationMethod03Tests.cs" />
+    <Compile Include="AccountNumber\Methods\ValidationMethod04Tests.cs" />
+    <Compile Include="AccountNumber\Methods\ValidationMethod05Tests.cs" />
+    <Compile Include="AccountNumber\Methods\ValidationMethod06Tests.cs" />
+    <Compile Include="AccountNumber\Methods\ValidationMethod07Tests.cs" />
+    <Compile Include="AccountNumber\Methods\ValidationMethod08Tests.cs" />
+    <Compile Include="AccountNumber\Methods\ValidationMethod09Tests.cs" />
     <Compile Include="Common\Methods\CheckMethodLengthTests.cs" />
     <Compile Include="CreditCard\Methods\CheckMethodLuhnTests.cs" />
     <Compile Include="IBAN\IBANConvertTests.cs" />

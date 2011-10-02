@@ -21,9 +21,9 @@ namespace AccountNumberTools.Tests.Methods
    [TestFixture]
    public class CheckMethodLuhnTests
    {
-      internal ICheckMethod GetSuT(int min, int max)
+      internal IValidationMethod GetSuT(int min, int max)
       {
-         return new CheckMethodLuhn(min, max);
+         return new ValidationMethodLuhn(min, max);
       }
 
       [TestCase("49927398716", 11, 11, true)]

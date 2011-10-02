@@ -54,11 +54,11 @@
       <Link>Properties\GlobalAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="CreditCard\CreditCardNetwork.cs" />
-    <Compile Include="AccountNumber\Validation\IAccountNumberCheckWithBankCode.cs" />
-    <Compile Include="AccountNumber\Validation\IAccountNumberCheckWithMethodCode.cs" />
-    <Compile Include="AccountNumber\Validation\IBankCodeMapToCheckMethodCode.cs" />
-    <Compile Include="Common\ICheckMethod.cs" />
-    <Compile Include="AccountNumber\Validation\ICheckMethodCodeMapToMethod.cs" />
+    <Compile Include="AccountNumber\Validation\IAccountNumberValidation.cs" />
+    <Compile Include="AccountNumber\Validation\IAccountNumberValidationByMethodCode.cs" />
+    <Compile Include="AccountNumber\Validation\IBankCodeMapToValidationMethodCode.cs" />
+    <Compile Include="Common\IValidationMethod.cs" />
+    <Compile Include="AccountNumber\Validation\IValidationMethodCodeMapToMethod.cs" />
     <Compile Include="CreditCard\ICreditCardNetworkMapToMethod.cs" />
     <Compile Include="CreditCard\ICreditCardNumberCheck.cs" />
     <Compile Include="CreditCard\ICreditCardNumberMapToNetwork.cs" />

@@ -21,9 +21,9 @@ namespace AccountNumberTools.Tests.Methods
    [TestFixture]
    public class CheckMethodLengthTests
    {
-      internal ICheckMethod GetSuT(int min, int max)
+      internal IValidationMethod GetSuT(int min, int max)
       {
-         return new CheckMethodLength(min, max);
+         return new ValidationMethodLength(min, max);
       }
 
       [TestCase("12345", 5, 5, true)]

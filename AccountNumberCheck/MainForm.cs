@@ -12,6 +12,7 @@ using System;
 using System.Windows.Forms;
 
 using AccountNumberTools.AccountNumber.Contracts;
+using AccountNumberTools.AccountNumber.Contracts.CountrySpecific;
 using AccountNumberTools.AccountNumber.IBAN;
 using AccountNumberTools.AccountNumber.IBAN.Contracts;
 using AccountNumberTools.AccountNumber.Validation.Contracts;
@@ -22,15 +23,15 @@ namespace AccountNumberCheck
 {
    public partial class MainForm : Form
    {
-      private IAccountNumberCheckWithBankCode germanAccountNumberCheck;
+      private IAccountNumberValidation germanAccountNumberCheck;
       private ICreditCardNumberCheck creditCardNumberCheck;
       private IIBANConvert ibanConverter;
 
-      private IAccountNumberCheckWithBankCode GermanAccountNumberCheck
+      private IAccountNumberValidation GermanAccountNumberCheck
       {
          get
          {
-            return germanAccountNumberCheck ?? (germanAccountNumberCheck = new AccountNumberTools.AccountNumber.Validation.AccountNumberCheck());
+            return germanAccountNumberCheck ?? (germanAccountNumberCheck = new AccountNumberTools.AccountNumber.Validation.AccountNumberValidation());
          }
       }
 
@@ -77,7 +78,8 @@ namespace AccountNumberCheck
 
       private void btnCheckGermanAccount_Click(object sender, EventArgs e)
       {
-         if (GermanAccountNumberCheck.IsValid(textGermanAccountNumber.Text, textBankCode.Text))
+         if (GermanAccountNumberCheck.IsValid(
+            new GermanyAccountNumber { AccountNumber = textGermanAccountNumber.Text, BankCode = textBankCode.Text }))
             labGermanAccountResult.Text = "Ok";
          else
             labGermanAccountResult.Text = "Fail";

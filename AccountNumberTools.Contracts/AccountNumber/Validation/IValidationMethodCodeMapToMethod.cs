@@ -10,18 +10,18 @@
 
 using AccountNumberTools.Common.Contracts;
 
-namespace AccountNumberTools.CreditCard.Contracts
+namespace AccountNumberTools.AccountNumber.Validation.Contracts
 {
    /// <summary>
-   /// interface to resolve the check method code for a given credit card network code
+   /// Interface for the mapping between a validation method code and a validation method implementation
    /// </summary>
-   public interface ICreditCardNetworkMapToMethod
+   public interface IValidationMethodCodeMapToMethod
    {
       /// <summary>
-      /// Resolves the specified check method for a credit card network.
+      /// Resolves the specified validation method by code.
       /// </summary>
-      /// <param name="creditCardNetwork">The credit card network code.</param>
+      /// <param name="validationMethodCode">The validation method code.</param>
       /// <returns></returns>
-      IValidationMethod Resolve(string creditCardNetwork);
+      IValidationMethod Resolve(string validationMethodCode);
    }
 }

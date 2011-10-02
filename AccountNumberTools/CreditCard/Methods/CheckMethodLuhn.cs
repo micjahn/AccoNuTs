@@ -16,18 +16,18 @@ namespace AccountNumberTools.CreditCard.Methods
    /// <summary>
    /// class to check a given credit number against the Luhn (mod 10) algorithm with a length check
    /// </summary>
-   public class CheckMethodLuhn : ICheckMethod
+   public class ValidationMethodLuhn : IValidationMethod
    {
       private readonly int[] doubleAndCrossSum = new [] { 0, 2, 4, 6, 8, 1, 3, 5, 7, 9 };
       private readonly int minLength;
       private readonly int maxLength;
 
       /// <summary>
-      /// Initializes a new instance of the <see cref="CheckMethodLuhn"/> class.
+      /// Initializes a new instance of the <see cref="ValidationMethodLuhn"/> class.
       /// </summary>
       /// <param name="minLength">Length of the min.</param>
       /// <param name="maxLength">Length of the max.</param>
-      public CheckMethodLuhn(int minLength, int maxLength)
+      public ValidationMethodLuhn(int minLength, int maxLength)
       {
          this.minLength = minLength;
          this.maxLength = maxLength;
