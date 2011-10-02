@@ -9,10 +9,12 @@
 //
 
 using System;
+
 using NUnit.Framework;
 
-using AccountNumberTools.IBAN;
-using AccountNumberTools.IBAN.Contracts;
+using AccountNumberTools.AccountNumber.IBAN;
+using AccountNumberTools.AccountNumber.IBAN.Contracts;
+using AccountNumberTools.Common.Contracts;
 
 namespace AccountNumberTools.Tests.IBAN
 {

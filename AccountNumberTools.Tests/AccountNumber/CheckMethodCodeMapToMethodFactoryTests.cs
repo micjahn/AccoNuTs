@@ -10,7 +10,7 @@
 
 using NUnit.Framework;
 
-namespace AccountNumberTools.AccountNumber.Tests
+namespace AccountNumberTools.AccountNumber.Validation.Tests
 {
    /// <summary>
    /// a new class

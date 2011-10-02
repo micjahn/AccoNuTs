@@ -12,9 +12,11 @@ using System;
 using System.Windows.Forms;
 
 using AccountNumberTools.AccountNumber.Contracts;
+using AccountNumberTools.AccountNumber.IBAN;
+using AccountNumberTools.AccountNumber.IBAN.Contracts;
+using AccountNumberTools.AccountNumber.Validation.Contracts;
+using AccountNumberTools.Common.Contracts;
 using AccountNumberTools.CreditCard.Contracts;
-using AccountNumberTools.IBAN.Contracts;
-using AccountNumberTools.IBAN;
 
 namespace AccountNumberCheck
 {
@@ -28,7 +30,7 @@ namespace AccountNumberCheck
       {
          get
          {
-            return germanAccountNumberCheck ?? (germanAccountNumberCheck = new AccountNumberTools.AccountNumber.AccountNumberCheck());
+            return germanAccountNumberCheck ?? (germanAccountNumberCheck = new AccountNumberTools.AccountNumber.Validation.AccountNumberCheck());
          }
       }
 
