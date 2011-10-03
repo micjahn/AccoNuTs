@@ -61,7 +61,9 @@
     </Compile>
     <Compile Include="AccountNumber\Validation\AccountNumberValidationByMethodCodeTests.cs" />
     <Compile Include="AccountNumber\Validation\BankCodeMapToValidationMethodCodeByBankCodeFileTests.cs" />
+    <Compile Include="AccountNumber\Validation\Internals\AlbaniaAccountNumberValidationTests.cs" />
     <Compile Include="AccountNumber\Validation\Methods\ValidationMethodMod97Tests.cs" />
+    <Compile Include="AccountNumber\Validation\Methods\ValidationMethodWeightedMod10Tests.cs" />
     <Compile Include="AccountNumber\Validation\ValidationMethodCodeMapToMethodFactoryTests.cs" />
     <Compile Include="AccountNumber\Validation\Internals\BelgiumAccountNumberValidationTests.cs" />
     <Compile Include="CreditCard\CreditCardNetworkMapToMethodFactoryTests.cs" />

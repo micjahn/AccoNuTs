@@ -19,23 +19,23 @@ namespace AccountNumberTools.AccountNumber.Validation.Internals
    /// <summary>
    /// class for checking german account numbers
    /// </summary>
-   internal class BelgiumAccountNumberValidation : IAccountNumberValidation
+   internal class AlbaniaAccountNumberValidation : IAccountNumberValidation
    {
       private readonly IValidationMethod validationMethod;
 
       /// <summary>
-      /// Initializes a new instance of the <see cref="BelgiumAccountNumberValidation"/> class.
+      /// Initializes a new instance of the <see cref="AlbaniaAccountNumberValidation"/> class.
       /// </summary>
-      public BelgiumAccountNumberValidation()
-         : this(new ValidationMethodMod97())
+      public AlbaniaAccountNumberValidation()
+         : this(new ValidationMethodWeightedMod10())
       {
       }
 
       /// <summary>
-      /// Initializes a new instance of the <see cref="BelgiumAccountNumberValidation"/> class.
+      /// Initializes a new instance of the <see cref="AlbaniaAccountNumberValidation"/> class.
       /// </summary>
       /// <param name="validationMethod">The validation method which should be used.</param>
-      public BelgiumAccountNumberValidation(IValidationMethod validationMethod)
+      public AlbaniaAccountNumberValidation(IValidationMethod validationMethod)
       {
          if (validationMethod == null)
             throw new ArgumentNullException("validationMethod");
@@ -47,8 +47,9 @@ namespace AccountNumberTools.AccountNumber.Validation.Internals
       /// is given as a full number including the hypothetical check digit.
       /// validation steps:
       /// * bank code can have 3 digits max
-      /// * account number can have 9 digits max (including the 2 check digits)
-      /// * check digits are valid
+      /// * branch code can have 5 digits max (including 1 check digit)
+      /// * account number can have 16 digits max
+      /// * check digit is valid
       /// </summary>
       /// <param name="accountNumber">The account number including the hypothetical check digit.</param>
       /// <returns>
@@ -59,22 +60,26 @@ namespace AccountNumberTools.AccountNumber.Validation.Internals
          if (accountNumber == null)
             throw new ArgumentNullException("accountNumber", "Please provide an account number.");
 
-         var belgiumAccountNumber = new BelgiumAccountNumber(accountNumber);
+         var albaniaAccountNumber = new AlbaniaAccountNumber(accountNumber);
 
-         if (String.IsNullOrEmpty(belgiumAccountNumber.AccountNumber))
+         if (String.IsNullOrEmpty(albaniaAccountNumber.AccountNumber))
             throw new ArgumentException("The account number is missing.", "accountNumber");
-         if (String.IsNullOrEmpty(belgiumAccountNumber.BankCode))
+         if (String.IsNullOrEmpty(albaniaAccountNumber.BankCode))
             throw new ArgumentException("The bank code is missing.", "accountNumber");
+         if (String.IsNullOrEmpty(albaniaAccountNumber.Branch))
+            throw new ArgumentException("The branch code is missing.", "accountNumber");
 
-         if (belgiumAccountNumber.BankCode.Length > 3)
+         if (albaniaAccountNumber.BankCode.Length > 3)
             return false;
-         if (belgiumAccountNumber.AccountNumber.Length > 9)
+         if (albaniaAccountNumber.Branch.Length > 5)
+            return false;
+         if (albaniaAccountNumber.AccountNumber.Length > 16)
             return false;
 
-         var accountNumberWithBankCode =
-            String.Format("{0,3}{1,9}", belgiumAccountNumber.BankCode, belgiumAccountNumber.AccountNumber).Replace(' ', '0');
+         var bankCodeWithBranch =
+            String.Format("{0,3}{1,5}", albaniaAccountNumber.BankCode, albaniaAccountNumber.Branch).Replace(' ', '0');
 
-         return validationMethod.IsValid(accountNumberWithBankCode);
+         return validationMethod.IsValid(bankCodeWithBranch);
       }
 
       /// <summary>
@@ -90,19 +95,17 @@ namespace AccountNumberTools.AccountNumber.Validation.Internals
          if (accountNumber == null)
             throw new ArgumentNullException("accountNumber", "Please provide an account number.");
 
-         var belgiumAccountNumber = new BelgiumAccountNumber(accountNumber);
+         var albaniaAccountNumber = new AlbaniaAccountNumber(accountNumber);
 
-         if (String.IsNullOrEmpty(belgiumAccountNumber.AccountNumber))
-            throw new ArgumentException("The account number is missing.", "accountNumber");
-         if (String.IsNullOrEmpty(belgiumAccountNumber.BankCode))
+         if (String.IsNullOrEmpty(albaniaAccountNumber.BankCode))
             throw new ArgumentException("The bank code is missing.", "accountNumber");
+         if (String.IsNullOrEmpty(albaniaAccountNumber.Branch))
+            throw new ArgumentException("The branch code is missing.", "accountNumber");
 
-         var accountNumberWithBankCode = 
-            String.Format("{0,3}{1,7}", belgiumAccountNumber.BankCode, belgiumAccountNumber.AccountNumber).Replace(' ', '0');
+         var bankCodeWithBranch =
+            String.Format("{0,3}{1,4}", albaniaAccountNumber.BankCode, albaniaAccountNumber.Branch).Replace(' ', '0');
 
-         var digits = validationMethod.CalculateCheckDigit(accountNumberWithBankCode);
-
-         return digits.Length < 2 ? "0" + digits : digits;
+         return validationMethod.CalculateCheckDigit(bankCodeWithBranch);
       }
    }
 }
