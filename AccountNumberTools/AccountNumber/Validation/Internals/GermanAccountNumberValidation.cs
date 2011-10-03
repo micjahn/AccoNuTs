@@ -14,7 +14,7 @@ using AccountNumberTools.AccountNumber.Contracts.CountrySpecific;
 using AccountNumberTools.AccountNumber.Internals;
 using AccountNumberTools.AccountNumber.Validation.Contracts;
 
-namespace AccountNumberTools.AccountNumber.Validation
+namespace AccountNumberTools.AccountNumber.Validation.Internals
 {
    /// <summary>
    /// class for checking german account numbers

@@ -10,17 +10,17 @@
 
 using System;
 
-using AccountNumberTools.Common.Contracts;
+using AccountNumberTools.AccountNumber.Validation.Contracts;
 
-namespace AccountNumberTools.Common.Methods
+namespace AccountNumberTools.AccountNumber.Validation.Methods
 {
    /// <summary>
    /// Simple class to check only the length of a given number
    /// </summary>
    public class ValidationMethodLength : IValidationMethod
    {
-      private int minLength;
-      private int maxLength;
+      private readonly int minLength;
+      private readonly int maxLength;
 
       /// <summary>
       /// Initializes a new instance of the <see cref="ValidationMethodLength"/> class.

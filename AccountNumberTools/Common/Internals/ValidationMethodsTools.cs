@@ -12,7 +12,7 @@ using System;
 
 namespace AccountNumberTools.Common.Internals
 {
-   internal static class CheckMethodsTools
+   internal static class ValidationMethodsTools
    {
       private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 

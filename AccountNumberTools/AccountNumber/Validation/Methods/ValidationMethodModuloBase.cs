@@ -8,7 +8,7 @@
 //   This Software is weak copyleft open source. Please read the License.txt for details.
 //
 
-using AccountNumberTools.Common.Contracts;
+using AccountNumberTools.AccountNumber.Validation.Contracts;
 using AccountNumberTools.Common.Internals;
 
 namespace AccountNumberTools.AccountNumber.Validation.Methods
@@ -57,7 +57,7 @@ namespace AccountNumberTools.AccountNumber.Validation.Methods
          string number;
          string checkdigit;
 
-         CheckMethodsTools.SplitNumber(accountNumber, 1, out number, out checkdigit);
+         ValidationMethodsTools.SplitNumber(accountNumber, 1, out number, out checkdigit);
 
          var calculatedCheckDigit = CalculateCheckDigitInternal(number).ToString();
 

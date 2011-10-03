@@ -8,7 +8,7 @@
 //   This Software is weak copyleft open source. Please read the License.txt for details.
 //
 
-using AccountNumberTools.Common.Contracts;
+using AccountNumberTools.AccountNumber.Validation.Contracts;
 
 namespace AccountNumberTools.CreditCard.Contracts
 {

@@ -58,7 +58,7 @@ namespace AccountNumberTools.AccountNumber.Validation.Methods
       /// <returns></returns>
       override protected int ModifyProductBeforeSum(int product)
       {
-         return CheckMethodsTools.CalculateCrossSum(product);
+         return ValidationMethodsTools.CalculateCrossSum(product);
       }
    }
 }

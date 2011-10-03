@@ -64,7 +64,7 @@
     <Compile Include="CreditCard\CreditCardNumberCheck.cs" />
     <Compile Include="CreditCard\CreditCardNumberMapToNetwork.cs" />
     <Compile Include="AccountNumber\Validation\Internals\BankCodeMapToValidationMethodDummy.cs" />
-    <Compile Include="Common\Internals\CheckMethodsTools.cs" />
+    <Compile Include="Common\Internals\ValidationMethodsTools.cs" />
     <Compile Include="CreditCard\Internals\CreditCardNumberMapToNetworkDummy.cs" />
     <Compile Include="AccountNumber\Validation\Methods\ValidationMethod00.cs" />
     <Compile Include="AccountNumber\Validation\Methods\ValidationMethod01.cs" />
@@ -76,7 +76,7 @@
     <Compile Include="AccountNumber\Validation\Methods\ValidationMethod07.cs" />
     <Compile Include="AccountNumber\Validation\Methods\ValidationMethod08.cs" />
     <Compile Include="AccountNumber\Validation\Methods\ValidationMethod09.cs" />
-    <Compile Include="Common\Methods\CheckMethodLength.cs" />
+    <Compile Include="AccountNumber\Validation\Methods\ValidationMethodLength.cs" />
     <Compile Include="CreditCard\Methods\CheckMethodLuhn.cs" />
     <Compile Include="AccountNumber\Validation\Methods\ValidationMethodModuloBase.cs" />
     <Compile Include="GlobalSuppressions.cs" />

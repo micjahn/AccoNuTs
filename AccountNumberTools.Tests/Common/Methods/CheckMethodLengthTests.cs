@@ -10,8 +10,8 @@
 
 using NUnit.Framework;
 
-using AccountNumberTools.Common.Contracts;
-using AccountNumberTools.Common.Methods;
+using AccountNumberTools.AccountNumber.Validation.Contracts;
+using AccountNumberTools.AccountNumber.Validation.Methods;
 
 namespace AccountNumberTools.Tests.Methods
 {

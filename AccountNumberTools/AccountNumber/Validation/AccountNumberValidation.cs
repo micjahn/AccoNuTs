@@ -10,8 +10,10 @@
 
 using System;
 using System.Collections.Generic;
+
 using AccountNumberTools.AccountNumber.Contracts;
 using AccountNumberTools.AccountNumber.Validation.Contracts;
+using AccountNumberTools.AccountNumber.Validation.Internals;
 using AccountNumberTools.Common.Contracts;
 
 namespace AccountNumberTools.AccountNumber.Validation

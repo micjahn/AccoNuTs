@@ -8,7 +8,7 @@
 //   This Software is weak copyleft open source. Please read the License.txt for details.
 //
 
-using AccountNumberTools.Common.Contracts;
+using AccountNumberTools.AccountNumber.Validation.Contracts;
 using AccountNumberTools.Common.Internals;
 
 namespace AccountNumberTools.CreditCard.Methods
@@ -48,7 +48,7 @@ namespace AccountNumberTools.CreditCard.Methods
          string number;
          string checkdigit;
 
-         CheckMethodsTools.SplitNumber(creditCardNumber, 1, out number, out checkdigit);
+         ValidationMethodsTools.SplitNumber(creditCardNumber, 1, out number, out checkdigit);
 
          var calculatedCheckDigit = CalculateCheckDigitInternal(number).ToString();
 

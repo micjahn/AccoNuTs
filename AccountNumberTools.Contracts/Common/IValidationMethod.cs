@@ -8,7 +8,7 @@
 //   This Software is weak copyleft open source. Please read the License.txt for details.
 //
 
-namespace AccountNumberTools.Common.Contracts
+namespace AccountNumberTools.AccountNumber.Validation.Contracts
 {
    /// <summary>
    /// Interface for the implementation of a specific check method

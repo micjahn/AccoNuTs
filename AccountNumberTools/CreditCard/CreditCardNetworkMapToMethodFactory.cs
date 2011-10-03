@@ -11,8 +11,8 @@
 using System;
 using System.Collections.Generic;
 
-using AccountNumberTools.Common.Contracts;
-using AccountNumberTools.Common.Methods;
+using AccountNumberTools.AccountNumber.Validation.Contracts;
+using AccountNumberTools.AccountNumber.Validation.Methods;
 using AccountNumberTools.CreditCard.Methods;
 using AccountNumberTools.CreditCard.Contracts;
 
