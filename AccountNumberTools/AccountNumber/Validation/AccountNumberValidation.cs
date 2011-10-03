@@ -32,6 +32,7 @@ namespace AccountNumberTools.AccountNumber.Validation
       {
          SpecificValidations = new Dictionary<Country, IAccountNumberValidation>
                                   {
+                                     {Country.Belgium, new BelgiumAccountNumberValidation()},
                                      {Country.Germany, new GermanAccountNumberValidation()}
                                   };
       }
