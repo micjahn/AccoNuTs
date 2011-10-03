@@ -73,13 +73,16 @@ namespace AccountNumberCheck
          cmbCreditCardType.SelectedIndex = 0;
 
          foreach (var val in Enum.GetValues(typeof(Country)))
+         {
             cmbCountry.Items.Add(val);
+            cmbCountryValidation.Items.Add(val);
+         }
+         cmbCountryValidation.SelectedItem = Country.Germany;
       }
 
       private void btnCheckGermanAccount_Click(object sender, EventArgs e)
       {
-         if (GermanAccountNumberCheck.IsValid(
-            new GermanyAccountNumber { AccountNumber = textGermanAccountNumber.Text, BankCode = textBankCode.Text }))
+         if (GermanAccountNumberCheck.IsValid((NationalAccountNumber)propertyGridNationalAccountNumberValidation.SelectedObject))
             labGermanAccountResult.Text = "Ok";
          else
             labGermanAccountResult.Text = "Fail";
@@ -122,6 +125,19 @@ namespace AccountNumberCheck
             return;
 
          textIBAN.Text = IBANConverter.ToIBAN((NationalAccountNumber)propertyGridIBAN.SelectedObject);
+      }
+
+      private void cmbCountryValidation_SelectedIndexChanged(object sender, EventArgs e)
+      {
+         var country = (Country)cmbCountryValidation.SelectedItem;
+         try
+         {
+            propertyGridNationalAccountNumberValidation.SelectedObject = IBANTools.CreateCountrySpecificAccountNumber(country);
+         }
+         catch (ArgumentException exc)
+         {
+            MessageBox.Show(this, exc.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+         }
       }
    }
 }
