@@ -17,7 +17,7 @@ using AccountNumberTools.AccountNumber.Validation.Methods;
 namespace AccountNumberTools.AccountNumber.Validation.Internals
 {
    /// <summary>
-   /// class for checking german account numbers
+   /// class for checking albania account numbers
    /// </summary>
    internal class AlbaniaAccountNumberValidation : IAccountNumberValidation
    {
