@@ -11,6 +11,7 @@
 using System;
 using AccountNumberTools.AccountNumber.Contracts;
 using AccountNumberTools.AccountNumber.Contracts.CountrySpecific;
+using AccountNumberTools.Common.Internals;
 
 namespace AccountNumberTools.AccountNumber.IBAN.Internals
 {
@@ -139,7 +140,7 @@ namespace AccountNumberTools.AccountNumber.IBAN.Internals
 
          Log.DebugFormat("calculating checksum for bban {0}", bban);
 
-         var modulo = 98 - CalculateModulo(bban);
+         var modulo = 98 - ValidationMethodsTools.CalculateModulo(bban, 97);
          var iban = String.Format(IBANFormatString, IBANPrefix, modulo, bankCode, branch, accountNumber, holdersNationalId);
          iban = iban.Replace(' ', '0');
 

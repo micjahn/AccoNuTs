@@ -34,7 +34,9 @@ namespace AccountNumberTools.AccountNumber.Validation.Methods
 
          ValidationMethodsTools.SplitNumber(accountNumber, 2, out number, out checkdigit);
 
-         var calculatedCheckDigit = CalculateCheckDigitInternal(number).ToString("00");
+         var calculatedCheckDigit = ValidationMethodsTools.CalculateModulo(number, 97).ToString("00");
+
+         Log.InfoFormat("Validate {0} against check digits {1}, calculated check digits {2}", number, checkdigit, calculatedCheckDigit);
 
          return calculatedCheckDigit.Equals(checkdigit);
       }
@@ -46,22 +48,11 @@ namespace AccountNumberTools.AccountNumber.Validation.Methods
       /// <returns></returns>
       virtual public string CalculateCheckDigit(string accountNumber)
       {
-         return CalculateCheckDigitInternal(accountNumber).ToString();
-      }
+         var calculatedCheckDigit = ValidationMethodsTools.CalculateModulo(accountNumber, 97).ToString();
 
-      private static int CalculateCheckDigitInternal(string accountNumber)
-      {
-         if (accountNumber.Length == 0)
-            return 0;
+         Log.InfoFormat("Check digits for number {0} are {1}", accountNumber, calculatedCheckDigit);
 
-         var firstDigits = accountNumber.Substring(0, accountNumber.Length - 1);
-         var lastDigit = int.Parse(accountNumber.Substring(accountNumber.Length - 1));
-
-         var checkDigits = (CalculateCheckDigitInternal(firstDigits) * 10 + lastDigit) % 97;
-         
-         Log.InfoFormat("Check digits: {0}", checkDigits);
-
-         return checkDigits;
+         return calculatedCheckDigit;
       }
    }
 }

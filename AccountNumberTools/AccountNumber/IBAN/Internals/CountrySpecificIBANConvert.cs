@@ -160,21 +160,5 @@ namespace AccountNumberTools.AccountNumber.IBAN.Internals
             return null;
          return regexOnlyIBANDigits.Replace(val, "");
       }
-
-      /// <summary>
-      /// Calculates the modulo for very big numbers
-      /// </summary>
-      /// <param name="bban">The bban.</param>
-      /// <returns></returns>
-      protected int CalculateModulo(string bban)
-      {
-         var remainer = 0;
-         while (bban.Length >= 7)
-         {
-            remainer = int.Parse(remainer + bban.Substring(0, 7)) % 97;
-            bban = bban.Substring(7);
-         }
-         return int.Parse(remainer + bban) % 97;
-      }
    }
 }

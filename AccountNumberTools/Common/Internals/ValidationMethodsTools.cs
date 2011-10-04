@@ -55,5 +55,22 @@ namespace AccountNumberTools.Common.Internals
 
          return querSumme;
       }
+
+      /// <summary>
+      /// Calculates the modulo for very big numbers
+      /// </summary>
+      /// <param name="bigNumber">the number</param>
+      /// <param name="modulo">The modulo.</param>
+      /// <returns></returns>
+      public static int CalculateModulo(string bigNumber, int modulo)
+      {
+         var remainer = 0;
+         while (bigNumber.Length >= 7)
+         {
+            remainer = int.Parse(remainer + bigNumber.Substring(0, 7)) % modulo;
+            bigNumber = bigNumber.Substring(7);
+         }
+         return int.Parse(remainer + bigNumber) % modulo;
+      }
    }
 }
