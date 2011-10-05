@@ -35,7 +35,9 @@ namespace AccountNumberTools.AccountNumber.Validation
                                      {Country.Albania, new AlbaniaAccountNumberValidation()},
                                      {Country.Belgium, new BelgiumAccountNumberValidation()},
                                      {Country.Germany, new GermanAccountNumberValidation()},
-                                     {Country.Poland, new PolandAccountNumberValidation()}
+                                     {Country.Norway, new NorwayAccountNumberValidation()},
+                                     {Country.Poland, new PolandAccountNumberValidation()},
+                                     {Country.Portugal, new PortugalAccountNumberValidation()}
                                   };
       }
 

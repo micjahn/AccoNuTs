@@ -62,8 +62,10 @@
     <Compile Include="AccountNumber\Validation\AccountNumberValidationByMethodCodeTests.cs" />
     <Compile Include="AccountNumber\Validation\BankCodeMapToValidationMethodCodeByBankCodeFileTests.cs" />
     <Compile Include="AccountNumber\Validation\Internals\AlbaniaAccountNumberValidationTests.cs" />
+    <Compile Include="AccountNumber\Validation\Internals\NorwayAccountNumberValidationTests.cs" />
     <Compile Include="AccountNumber\Validation\Internals\PolandAccountNumberValidationTests.cs" />
     <Compile Include="AccountNumber\Validation\Internals\PortugalAccountNumberValidationTests.cs" />
+    <Compile Include="AccountNumber\Validation\Methods\ValidationMethodMod11NorwayTests.cs" />
     <Compile Include="AccountNumber\Validation\Methods\ValidationMethodMod9710Tests.cs" />
     <Compile Include="AccountNumber\Validation\Methods\ValidationMethodMod97Tests.cs" />
     <Compile Include="AccountNumber\Validation\Methods\ValidationMethodWeightedMod10Tests.cs" />

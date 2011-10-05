@@ -19,42 +19,41 @@ namespace AccountNumberTools.AccountNumber.Validation.Internals.Tests
    /// a new class
    /// </summary>
    [TestFixture]
-   public class PolandAccountNumberValidationTests
+   public class NorwayAccountNumberValidationTests
    {
       internal IAccountNumberValidation SuT
       {
          get
          {
-            return new PolandAccountNumberValidation();
+            return new NorwayAccountNumberValidation();
          }
       }
 
-      [TestCase("114", "02004", "123456")]
-      public void Should_Be_Valid(string bankCode, string branchCode, string accountNumber)
+      [TestCase("6318", "0503562")]
+      [TestCase("6318", "5678905")]
+      public void Should_Be_Valid(string bankCode, string accountNumber)
       {
          var sut = SuT;
 
-         Assert.IsTrue(sut.IsValid(new PolandAccountNumber
+         Assert.IsTrue(sut.IsValid(new NorwayAccountNumber
                                       {
                                          AccountNumber = accountNumber,
                                          BankCode = bankCode,
-                                         Branch = branchCode
                                       }
                           ));
       }
 
-      [TestCase("1145", "02004", "123456")]
-      [TestCase("114", "102004", "123456")]
-      [TestCase("114", "02005", "123456")]
-      public void Should_Be_InValid(string bankCode, string branchCode, string accountNumber)
+      [TestCase("63181", "0503562")]
+      [TestCase("6318", "10503562")]
+      [TestCase("6318", "0503564")]
+      public void Should_Be_InValid(string bankCode, string accountNumber)
       {
          var sut = SuT;
 
-         Assert.IsFalse(sut.IsValid(new PolandAccountNumber
+         Assert.IsFalse(sut.IsValid(new NorwayAccountNumber
                                       {
                                          AccountNumber = accountNumber,
-                                         BankCode = bankCode,
-                                         Branch = branchCode
+                                         BankCode = bankCode
                                       }
                           ));
       }

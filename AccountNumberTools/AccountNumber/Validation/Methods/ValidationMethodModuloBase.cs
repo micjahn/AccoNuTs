@@ -74,7 +74,12 @@ namespace AccountNumberTools.AccountNumber.Validation.Methods
          return CalculateCheckDigitInternal(accountNumber).ToString();
       }
 
-      private int CalculateCheckDigitInternal(string accountNumber)
+      /// <summary>
+      /// Calculates the check digit.
+      /// </summary>
+      /// <param name="accountNumber">The account number.</param>
+      /// <returns></returns>
+      virtual protected int CalculateCheckDigitInternal(string accountNumber)
       {
          var sum = 0;
          var weightIndex = 0;
