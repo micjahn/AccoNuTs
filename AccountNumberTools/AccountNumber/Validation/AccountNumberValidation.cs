@@ -23,6 +23,9 @@ namespace AccountNumberTools.AccountNumber.Validation
    /// </summary>
    public class AccountNumberValidation : IAccountNumberValidation
    {
+      /// <summary>
+      /// Gets the mapping between country identifiers and the specific validation for the country
+      /// </summary>
       public IDictionary<Country, IAccountNumberValidation> SpecificValidations { get; private set; }
 
       /// <summary>

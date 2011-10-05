@@ -12,45 +12,17 @@ using System;
 using System.Windows.Forms;
 
 using AccountNumberTools.AccountNumber.Contracts;
-using AccountNumberTools.AccountNumber.Contracts.CountrySpecific;
 using AccountNumberTools.AccountNumber.IBAN;
-using AccountNumberTools.AccountNumber.IBAN.Contracts;
-using AccountNumberTools.AccountNumber.Validation.Contracts;
+using AccountNumberTools.AccountNumber.IBAN.Extensions;
+using AccountNumberTools.AccountNumber.Validation.Extensions;
 using AccountNumberTools.Common.Contracts;
 using AccountNumberTools.CreditCard.Contracts;
+using AccountNumberTools.CreditCard.Extensions;
 
 namespace AccountNumberCheck
 {
    public partial class MainForm : Form
    {
-      private IAccountNumberValidation germanAccountNumberCheck;
-      private ICreditCardNumberCheck creditCardNumberCheck;
-      private IIBANConvert ibanConverter;
-
-      private IAccountNumberValidation GermanAccountNumberCheck
-      {
-         get
-         {
-            return germanAccountNumberCheck ?? (germanAccountNumberCheck = new AccountNumberTools.AccountNumber.Validation.AccountNumberValidation());
-         }
-      }
-
-      private ICreditCardNumberCheck CreditCardNumberCheck
-      {
-         get
-         {
-            return creditCardNumberCheck ?? (creditCardNumberCheck = new AccountNumberTools.CreditCard.CreditCardNumberCheck());
-         }
-      }
-
-      private IIBANConvert IBANConverter
-      {
-         get
-         {
-            return ibanConverter ?? (ibanConverter = new IBANConvert());
-         }
-      }
-
       /// <summary>
       /// Initializes a new instance of the <see cref="MainForm"/> class.
       /// </summary>
@@ -82,7 +54,7 @@ namespace AccountNumberCheck
 
       private void btnCheckGermanAccount_Click(object sender, EventArgs e)
       {
-         if (GermanAccountNumberCheck.IsValid((NationalAccountNumber)propertyGridNationalAccountNumberValidation.SelectedObject))
+         if (((NationalAccountNumber)propertyGridNationalAccountNumberValidation.SelectedObject).IsValid())
             labGermanAccountResult.Text = "Ok";
          else
             labGermanAccountResult.Text = "Fail";
@@ -100,7 +72,7 @@ namespace AccountNumberCheck
             }
          }
 
-         if (CreditCardNumberCheck.IsValid(textCreditCardNumber.Text, creditCardNetwork))
+         if (textCreditCardNumber.Text.IsValid(creditCardNetwork))
             labCreditCardResult.Text = "Ok";
          else
             labCreditCardResult.Text = "Fail";
@@ -124,7 +96,7 @@ namespace AccountNumberCheck
          if (propertyGridIBAN.SelectedObject == null)
             return;
 
-         textIBAN.Text = IBANConverter.ToIBAN((NationalAccountNumber)propertyGridIBAN.SelectedObject);
+         textIBAN.Text = ((NationalAccountNumber)propertyGridIBAN.SelectedObject).ToIBAN();
       }
 
       private void cmbCountryValidation_SelectedIndexChanged(object sender, EventArgs e)
