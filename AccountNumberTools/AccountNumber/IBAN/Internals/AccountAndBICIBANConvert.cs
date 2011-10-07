@@ -20,7 +20,11 @@ namespace AccountNumberTools.AccountNumber.IBAN.Internals
    /// </summary>
    public abstract class AccountAndBICIBANConvert : CountrySpecificIBANConvert
    {
+#if SILVERLIGHT
+      private static readonly DanielVaughan.Logging.ILog Log = DanielVaughan.Logging.LogManager.GetLog(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+#else
       private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+#endif
 
       /// <summary>
       /// converts the parts of a national account number to an IBAN.

@@ -28,7 +28,11 @@ namespace AccountNumberTools.CreditCard
       {
          get
          {
+#if SILVERLIGHT
+            return cleanUpRegex ?? (cleanUpRegex = new Regex("[^0-9]"));
+#else
             return cleanUpRegex ?? (cleanUpRegex = new Regex("[^0-9]", RegexOptions.Compiled));
+#endif
          }
       }
 

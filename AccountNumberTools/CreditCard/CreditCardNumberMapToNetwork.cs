@@ -49,7 +49,7 @@ namespace AccountNumberTools.CreditCard
       private void CreateMapping()
       {
          mapNetworkToRegex = new Dictionary<string, Regex>();
-         using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("AccountNumberTools.Data.IINPrefixes.txt"))
+         using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("IINPrefixes.txt"))
          {
             if (stream == null)
                throw new InvalidOperationException("Can't load the iin mapping resource from assembly.");
@@ -62,8 +62,11 @@ namespace AccountNumberTools.CreditCard
                   var oneLineParts = oneLine.Split(':');
                   if (oneLineParts.Length != 2)
                      throw new InvalidOperationException("Mapping file has incorrect data.");
-
+#if SILVERLIGHT
+                  mapNetworkToRegex[oneLineParts[0]] = new Regex(oneLineParts[1]);
+#else
                   mapNetworkToRegex[oneLineParts[0]] = new Regex(oneLineParts[1], RegexOptions.Compiled);
+#endif
                }
             }
          }

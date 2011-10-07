@@ -21,7 +21,11 @@ namespace AccountNumberTools.AccountNumber.Validation
    /// </summary>
    public class ValidationMethodCodeMapToMethodFactory : IValidationMethodCodeMapToMethod
    {
+#if SILVERLIGHT
+      private static readonly DanielVaughan.Logging.ILog Log = DanielVaughan.Logging.LogManager.GetLog(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+#else
       private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+#endif
 
       private IDictionary<string, Type> map;
       private readonly IDictionary<string, IValidationMethod> mapInstances;

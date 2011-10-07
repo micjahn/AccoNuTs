@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7C11EE62-1913-4D09-B45D-67BCC8CB4DDA}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AccountNumberTools.Contracts</RootNamespace>
+    <AssemblyName>AccountNumberTools.Contracts.Silverlight</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Build\Debug\SL\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Build\Release\SL\</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\Key\private.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Browser" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Shared\GlobalAssemblyInfo.cs">
+      <Link>Properties\GlobalAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="AccountNumber\AccountAndBankCodeNumber.cs" />
+    <Compile Include="AccountNumber\AccountAndBICNumber.cs" />
+    <Compile Include="AccountNumber\AccountBankCodeAndBranchNumber.cs" />
+    <Compile Include="AccountNumber\AccountBICAndBranchNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\AlbaniaAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\AndorraAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\AustriaAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\BahrainAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\BelgiumAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\BosniaAndHerzegovinaAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\BulgariaAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\CroatiaAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\CyprusAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\CzechRepublicAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\DenmarkAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\DominicanRepublicAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\EstoniaAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\FaroeIslandsAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\FinlandAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\FranceAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\GeorgiaAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\GermanyAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\GibraltarAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\GreeceAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\GreenlandAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\HungaryAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\IcelandAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\IrelandAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\IsraelAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\ItalyAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\KazakhstanAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\KuwaitAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\LatviaAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\LebanonAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\LiechtensteinAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\LithuaniaAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\LuxembourgAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\MacedoniaAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\MaltaAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\MauritaniaAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\MauritiusAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\MonacoAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\MontenegroAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\NetherlandsAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\NorwayAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\PolandAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\PortugalAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\RomaniaAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\SanMarinoAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\SaudiArabiaAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\SerbiaAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\SlovakiaAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\SloveniaAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\SpainAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\SwedenAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\SwitzerlandAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\TunisiaAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\TurkeyAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\UnitedArabEmiratesAccountNumber.cs" />
+    <Compile Include="AccountNumber\CountrySpecific\UnitedKingdomAccountNumber.cs" />
+    <Compile Include="AccountNumber\IBAN\CountrySpecific\ICountrySpecificIBANConvert.cs" />
+    <Compile Include="AccountNumber\IBAN\IIBANConvert.cs" />
+    <Compile Include="AccountNumber\NationalAccountNumber.cs" />
+    <Compile Include="AccountNumber\Validation\IAccountNumberValidation.cs" />
+    <Compile Include="AccountNumber\Validation\IAccountNumberValidationByMethodCode.cs" />
+    <Compile Include="AccountNumber\Validation\IBankCodeMapToValidationMethodCode.cs" />
+    <Compile Include="AccountNumber\Validation\IValidationMethodCodeMapToMethod.cs" />
+    <Compile Include="Common\Country.cs" />
+    <Compile Include="Common\IValidationMethod.cs" />
+    <Compile Include="CreditCard\CreditCardNetwork.cs" />
+    <Compile Include="CreditCard\ICreditCardNetworkMapToMethod.cs" />
+    <Compile Include="CreditCard\ICreditCardNumberCheck.cs" />
+    <Compile Include="CreditCard\ICreditCardNumberMapToNetwork.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Key\private.snk">
+      <Link>Properties\private.snk</Link>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

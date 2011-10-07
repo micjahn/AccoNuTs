@@ -18,7 +18,11 @@ namespace AccountNumberTools.AccountNumber.Validation.Methods
    /// </summary>
    public class ValidationMethodMod97 : IValidationMethod
    {
+#if SILVERLIGHT
+      private static readonly DanielVaughan.Logging.ILog Log = DanielVaughan.Logging.LogManager.GetLog(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+#else
       private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+#endif
 
       /// <summary>
       /// Determines whether the specified account number is valid.

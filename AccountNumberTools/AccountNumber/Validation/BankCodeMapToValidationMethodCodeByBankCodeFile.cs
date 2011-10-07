@@ -11,7 +11,11 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+#if SILVERLIGHT
+using Ionic.Zlib;
+#else
 using System.IO.Compression;
+#endif
 using System.Text;
 
 using AccountNumberTools.AccountNumber.Validation.Contracts;
@@ -23,7 +27,11 @@ namespace AccountNumberTools.AccountNumber.Validation
    /// </summary>
    public class BankCodeMapToValidationMethodCodeByBankCodeFile : IBankCodeMapToValidationMethodCode
    {
+#if SILVERLIGHT
+      private static readonly DanielVaughan.Logging.ILog Log = DanielVaughan.Logging.LogManager.GetLog(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+#else
       private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+#endif
 
       private IDictionary<string, string> map;
 
