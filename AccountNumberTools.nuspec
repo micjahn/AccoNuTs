@@ -1,17 +1,20 @@
 <?xml version="1.0"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>AccountNumberTools</id>
     <version>0.6.0.0</version>
+    <title>Account Number Tools</title>
     <authors>Michael Jahn</authors>
     <owners>Michael Jahn</owners>
     <licenseUrl>http://acconuts.codeplex.com/license</licenseUrl>
     <projectUrl>http://acconuts.codeplex.com</projectUrl>
-    <!--
-  <iconUrl></iconUrl>
-  -->
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Tools to formal check national account numbers, international credit card numbers and switch between national account numbers and IBAN</description>
+    <description>Classes to validate the formal correctness of national account numbers and international credit card numbers. The conversion between national account numbers and IBAN is supported too.</description>
+    <summary>Classes to validate the formal correctness of national account numbers and international credit card numbers. The conversion between national account numbers and IBAN is supported too.</summary>
+    <releaseNotes>* Silverlight 4 support added
+* extension methods added
+* account number validation support for Norway, Portugal, Poland, Albania and Belgium
+* reorganized namespaces and classes, clearer API</releaseNotes>
     <tags>Account Number Check Credit Card Luhn German Kontonummer Kontonummern Bankleitzahl IBAN BIC BBAN</tags>
   </metadata>
   <files>
