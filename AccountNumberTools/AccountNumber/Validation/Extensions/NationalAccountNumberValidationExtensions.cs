@@ -8,6 +8,8 @@
 //   This Software is weak copyleft open source. Please read the License.txt for details.
 //
 
+using System.Collections.Generic;
+
 using AccountNumberTools.AccountNumber.Contracts;
 using AccountNumberTools.AccountNumber.Validation.Contracts;
 
@@ -34,7 +36,19 @@ namespace AccountNumberTools.AccountNumber.Validation.Extensions
       /// </returns>
       public static bool IsValid(this NationalAccountNumber nationalAccountNumber)
       {
-         return validation.IsValid(nationalAccountNumber);
+         return validation.Validate(nationalAccountNumber, null);
+      }
+
+      /// <summary>
+      /// Determines whether the specified national account number is valid.
+      /// </summary>
+      /// <param name="nationalAccountNumber">The national account number.</param>
+      /// <returns>
+      ///   <c>true</c> if the specified national account number is valid; otherwise, <c>false</c>.
+      /// </returns>
+      public static bool Validate(this NationalAccountNumber nationalAccountNumber, ICollection<ValidationError> validationErrors)
+      {
+         return validation.Validate(nationalAccountNumber, validationErrors);
       }
 
       /// <summary>

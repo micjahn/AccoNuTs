@@ -35,11 +35,11 @@ namespace AccountNumberTools.AccountNumber.Validation.Internals.Tests
       {
          var sut = SuT;
 
-         Assert.IsTrue(sut.IsValid(new BelgiumAccountNumber
+         Assert.IsTrue(sut.Validate(new BelgiumAccountNumber
                                       {
                                          AccountNumber = accountNumber + checkDigits,
                                          BankCode = bankCode
-                                      }
+                                      }, null
                           ));
       }
 
@@ -50,11 +50,11 @@ namespace AccountNumberTools.AccountNumber.Validation.Internals.Tests
       {
          var sut = SuT;
 
-         Assert.IsFalse(sut.IsValid(new BelgiumAccountNumber
+         Assert.IsFalse(sut.Validate(new BelgiumAccountNumber
                                       {
                                          AccountNumber = accountNumber + checkDigits,
                                          BankCode = bankCode
-                                      }
+                                      }, null
                           ));
       }
    }

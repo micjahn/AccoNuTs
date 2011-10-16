@@ -9,6 +9,8 @@
 //
 
 using System;
+using System.Collections.Generic;
+
 using AccountNumberTools.AccountNumber.Contracts;
 using AccountNumberTools.AccountNumber.Contracts.CountrySpecific;
 using AccountNumberTools.AccountNumber.Validation.Contracts;
@@ -53,34 +55,33 @@ namespace AccountNumberTools.AccountNumber.Validation.Internals
       /// * check digit is valid
       /// </summary>
       /// <param name="accountNumber">The account number including the hypothetical check digit.</param>
+      /// <param name="validationErrors">Collection is filled up with the validation error messages</param>
       /// <returns>
       ///   <c>true</c> if the specified account number is valid; otherwise, <c>false</c>.
       /// </returns>
-      public bool IsValid(NationalAccountNumber accountNumber)
+      public bool Validate(NationalAccountNumber accountNumber, ICollection<ValidationError> validationErrors)
       {
          if (accountNumber == null)
             throw new ArgumentNullException("accountNumber", "Please provide an account number.");
 
+         validationErrors = validationErrors ?? new List<ValidationError>();
+
          var portugalAccountNumber = new PortugalAccountNumber(accountNumber);
 
-         if (String.IsNullOrEmpty(portugalAccountNumber.BankCode))
-            throw new ArgumentException("The bank code is missing.", "accountNumber");
-         if (String.IsNullOrEmpty(portugalAccountNumber.Branch))
-            throw new ArgumentException("The branch code is missing.", "accountNumber");
-         if (String.IsNullOrEmpty(portugalAccountNumber.AccountNumber))
-            throw new ArgumentException("The account number is missing.", "accountNumber");
+         ValidationMethodsTools.ValidateMember(portugalAccountNumber.AccountNumber, 13, validationErrors, ValidationErrorCodes.AccountNumberMissing, ValidationErrorCodes.AccountNumberTooLong);
+         ValidationMethodsTools.ValidateMember(portugalAccountNumber.BankCode, 4, validationErrors, ValidationErrorCodes.BankCodeMissing, ValidationErrorCodes.BankCodeTooLong);
+         ValidationMethodsTools.ValidateMember(portugalAccountNumber.Branch, 4, validationErrors, ValidationErrorCodes.BranchCodeMissing, ValidationErrorCodes.BranchCodeTooLong);
 
-         if (portugalAccountNumber.BankCode.Length > 4)
-            return false;
-         if (portugalAccountNumber.Branch.Length > 4)
-            return false;
-         if (portugalAccountNumber.AccountNumber.Length > 13)
+         if (validationErrors.Count > 0)
             return false;
 
          var fullAccountNumber =
             String.Format("{0,4}{1,4}{2,13}", portugalAccountNumber.BankCode, portugalAccountNumber.Branch, portugalAccountNumber.AccountNumber).Replace(' ', '0');
 
-         return validationMethod.IsValid(fullAccountNumber);
+         if (!validationMethod.IsValid(fullAccountNumber))
+            validationErrors.AddValidationErrorMessage("The validation of the check digits failed.");
+
+         return validationErrors.Count == 0;
       }
 
       /// <summary>

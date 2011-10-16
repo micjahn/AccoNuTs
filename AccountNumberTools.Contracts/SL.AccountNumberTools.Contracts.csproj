@@ -133,6 +133,8 @@
     <Compile Include="AccountNumber\Validation\IAccountNumberValidationByMethodCode.cs" />
     <Compile Include="AccountNumber\Validation\IBankCodeMapToValidationMethodCode.cs" />
     <Compile Include="AccountNumber\Validation\IValidationMethodCodeMapToMethod.cs" />
+    <Compile Include="AccountNumber\Validation\ValidationError.cs" />
+    <Compile Include="AccountNumber\Validation\ValidationErrorCodes.cs" />
     <Compile Include="Common\Country.cs" />
     <Compile Include="Common\IValidationMethod.cs" />
     <Compile Include="CreditCard\CreditCardNetwork.cs" />
@@ -141,11 +143,18 @@
     <Compile Include="CreditCard\ICreditCardNumberMapToNetwork.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Key\private.snk">
       <Link>Properties\private.snk</Link>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <ProjectExtensions>

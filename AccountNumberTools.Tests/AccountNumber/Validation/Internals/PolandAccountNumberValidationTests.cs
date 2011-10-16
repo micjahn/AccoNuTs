@@ -34,12 +34,12 @@ namespace AccountNumberTools.AccountNumber.Validation.Internals.Tests
       {
          var sut = SuT;
 
-         Assert.IsTrue(sut.IsValid(new PolandAccountNumber
+         Assert.IsTrue(sut.Validate(new PolandAccountNumber
                                       {
                                          AccountNumber = accountNumber,
                                          BankCode = bankCode,
                                          Branch = branchCode
-                                      }
+                                      }, null
                           ));
       }
 
@@ -50,12 +50,12 @@ namespace AccountNumberTools.AccountNumber.Validation.Internals.Tests
       {
          var sut = SuT;
 
-         Assert.IsFalse(sut.IsValid(new PolandAccountNumber
+         Assert.IsFalse(sut.Validate(new PolandAccountNumber
                                       {
                                          AccountNumber = accountNumber,
                                          BankCode = bankCode,
                                          Branch = branchCode
-                                      }
+                                      }, null
                           ));
       }
    }

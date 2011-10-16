@@ -50,10 +50,11 @@ namespace AccountNumberTools.AccountNumber.Validation
       /// is given as a full number including the hypothetical check digit.
       /// </summary>
       /// <param name="accountNumber">The account number including the hypothetical check digit.</param>
+      /// <param name="validationErrors">Collection is filled up with the validation error messages</param>
       /// <returns>
       ///   <c>true</c> if the specified account number is valid; otherwise, <c>false</c>.
       /// </returns>
-      public bool IsValid(NationalAccountNumber accountNumber)
+      public bool Validate(NationalAccountNumber accountNumber, ICollection<ValidationError> validationErrors)
       {
          if (accountNumber == null)
             throw new ArgumentNullException("accountNumber", "Please provide an account number."); 
@@ -63,7 +64,7 @@ namespace AccountNumberTools.AccountNumber.Validation
 
          var specificValidation = SpecificValidations[accountNumber.Country];
 
-         return specificValidation.IsValid(accountNumber);
+         return specificValidation.Validate(accountNumber, validationErrors);
       }
 
       /// <summary>

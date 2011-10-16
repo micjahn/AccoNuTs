@@ -9,6 +9,9 @@
 //
 
 using System;
+using System.Collections.Generic;
+
+using AccountNumberTools.AccountNumber.Validation.Contracts;
 
 namespace AccountNumberTools.Common.Internals
 {
@@ -75,6 +78,45 @@ namespace AccountNumberTools.Common.Internals
             bigNumber = bigNumber.Substring(7);
          }
          return int.Parse(remainer + bigNumber) % modulo;
+      }
+
+      /// <summary>
+      /// Adds the validation error message.
+      /// </summary>
+      /// <param name="validationErrors">The validation errors.</param>
+      /// <param name="message">The message.</param>
+      public static void AddValidationErrorMessage(this ICollection<ValidationError> validationErrors, string message)
+      {
+         if (validationErrors != null)
+            validationErrors.Add(new ValidationError(message));
+      }
+
+      /// <summary>
+      /// Adds the validation error message.
+      /// </summary>
+      /// <param name="validationErrors">The validation errors.</param>
+      /// <param name="validationErrorCode">The error code.</param>
+      public static void AddValidationErrorMessage(this ICollection<ValidationError> validationErrors, ValidationErrorCodes validationErrorCode)
+      {
+         if (validationErrors != null)
+            validationErrors.Add(new ValidationError(validationErrorCode));
+      }
+
+      /// <summary>
+      /// Validates the member.
+      /// </summary>
+      /// <param name="member">The member.</param>
+      /// <param name="maxLength">Length of the max.</param>
+      /// <param name="validationErrors">The validation errors.</param>
+      /// <param name="missingCode">The missing code.</param>
+      /// <param name="tooLongCode">The too long code.</param>
+      public static void ValidateMember(string member, int maxLength, ICollection<ValidationError> validationErrors, ValidationErrorCodes missingCode, ValidationErrorCodes tooLongCode)
+      {
+         if (String.IsNullOrEmpty(member))
+            validationErrors.AddValidationErrorMessage(missingCode);
+         else
+            if (member.Length > maxLength)
+               validationErrors.AddValidationErrorMessage(tooLongCode);
       }
    }
 }

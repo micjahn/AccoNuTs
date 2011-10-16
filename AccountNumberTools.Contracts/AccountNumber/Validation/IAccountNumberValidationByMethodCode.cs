@@ -8,8 +8,6 @@
 //   This Software is weak copyleft open source. Please read the License.txt for details.
 //
 
-using AccountNumberTools.AccountNumber.Contracts;
-
 namespace AccountNumberTools.AccountNumber.Validation.Contracts
 {
    /// <summary>

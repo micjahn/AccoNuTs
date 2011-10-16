@@ -9,10 +9,13 @@
 //
 
 using System;
+using System.Collections.Generic;
+
 using AccountNumberTools.AccountNumber.Contracts;
 using AccountNumberTools.AccountNumber.Contracts.CountrySpecific;
 using AccountNumberTools.AccountNumber.Internals;
 using AccountNumberTools.AccountNumber.Validation.Contracts;
+using AccountNumberTools.Common.Internals;
 
 namespace AccountNumberTools.AccountNumber.Validation.Internals
 {
@@ -85,15 +88,24 @@ namespace AccountNumberTools.AccountNumber.Validation.Internals
       /// is given as a full number including the hypothetical check digit.
       /// </summary>
       /// <param name="accountNumber">The account number including the hypothetical check digit.</param>
+      /// <param name="validationErrors">Collection is filled up with the validation error messages</param>
       /// <returns>
       ///   <c>true</c> if the specified account number is valid; otherwise, <c>false</c>.
       /// </returns>
-      public bool IsValid(NationalAccountNumber accountNumber)
+      public bool Validate(NationalAccountNumber accountNumber, ICollection<ValidationError> validationErrors)
       {
          if (accountNumber == null)
             throw new ArgumentNullException("accountNumber", "Please provide an account number.");
 
+         validationErrors = validationErrors ?? new List<ValidationError>();
+
          var germanAccountNumber = new GermanyAccountNumber(accountNumber);
+
+         ValidationMethodsTools.ValidateMember(germanAccountNumber.AccountNumber, 10, validationErrors, ValidationErrorCodes.AccountNumberMissing, ValidationErrorCodes.AccountNumberTooLong);
+         ValidationMethodsTools.ValidateMember(germanAccountNumber.BankCode, 8, validationErrors, ValidationErrorCodes.BankCodeMissing, ValidationErrorCodes.BankCodeTooLong);
+
+         if (validationErrors.Count > 0)
+            return false;
 
          var checkMethodCode = BankCodeMappingMethod.Resolve(germanAccountNumber.BankCode);
          if (string.IsNullOrEmpty(checkMethodCode))

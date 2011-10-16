@@ -9,10 +9,13 @@
 //
 
 using System;
+using System.Collections.Generic;
+
 using AccountNumberTools.AccountNumber.Contracts;
 using AccountNumberTools.AccountNumber.Contracts.CountrySpecific;
 using AccountNumberTools.AccountNumber.Validation.Contracts;
 using AccountNumberTools.AccountNumber.Validation.Methods;
+using AccountNumberTools.Common.Internals;
 
 namespace AccountNumberTools.AccountNumber.Validation.Internals
 {
@@ -51,30 +54,32 @@ namespace AccountNumberTools.AccountNumber.Validation.Internals
       /// * check digits are valid
       /// </summary>
       /// <param name="accountNumber">The account number including the hypothetical check digit.</param>
+      /// <param name="validationErrors">Collection is filled up with the validation error messages</param>
       /// <returns>
       ///   <c>true</c> if the specified account number is valid; otherwise, <c>false</c>.
       /// </returns>
-      public bool IsValid(NationalAccountNumber accountNumber)
+      public bool Validate(NationalAccountNumber accountNumber, ICollection<ValidationError> validationErrors)
       {
          if (accountNumber == null)
             throw new ArgumentNullException("accountNumber", "Please provide an account number.");
 
+         validationErrors = validationErrors ?? new List<ValidationError>();
+
          var belgiumAccountNumber = new BelgiumAccountNumber(accountNumber);
 
-         if (String.IsNullOrEmpty(belgiumAccountNumber.AccountNumber))
-            throw new ArgumentException("The account number is missing.", "accountNumber");
-         if (String.IsNullOrEmpty(belgiumAccountNumber.BankCode))
-            throw new ArgumentException("The bank code is missing.", "accountNumber");
+         ValidationMethodsTools.ValidateMember(belgiumAccountNumber.AccountNumber, 9, validationErrors, ValidationErrorCodes.AccountNumberMissing, ValidationErrorCodes.AccountNumberTooLong);
+         ValidationMethodsTools.ValidateMember(belgiumAccountNumber.BankCode, 3, validationErrors, ValidationErrorCodes.BankCodeMissing, ValidationErrorCodes.BankCodeTooLong);
 
-         if (belgiumAccountNumber.BankCode.Length > 3)
-            return false;
-         if (belgiumAccountNumber.AccountNumber.Length > 9)
+         if (validationErrors.Count > 0)
             return false;
 
          var accountNumberWithBankCode =
             String.Format("{0,3}{1,9}", belgiumAccountNumber.BankCode, belgiumAccountNumber.AccountNumber).Replace(' ', '0');
 
-         return validationMethod.IsValid(accountNumberWithBankCode);
+         if (!validationMethod.IsValid(accountNumberWithBankCode))
+            validationErrors.AddValidationErrorMessage("The validation of the check digits failed.");
+
+         return validationErrors.Count == 0;
       }
 
       /// <summary>

@@ -9,10 +9,13 @@
 //
 
 using System;
+using System.Collections.Generic;
+
 using AccountNumberTools.AccountNumber.Contracts;
 using AccountNumberTools.AccountNumber.Contracts.CountrySpecific;
 using AccountNumberTools.AccountNumber.Validation.Contracts;
 using AccountNumberTools.AccountNumber.Validation.Methods;
+using AccountNumberTools.Common.Internals;
 
 namespace AccountNumberTools.AccountNumber.Validation.Internals
 {
@@ -52,34 +55,33 @@ namespace AccountNumberTools.AccountNumber.Validation.Internals
       /// * check digit is valid
       /// </summary>
       /// <param name="accountNumber">The account number including the hypothetical check digit.</param>
+      /// <param name="validationErrors">Collection is filled up with the validation error messages</param>
       /// <returns>
       ///   <c>true</c> if the specified account number is valid; otherwise, <c>false</c>.
       /// </returns>
-      public bool IsValid(NationalAccountNumber accountNumber)
+      public bool Validate(NationalAccountNumber accountNumber, ICollection<ValidationError> validationErrors)
       {
          if (accountNumber == null)
             throw new ArgumentNullException("accountNumber", "Please provide an account number.");
 
+         validationErrors = validationErrors ?? new List<ValidationError>();
+
          var polandAccountNumber = new PolandAccountNumber(accountNumber);
 
-         if (String.IsNullOrEmpty(polandAccountNumber.AccountNumber))
-            throw new ArgumentException("The account number is missing.", "accountNumber");
-         if (String.IsNullOrEmpty(polandAccountNumber.BankCode))
-            throw new ArgumentException("The bank code is missing.", "accountNumber");
-         if (String.IsNullOrEmpty(polandAccountNumber.Branch))
-            throw new ArgumentException("The branch code is missing.", "accountNumber");
+         ValidationMethodsTools.ValidateMember(polandAccountNumber.AccountNumber, 16, validationErrors, ValidationErrorCodes.AccountNumberMissing, ValidationErrorCodes.AccountNumberTooLong);
+         ValidationMethodsTools.ValidateMember(polandAccountNumber.BankCode, 3, validationErrors, ValidationErrorCodes.BankCodeMissing, ValidationErrorCodes.BankCodeTooLong);
+         ValidationMethodsTools.ValidateMember(polandAccountNumber.Branch, 5, validationErrors, ValidationErrorCodes.BranchCodeMissing, ValidationErrorCodes.BranchCodeTooLong);
 
-         if (polandAccountNumber.BankCode.Length > 3)
-            return false;
-         if (polandAccountNumber.Branch.Length > 5)
-            return false;
-         if (polandAccountNumber.AccountNumber.Length > 16)
+         if (validationErrors.Count > 0)
             return false;
 
          var bankCodeWithBranch =
             String.Format("{0,3}{1,5}", polandAccountNumber.BankCode, polandAccountNumber.Branch).Replace(' ', '0');
 
-         return validationMethod.IsValid(bankCodeWithBranch);
+         if (!validationMethod.IsValid(bankCodeWithBranch))
+            validationErrors.AddValidationErrorMessage("The validation of the check digit failed.");
+
+         return validationErrors.Count == 0;
       }
 
       /// <summary>

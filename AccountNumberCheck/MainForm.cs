@@ -9,11 +9,15 @@
 //
 
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 
 using AccountNumberTools.AccountNumber.Contracts;
 using AccountNumberTools.AccountNumber.IBAN;
 using AccountNumberTools.AccountNumber.IBAN.Extensions;
+using AccountNumberTools.AccountNumber.Validation.Contracts;
 using AccountNumberTools.AccountNumber.Validation.Extensions;
 using AccountNumberTools.Common.Contracts;
 using AccountNumberTools.CreditCard.Contracts;
@@ -54,10 +58,19 @@ namespace AccountNumberCheck
 
       private void btnCheckGermanAccount_Click(object sender, EventArgs e)
       {
-         if (((NationalAccountNumber)propertyGridNationalAccountNumberValidation.SelectedObject).IsValid())
+         var accountNumber = ((NationalAccountNumber) propertyGridNationalAccountNumberValidation.SelectedObject);
+         var validationErrors = new List<ValidationError>();
+         var result = accountNumber.Validate(validationErrors);
+         if (result)
             labGermanAccountResult.Text = "Ok";
          else
+         {
             labGermanAccountResult.Text = "Fail";
+            var errors = new StringBuilder();
+            foreach (var validationError in validationErrors)
+               errors.AppendLine(validationError.Message);
+            txtValidationErrors.Text = errors.ToString();
+         }
       }
 
       private void btnCreditCardNumberCheck_Click(object sender, EventArgs e)

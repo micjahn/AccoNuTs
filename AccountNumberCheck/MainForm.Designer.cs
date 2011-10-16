@@ -33,6 +33,10 @@
       {
          this.tabControl1 = new System.Windows.Forms.TabControl();
          this.tabPageAccountNumbers = new System.Windows.Forms.TabPage();
+         this.label1 = new System.Windows.Forms.Label();
+         this.propertyGridNationalAccountNumberValidation = new System.Windows.Forms.PropertyGrid();
+         this.label3 = new System.Windows.Forms.Label();
+         this.cmbCountryValidation = new System.Windows.Forms.ComboBox();
          this.labGermanAccountResult = new System.Windows.Forms.Label();
          this.btnValidateNationalAccountNumber = new System.Windows.Forms.Button();
          this.tabPageCreditCard = new System.Windows.Forms.TabPage();
@@ -51,10 +55,7 @@
          this.cmbCountry = new System.Windows.Forms.ComboBox();
          this.splitContainer1 = new System.Windows.Forms.SplitContainer();
          this.btnClose = new System.Windows.Forms.Button();
-         this.label1 = new System.Windows.Forms.Label();
-         this.propertyGridNationalAccountNumberValidation = new System.Windows.Forms.PropertyGrid();
-         this.label3 = new System.Windows.Forms.Label();
-         this.cmbCountryValidation = new System.Windows.Forms.ComboBox();
+         this.txtValidationErrors = new System.Windows.Forms.TextBox();
          this.tabControl1.SuspendLayout();
          this.tabPageAccountNumbers.SuspendLayout();
          this.tabPageCreditCard.SuspendLayout();
@@ -74,11 +75,12 @@
          this.tabControl1.Location = new System.Drawing.Point(0, 0);
          this.tabControl1.Name = "tabControl1";
          this.tabControl1.SelectedIndex = 0;
-         this.tabControl1.Size = new System.Drawing.Size(463, 211);
+         this.tabControl1.Size = new System.Drawing.Size(463, 235);
          this.tabControl1.TabIndex = 0;
          // 
          // tabPageAccountNumbers
          // 
+         this.tabPageAccountNumbers.Controls.Add(this.txtValidationErrors);
          this.tabPageAccountNumbers.Controls.Add(this.label1);
          this.tabPageAccountNumbers.Controls.Add(this.propertyGridNationalAccountNumberValidation);
          this.tabPageAccountNumbers.Controls.Add(this.label3);
@@ -88,10 +90,52 @@
          this.tabPageAccountNumbers.Location = new System.Drawing.Point(4, 22);
          this.tabPageAccountNumbers.Name = "tabPageAccountNumbers";
          this.tabPageAccountNumbers.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPageAccountNumbers.Size = new System.Drawing.Size(455, 185);
+         this.tabPageAccountNumbers.Size = new System.Drawing.Size(455, 209);
          this.tabPageAccountNumbers.TabIndex = 0;
          this.tabPageAccountNumbers.Text = "Account Number Validation";
          this.tabPageAccountNumbers.UseVisualStyleBackColor = true;
+         // 
+         // label1
+         // 
+         this.label1.AutoSize = true;
+         this.label1.Location = new System.Drawing.Point(6, 42);
+         this.label1.Name = "label1";
+         this.label1.Size = new System.Drawing.Size(129, 13);
+         this.label1.TabIndex = 9;
+         this.label1.Text = "National Account Number";
+         // 
+         // propertyGridNationalAccountNumberValidation
+         // 
+         this.propertyGridNationalAccountNumberValidation.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                     | System.Windows.Forms.AnchorStyles.Left)
+                     | System.Windows.Forms.AnchorStyles.Right)));
+         this.propertyGridNationalAccountNumberValidation.HelpVisible = false;
+         this.propertyGridNationalAccountNumberValidation.Location = new System.Drawing.Point(144, 33);
+         this.propertyGridNationalAccountNumberValidation.Name = "propertyGridNationalAccountNumberValidation";
+         this.propertyGridNationalAccountNumberValidation.Size = new System.Drawing.Size(186, 114);
+         this.propertyGridNationalAccountNumberValidation.TabIndex = 8;
+         this.propertyGridNationalAccountNumberValidation.ToolbarVisible = false;
+         // 
+         // label3
+         // 
+         this.label3.AutoSize = true;
+         this.label3.Location = new System.Drawing.Point(6, 9);
+         this.label3.Name = "label3";
+         this.label3.Size = new System.Drawing.Size(43, 13);
+         this.label3.TabIndex = 7;
+         this.label3.Text = "Country";
+         // 
+         // cmbCountryValidation
+         // 
+         this.cmbCountryValidation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                     | System.Windows.Forms.AnchorStyles.Right)));
+         this.cmbCountryValidation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+         this.cmbCountryValidation.FormattingEnabled = true;
+         this.cmbCountryValidation.Location = new System.Drawing.Point(144, 6);
+         this.cmbCountryValidation.Name = "cmbCountryValidation";
+         this.cmbCountryValidation.Size = new System.Drawing.Size(186, 21);
+         this.cmbCountryValidation.TabIndex = 6;
+         this.cmbCountryValidation.SelectedIndexChanged += new System.EventHandler(this.cmbCountryValidation_SelectedIndexChanged);
          // 
          // labGermanAccountResult
          // 
@@ -276,8 +320,8 @@
          // splitContainer1.Panel2
          // 
          this.splitContainer1.Panel2.Controls.Add(this.btnClose);
-         this.splitContainer1.Size = new System.Drawing.Size(463, 247);
-         this.splitContainer1.SplitterDistance = 211;
+         this.splitContainer1.Size = new System.Drawing.Size(463, 271);
+         this.splitContainer1.SplitterDistance = 235;
          this.splitContainer1.TabIndex = 1;
          // 
          // btnClose
@@ -291,53 +335,23 @@
          this.btnClose.UseVisualStyleBackColor = true;
          this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
          // 
-         // label1
+         // txtValidationErrors
          // 
-         this.label1.AutoSize = true;
-         this.label1.Location = new System.Drawing.Point(6, 42);
-         this.label1.Name = "label1";
-         this.label1.Size = new System.Drawing.Size(129, 13);
-         this.label1.TabIndex = 9;
-         this.label1.Text = "National Account Number";
-         // 
-         // propertyGridNationalAccountNumberValidation
-         // 
-         this.propertyGridNationalAccountNumberValidation.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                     | System.Windows.Forms.AnchorStyles.Left)
+         this.txtValidationErrors.AcceptsReturn = true;
+         this.txtValidationErrors.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                      | System.Windows.Forms.AnchorStyles.Right)));
-         this.propertyGridNationalAccountNumberValidation.HelpVisible = false;
-         this.propertyGridNationalAccountNumberValidation.Location = new System.Drawing.Point(144, 33);
-         this.propertyGridNationalAccountNumberValidation.Name = "propertyGridNationalAccountNumberValidation";
-         this.propertyGridNationalAccountNumberValidation.Size = new System.Drawing.Size(186, 114);
-         this.propertyGridNationalAccountNumberValidation.TabIndex = 8;
-         this.propertyGridNationalAccountNumberValidation.ToolbarVisible = false;
-         // 
-         // label3
-         // 
-         this.label3.AutoSize = true;
-         this.label3.Location = new System.Drawing.Point(6, 9);
-         this.label3.Name = "label3";
-         this.label3.Size = new System.Drawing.Size(43, 13);
-         this.label3.TabIndex = 7;
-         this.label3.Text = "Country";
-         // 
-         // cmbCountryValidation
-         // 
-         this.cmbCountryValidation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                     | System.Windows.Forms.AnchorStyles.Right)));
-         this.cmbCountryValidation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-         this.cmbCountryValidation.FormattingEnabled = true;
-         this.cmbCountryValidation.Location = new System.Drawing.Point(144, 6);
-         this.cmbCountryValidation.Name = "cmbCountryValidation";
-         this.cmbCountryValidation.Size = new System.Drawing.Size(186, 21);
-         this.cmbCountryValidation.TabIndex = 6;
-         this.cmbCountryValidation.SelectedIndexChanged += new System.EventHandler(this.cmbCountryValidation_SelectedIndexChanged);
+         this.txtValidationErrors.Location = new System.Drawing.Point(3, 153);
+         this.txtValidationErrors.Multiline = true;
+         this.txtValidationErrors.Name = "txtValidationErrors";
+         this.txtValidationErrors.ReadOnly = true;
+         this.txtValidationErrors.Size = new System.Drawing.Size(449, 53);
+         this.txtValidationErrors.TabIndex = 10;
          // 
          // MainForm
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-         this.ClientSize = new System.Drawing.Size(463, 247);
+         this.ClientSize = new System.Drawing.Size(463, 271);
          this.Controls.Add(this.splitContainer1);
          this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
          this.MaximizeBox = false;
@@ -386,6 +400,7 @@
       private System.Windows.Forms.PropertyGrid propertyGridNationalAccountNumberValidation;
       private System.Windows.Forms.Label label3;
       private System.Windows.Forms.ComboBox cmbCountryValidation;
+      private System.Windows.Forms.TextBox txtValidationErrors;
    }
 }
 

@@ -8,6 +8,8 @@
 //   This Software is weak copyleft open source. Please read the License.txt for details.
 //
 
+using System.Collections.Generic;
+
 using AccountNumberTools.AccountNumber.Contracts;
 
 namespace AccountNumberTools.AccountNumber.Validation.Contracts
@@ -23,10 +25,11 @@ namespace AccountNumberTools.AccountNumber.Validation.Contracts
       /// is given as a full number including the hypothetical check digit.
       /// </summary>
       /// <param name="accountNumber">The account number including the hypothetical check digit.</param>
+      /// <param name="validationErrors">Collection is filled up with the validation error messages</param>
       /// <returns>
       ///   <c>true</c> if the specified account number is valid; otherwise, <c>false</c>.
       /// </returns>
-      bool IsValid(NationalAccountNumber accountNumber);
+      bool Validate(NationalAccountNumber accountNumber, ICollection<ValidationError> validationErrors);
 
       /// <summary>
       /// Calculates the check digit. The given bank code will be
