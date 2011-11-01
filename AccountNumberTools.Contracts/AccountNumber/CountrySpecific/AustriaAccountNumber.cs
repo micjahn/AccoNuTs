@@ -8,6 +8,8 @@
 //   This Software is weak copyleft open source. Please read the License.txt for details.
 //
 
+using System;
+
 using AccountNumberTools.Common.Contracts;
 
 namespace AccountNumberTools.AccountNumber.Contracts.CountrySpecific
@@ -15,7 +17,8 @@ namespace AccountNumberTools.AccountNumber.Contracts.CountrySpecific
    /// <summary>
    /// represents a national account number of Austria
    /// </summary>
-   public class AustriaAccountNumber  : AccountAndBankCodeNumber
+   [Serializable]
+   public class AustriaAccountNumber : AccountAndBankCodeNumber
    {
       /// <summary>
       /// Initializes a new instance of the <see cref="AustriaAccountNumber"/> class.

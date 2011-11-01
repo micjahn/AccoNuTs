@@ -18,6 +18,7 @@ namespace AccountNumberTools.AccountNumber.Validation.Contracts
    /// <summary>
    /// represents a single validation error message
    /// </summary>
+   [Serializable]
    public class ValidationError
    {
       private string message;
@@ -76,6 +77,11 @@ namespace AccountNumberTools.AccountNumber.Validation.Contracts
          }
 
          return Resources.ResourceManager.GetString(validationErrorCode.ToString(), CultureInfo.CurrentUICulture);
+      }
+
+      private bool ShouldSerializeMessage()
+      {
+         return ValidationErrorCode == ValidationErrorCodes.GenericMessageBasedError;
       }
    }
 }

@@ -8,6 +8,8 @@
 //   This Software is weak copyleft open source. Please read the License.txt for details.
 //
 
+using System;
+
 using AccountNumberTools.Common.Contracts;
 
 namespace AccountNumberTools.AccountNumber.Contracts.CountrySpecific
@@ -15,6 +17,7 @@ namespace AccountNumberTools.AccountNumber.Contracts.CountrySpecific
    /// <summary>
    /// represents a national account number of Malta
    /// </summary>
+   [Serializable]
    public class MaltaAccountNumber : AccountBICAndBranchNumber
    {
       /// <summary>

@@ -8,6 +8,7 @@
 //   This Software is weak copyleft open source. Please read the License.txt for details.
 //
 
+using System;
 using System.ComponentModel;
 
 using AccountNumberTools.Common.Contracts;
@@ -18,6 +19,7 @@ namespace AccountNumberTools.AccountNumber.Contracts
    /// represents the base class for a country specific account number which consists of
    /// a bank code and an account number
    /// </summary>
+   [Serializable]
    public class AccountAndBankCodeNumber : NationalAccountNumber
    {
       /// <summary>

@@ -8,6 +8,7 @@
 //   This Software is weak copyleft open source. Please read the License.txt for details.
 //
 
+using System;
 using System.ComponentModel;
 
 using AccountNumberTools.Common.Contracts;
@@ -17,6 +18,7 @@ namespace AccountNumberTools.AccountNumber.Contracts
    /// <summary>
    /// represents the parts of a national account number
    /// </summary>
+   [Serializable]
    public abstract class NationalAccountNumber
    {
       /// <summary>
